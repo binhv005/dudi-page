@@ -33,6 +33,19 @@ export default function FullRedesign({ onSelectPackage }) {
         aria-hidden="true"
       />
 
+      {/* Tech Geometric Background Mesh (Watermark) */}
+      <div
+        className="absolute -right-20 -bottom-20 w-[450px] sm:w-[560px] h-[480px] sm:h-[600px] opacity-[0.12] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-geometric-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-12 filter brightness-150"
+          loading="lazy"
+        />
+      </div>
+
       {/* Subtle Glow Overlay Expanding on View */}
       <div 
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/15 via-transparent to-transparent pointer-events-none transition-transform duration-1000 ease-out z-0"

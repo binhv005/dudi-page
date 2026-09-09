@@ -14,18 +14,31 @@ const iconMap = {
 
 export default function ProblemSigns() {
   const [sectionRef, inView] = useInView({ threshold: 0.15 });
-  const [hoveredIndex, setHoveredIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
     <section
       ref={sectionRef}
       id="problem-signs"
-      className="py-10 sm:py-12 lg:py-14 bg-white/40 dark:bg-white/[0.02] text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
+      className="py-8 sm:py-10 lg:py-11 bg-[#F8FAFC]/75 dark:bg-[#0D0F17]/80 backdrop-blur-xs text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
       aria-label="Dấu hiệu website cần nâng cấp"
     >
+      {/* Tech Geometric Background Mesh (Watermark) */}
+      <div
+        className="absolute -right-16 -top-16 w-[420px] sm:w-[540px] h-[480px] sm:h-[600px] opacity-[0.07] dark:opacity-[0.12] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-geometric-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-12"
+          loading="lazy"
+        />
+      </div>
+
       {/* Localized Red Ambient Mesh Glow Aura */}
-      <div 
-        className="absolute top-1/3 -right-24 w-[500px] h-[500px] bg-gradient-to-l from-[#D71920]/8 via-[#EF4444]/4 to-transparent dark:from-[#D71920]/6 dark:via-transparent rounded-full blur-3xl pointer-events-none z-0" 
+      <div
+        className="absolute top-1/3 -right-24 w-[500px] h-[500px] bg-gradient-to-l from-[#D71920]/8 via-[#EF4444]/4 to-transparent dark:from-[#D71920]/6 dark:via-transparent rounded-full blur-3xl pointer-events-none z-0"
         aria-hidden="true"
       />
 
@@ -51,25 +64,20 @@ export default function ProblemSigns() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
 
           {/* Left Column: Editorial Statement & Diagnostic Inspector Block */}
-          <div className={`lg:col-span-5 lg:sticky lg:top-20 space-y-4 transition-all duration-700 ease-out ${
-            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}>
+          <div className={`lg:col-span-5 lg:sticky lg:top-20 space-y-3.5 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs">
               <span>01 / CHẨN ĐOÁN WEBSITE</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2]">
+            <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.25]">
               Website của bạn đang gặp vấn đề ở đâu?
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-400 leading-relaxed max-w-[420px]">
-              Nhận diện chính xác điểm nghẽn để sửa đúng chỗ, tránh lãng phí thời gian và ngân sách xây lại không cần thiết.
-            </p>
-
             {/* Quick Diagnostic Metrics Grid */}
-            <div className="grid grid-cols-2 gap-2.5 pt-1">
+            <div className="grid grid-cols-2 gap-2.5 pt-0.5">
               <div className="p-3 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs">
-                <div className="flex items-center gap-1.5 text-[#D71920] mb-1">
+                <div className="flex items-center gap-1.5 text-[#D71920] mb-0.5">
                   <Zap className="w-3.5 h-3.5" />
                   <span className="text-xs font-mono font-bold uppercase">30+ Tiêu chí</span>
                 </div>
@@ -77,7 +85,7 @@ export default function ProblemSigns() {
               </div>
 
               <div className="p-3 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs">
-                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 mb-1">
+                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 mb-0.5">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span className="text-xs font-mono font-bold uppercase">0đ Chi phí</span>
                 </div>
@@ -86,10 +94,10 @@ export default function ProblemSigns() {
             </div>
 
             {/* Expert Diagnostic Advice Card */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-xs space-y-3">
-              <div className="flex items-center justify-between border-b border-[#E2E8F0] dark:border-[#1F2937] pb-2">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-xs space-y-2.5">
+              <div className="flex items-center justify-between border-b border-[#E2E8F0] dark:border-[#1F2937] pb-1.5">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D71920] animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-pulse" />
                   <span className="text-[10px] font-mono uppercase tracking-wider text-[#0F172A] dark:text-white font-bold">Lời khuyên từ DUDI</span>
                 </div>
                 <span className="text-[10px] font-mono text-gray-400 dark:text-slate-400">#audit</span>
@@ -101,7 +109,7 @@ export default function ProblemSigns() {
 
               <a
                 href="#form-tu-van"
-                className="w-full btn-primary !text-xs !font-semibold !py-2.5 flex items-center justify-center gap-1.5 group shadow-sm"
+                className="w-full btn-primary !text-xs sm:!text-[13px] !font-semibold !py-2.5 flex items-center justify-center gap-1.5 group shadow-sm"
               >
                 <span>Gửi website nhận chẩn đoán miễn phí</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -111,12 +119,15 @@ export default function ProblemSigns() {
 
           {/* Right Column: Staggered Diagnostic Items */}
           <div className="lg:col-span-7">
-            <div className="border-t border-[#E2E8F0] dark:border-[#1E293B]">
+            <div
+              className="space-y-1.5"
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
               {PROBLEM_SIGNS.items.map((item, index) => {
                 const IconComponent = iconMap[item.icon] || Gauge;
                 const isHovered = hoveredIndex === index;
                 const formattedNum = String(index + 1).padStart(2, '0');
-                const delayMs = 100 + index * 90;
+                const delayMs = 60 + index * 60;
 
                 return (
                   <div
@@ -125,37 +136,36 @@ export default function ProblemSigns() {
                     style={{
                       transitionDelay: inView ? `${delayMs}ms` : '0ms',
                     }}
-                    className={`group relative py-3 sm:py-3.5 border-b border-[#E2E8F0] dark:border-[#1E293B] cursor-pointer transition-all duration-500 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                      } ${isHovered ? 'bg-white dark:bg-[#111827] pl-4' : 'hover:bg-white/60 dark:hover:bg-[#111827]/60 pl-2'
+                    className={`group relative py-2.5 sm:py-3 px-3.5 sm:px-4.5 rounded-xl cursor-pointer transition-all duration-250 ease-out border ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                      } ${isHovered
+                        ? 'bg-gradient-to-r from-[#D71920] via-[#C9141C] to-[#B51017] text-white shadow-md shadow-red-950/20 border-transparent scale-[1.008]'
+                        : 'bg-white/80 dark:bg-[#1A1D24] text-[#0F172A] dark:text-[#F8FAFC] border-transparent hover:border-[#E2E8F0] dark:hover:border-[#2A303C]'
                       }`}
                   >
-                    {/* Active left indicator line */}
-                    <div
-                      className={`absolute left-0 top-0 bottom-0 w-1 bg-[#D71920] transition-all duration-200 ${isHovered ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-50'
-                        }`}
-                    />
-
-                    <div className="flex items-start gap-3 sm:gap-4 pr-2">
+                    <div className="flex items-start gap-3 sm:gap-3.5">
                       {/* Number */}
-                      <span className={`font-mono text-xs sm:text-sm font-bold transition-colors mt-0.5 ${isHovered ? 'text-[#D71920]' : 'text-gray-400 group-hover:text-[#0F172A] dark:group-hover:text-white'
+                      <span className={`font-mono text-xs sm:text-sm font-bold transition-colors mt-0.5 ${isHovered ? 'text-red-200' : 'text-[#D71920]'
                         }`}>
                         {formattedNum}
                       </span>
 
                       {/* Content */}
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between gap-3 mb-0.5">
-                          <h3 className={`text-sm sm:text-base font-bold tracking-tight transition-colors ${isHovered ? 'text-[#D71920]' : 'text-[#0F172A] dark:text-slate-100'
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2 mb-0.5">
+                          <h3 className={`text-sm sm:text-[15px] font-bold tracking-tight transition-colors truncate ${isHovered ? 'text-white' : 'text-[#0F172A] dark:text-slate-100 group-hover:text-[#D71920]'
                             }`}>
                             {item.title}
                           </h3>
-                          <div className={`p-1 rounded-full transition-all ${isHovered ? 'bg-red-50 dark:bg-red-950/40 text-[#D71920] shadow-2xs' : 'text-gray-400 group-hover:text-[#0F172A] dark:group-hover:text-white'
+                          <div className={`p-1.5 rounded-full transition-all shrink-0 ${isHovered
+                            ? 'bg-white text-[#D71920] shadow-sm scale-105'
+                            : 'text-[#D71920] bg-red-50 dark:bg-red-950/30'
                             }`}>
                             <IconComponent className="w-3.5 h-3.5" />
                           </div>
                         </div>
 
-                        <p className="text-xs text-[#64748B] dark:text-slate-400 leading-relaxed pr-3">
+                        <p className={`text-xs sm:text-[12.5px] leading-relaxed pr-2 transition-colors ${isHovered ? 'text-red-100' : 'text-[#64748B] dark:text-slate-400'
+                          }`}>
                           {item.desc}
                         </p>
                       </div>

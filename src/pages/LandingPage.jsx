@@ -37,7 +37,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-transparent text-[#0F172A] dark:text-[#F8FAFC] selection:bg-[#D71920] selection:text-white relative overflow-x-hidden font-sans transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFC] dark:bg-[#090A0F] text-[#0F172A] dark:text-[#F8FAFC] selection:bg-[#D71920] selection:text-white relative overflow-x-hidden font-sans transition-colors duration-300">
       {/* S01: Clean White Floating Header */}
       <Header />
 

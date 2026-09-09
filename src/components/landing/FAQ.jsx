@@ -58,13 +58,26 @@ export default function FAQ() {
     <section
       ref={sectionRef}
       id="faq"
-      className="py-10 sm:py-12 lg:py-14 bg-white/40 dark:bg-white/[0.02] text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
+      className="py-10 sm:py-12 lg:py-14 bg-[#F8FAFC]/75 dark:bg-[#0D0F17]/80 backdrop-blur-xs text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
       aria-label="Câu hỏi thường gặp"
     >
+      {/* Tech Geometric Background Mesh (Watermark) */}
+      <div
+        className="absolute -right-20 -bottom-16 w-[480px] sm:w-[600px] h-[500px] sm:h-[620px] opacity-[0.06] dark:opacity-[0.11] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-geometric-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-12"
+          loading="lazy"
+        />
+      </div>
+
       {/* Localized Red Ambient Mesh Flow Aura (Active in both Light & Dark mode) */}
-      <div 
-        className="absolute top-1/3 -right-20 w-[600px] h-[500px] bg-gradient-to-l from-[#D71920]/10 via-[#EF4444]/6 to-transparent dark:from-[#D71920]/14 dark:via-[#EF4444]/8 dark:to-transparent rounded-full blur-[130px] pointer-events-none z-0 animate-tech-float-3" 
-        aria-hidden="true" 
+      <div
+        className="absolute top-1/3 -right-20 w-[600px] h-[500px] bg-gradient-to-l from-[#D71920]/10 via-[#EF4444]/6 to-transparent dark:from-[#D71920]/14 dark:via-[#EF4444]/8 dark:to-transparent rounded-full blur-[130px] pointer-events-none z-0 animate-tech-float-3"
+        aria-hidden="true"
       />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -87,16 +100,16 @@ export default function FAQ() {
               Giải đáp minh bạch mọi thắc mắc về phạm vi, chi phí và quy trình trước khi bạn gửi website.
             </p>
 
-            <div className="p-3.5 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs space-y-1.5">
-              <p className="text-[10px] font-mono uppercase text-[#64748B] dark:text-slate-400 font-bold">Cần trao đổi riêng?</p>
-              <p className="text-xs text-[#0F172A] dark:text-slate-200 leading-relaxed">
+            <div className="p-4 rounded-xl bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#991016] text-white border border-red-400/40 shadow-lg shadow-red-950/20 space-y-2">
+              <p className="text-[10px] font-mono uppercase text-red-200 font-bold tracking-wider">Cần trao đổi riêng?</p>
+              <p className="text-xs text-white/95 leading-relaxed">
                 Đội ngũ kỹ thuật DUDI sẵn sàng xem qua website và phản hồi trực tiếp qua Zalo.
               </p>
               <a
                 href={COMPANY_CONFIG.zaloUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D71920] hover:text-[#8F0F16]"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-[#D71920] hover:bg-slate-50 text-xs font-bold shadow-sm transition-all cursor-pointer"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>Nhắn tin Zalo trực tiếp</span>
@@ -104,9 +117,9 @@ export default function FAQ() {
             </div>
           </div>
 
-          {/* Right Column: Minimal White / Dark Slate Editorial Accordion */}
+          {/* Right Column: Clean White Card Editorial Accordion */}
           <div
-            className={`lg:col-span-8 divide-y divide-[#E2E8F0] dark:divide-[#1F2937] border-t border-b border-[#E2E8F0] dark:border-[#1F2937] bg-white dark:bg-[#111827] rounded-xl px-4 sm:px-5 shadow-2xs transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`lg:col-span-8 divide-y divide-[#E2E8F0] dark:divide-[#1F2937] border border-[#E2E8F0] dark:border-[#1F2937] bg-white dark:bg-[#111827] rounded-2xl px-5 sm:px-6 shadow-sm transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             style={{ transitionDelay: '150ms' }}
           >
@@ -115,11 +128,11 @@ export default function FAQ() {
               const formattedNum = String(index + 1).padStart(2, '0');
 
               return (
-                <div key={item.id} className="py-3 sm:py-3.5">
+                <div key={item.id} className="py-3.5 sm:py-4">
                   <button
                     type="button"
                     onClick={() => toggleFAQ(index)}
-                    className="w-full text-left flex items-start justify-between gap-3 group focus-visible:outline-none focus-visible:text-[#D71920] cursor-pointer"
+                    className="w-full text-left flex items-start justify-between gap-3 group focus-visible:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                     id={`faq-question-${item.id}`}
@@ -128,15 +141,15 @@ export default function FAQ() {
                       <span className="font-mono text-xs font-bold text-[#D71920] mt-0.5">
                         {formattedNum}
                       </span>
-                      <h3 className={`text-xs sm:text-sm font-bold tracking-tight transition-colors ${isOpen ? 'text-[#D71920]' : 'text-[#111111] dark:text-white group-hover:text-[#D71920]'
+                      <h3 className={`text-xs sm:text-sm font-bold tracking-tight transition-colors ${isOpen ? 'text-[#D71920]' : 'text-[#0F172A] dark:text-white group-hover:text-[#D71920]'
                         }`}>
                         {item.question}
                       </h3>
                     </div>
 
                     <div className={`p-1 rounded-full border transition-all shrink-0 ${isOpen
-                        ? 'bg-red-50 dark:bg-red-950/40 border-red-200 dark:border-red-900/50 text-[#D71920]'
-                        : 'border-gray-200 dark:border-[#334155] text-[#5F6368] dark:text-gray-400 group-hover:text-[#111111] dark:group-hover:text-white group-hover:border-gray-400'
+                      ? 'bg-red-50 dark:bg-red-950/40 border-red-200 dark:border-red-900/50 text-[#D71920]'
+                      : 'border-gray-200 dark:border-[#334155] text-[#64748B] dark:text-gray-400 group-hover:text-[#0F172A] dark:group-hover:text-white group-hover:border-gray-400'
                       }`}>
                       {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                     </div>
@@ -147,11 +160,11 @@ export default function FAQ() {
                     id={`faq-answer-${item.id}`}
                     role="region"
                     aria-labelledby={`faq-question-${item.id}`}
-                    className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'
+                    className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-2.5' : 'grid-rows-[0fr] opacity-0'
                       }`}
                   >
-                    <div className="overflow-hidden pl-6 pr-2">
-                      <p className="text-xs text-[#5F6368] dark:text-slate-300 leading-relaxed pb-1">
+                    <div className="overflow-hidden pl-7 pr-2">
+                      <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-slate-300 leading-relaxed pb-1">
                         {item.answer}
                       </p>
                     </div>

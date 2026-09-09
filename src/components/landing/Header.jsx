@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Phone, MessageSquare, Sun, Moon } from 'lucide-react';
+import { Menu, X, ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import { COMPANY_CONFIG, NAV_LINKS } from '../../data/landingData';
-import { useTheme } from '../../context/ThemeContext';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +18,7 @@ export default function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled 
-          ? 'py-2.5 bg-white/95 dark:bg-[#0B0F17]/95 backdrop-blur-md border-b border-[#E2E8F0] dark:border-[#1E293B] shadow-[0_1px_8px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]' 
+          ? 'py-2.5 bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-[0_1px_8px_rgba(0,0,0,0.03)]' 
           : 'py-3.5 bg-transparent border-b border-white/10'
       }`}
     >
@@ -51,7 +49,7 @@ export default function Header() {
                 href={link.href}
                 className={`text-xs uppercase tracking-wider font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:text-[#D71920] ${
                   scrolled 
-                    ? 'text-[#64748B] dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white' 
+                    ? 'text-[#64748B] hover:text-[#0F172A]' 
                     : 'text-white/85 hover:text-white'
                 }`}
               >
@@ -60,27 +58,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right Actions: Hotline/Zalo + Theme Toggle + Compact CTA */}
+          {/* Right Actions: Hotline/Zalo + Compact CTA */}
           <div className="hidden sm:flex items-center gap-2.5">
-            {/* Theme Toggle Button */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className={`p-2 rounded-md transition-all cursor-pointer border ${
-                scrolled
-                  ? 'text-[#0F172A] dark:text-slate-300 bg-[#F1F5F9] dark:bg-[#1E293B] border-[#E2E8F0] dark:border-[#334155] hover:bg-slate-200 dark:hover:bg-slate-700'
-                  : 'text-white bg-black/30 hover:bg-black/50 border-white/20 backdrop-blur-sm'
-              }`}
-              title={theme === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối'}
-              aria-label="Đổi giao diện sáng/tối"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400 transition-transform duration-300 hover:rotate-45" />
-              ) : (
-                <Moon className="w-4 h-4 text-[#3B82F6] transition-transform duration-300 hover:-rotate-12" />
-              )}
-            </button>
-
             <a
               href="#form-tu-van"
               className="btn-primary !text-xs !font-semibold !py-2 !px-4 !min-h-[38px] flex items-center gap-1.5 group"
@@ -92,24 +71,6 @@ export default function Header() {
 
           {/* Mobile Actions */}
           <div className="flex items-center gap-2 sm:hidden">
-            {/* Mobile Theme Toggle */}
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className={`p-1.5 rounded-md transition-all cursor-pointer border ${
-                scrolled
-                  ? 'text-[#0F172A] dark:text-slate-300 bg-[#F1F5F9] dark:bg-[#1E293B] border-[#E2E8F0] dark:border-[#334155]'
-                  : 'text-white bg-black/30 border-white/20'
-              }`}
-              aria-label="Đổi giao diện sáng/tối"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400" />
-              ) : (
-                <Moon className="w-4 h-4 text-[#3B82F6]" />
-              )}
-            </button>
-
             <a
               href="#form-tu-van"
               className="btn-primary !text-xs !py-1.5 !px-3 !min-h-[34px]"

@@ -1,86 +1,121 @@
 import React from 'react';
 import { useInView } from '../../hooks/useInView';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Search, Target, ShieldCheck, Zap } from 'lucide-react';
 
 export default function AboutIntro() {
   const [sectionRef, isInView] = useInView({ threshold: 0.15 });
+
+  const PILLARS = [
+    {
+      icon: Search,
+      title: 'Rõ vấn đề',
+      desc: 'Chẩn đoán chính xác nguyên nhân gốc rễ, không phán đoán mơ hồ.',
+      badge: 'Chẩn đoán',
+    },
+    {
+      icon: Target,
+      title: 'Rõ phạm vi',
+      desc: 'Chốt danh mục đầu việc cụ thể và lộ trình trước khi viết code.',
+      badge: 'Minh bạch',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Rõ chi phí',
+      desc: 'Báo giá trọn gói rõ ràng, cam kết không phát sinh chi phí ẩn.',
+      badge: 'Tối ưu',
+    },
+  ];
 
   return (
     <section
       ref={sectionRef}
       id="about-dudi"
-      className="py-10 sm:py-14 lg:py-16 bg-transparent text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
+      className="py-12 sm:py-16 lg:py-20 bg-white/75 dark:bg-[#090A0F]/80 backdrop-blur-xs text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
       aria-label="Giới thiệu về DUDI"
     >
-
-      {/* Subtle soft red atmospheric glow behind character on left */}
+      {/* Tech Network Background Sphere (Watermark) */}
       <div
-        className={`absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] sm:w-[440px] h-[350px] sm:h-[440px] bg-gradient-to-br from-[#D71920]/10 via-[#EF4444]/6 to-transparent dark:from-[#D71920]/10 dark:via-transparent rounded-full blur-3xl pointer-events-none transition-all duration-1000 ease-out z-0 ${isInView ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
-          }`}
+        className="absolute -right-16 -top-16 w-[400px] sm:w-[520px] h-[400px] sm:h-[520px] opacity-[0.08] dark:opacity-[0.14] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-network-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-45"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Soft red atmospheric glow behind mascot */}
+      <div
+        className={`absolute top-1/2 left-1/4 -translate-y-1/2 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] bg-gradient-to-br from-[#D71920]/12 via-[#EF4444]/6 to-transparent dark:from-[#D71920]/10 dark:via-transparent rounded-full blur-3xl pointer-events-none transition-all duration-1000 ease-out z-0 ${
+          isInView ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+        }`}
         aria-hidden="true"
       />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
 
-          {/* LEFT: The Character Standing Naturally & Pointing Right (5 cols on lg) */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-start items-center order-2 lg:order-1 mt-4 lg:mt-0">
-
-            {/* Character Image Container - Free standing, Well-proportioned */}
-            <div className="relative w-full max-w-[210px] sm:max-w-[240px] lg:max-w-[270px] flex items-center justify-center">
+          {/* LEFT: Larger Free-standing Mascot */}
+          <div className="hidden md:flex lg:col-span-5 relative justify-center lg:justify-start items-center order-2 lg:order-1">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[370px] flex items-center justify-center">
               <img
                 src="/tai-xuong-1.webp"
                 alt="DUDI Tech Mascot Assistant"
-                className={`w-auto h-auto max-h-[230px] sm:max-h-[270px] lg:max-h-[300px] object-contain select-none pointer-events-none drop-shadow-2xl transition-all duration-1000 ease-out ${isInView
+                className={`w-auto h-auto max-h-[320px] sm:max-h-[380px] lg:max-h-[430px] object-contain select-none pointer-events-none drop-shadow-2xl transition-all duration-1000 ease-out ${
+                  isInView
                     ? 'opacity-100 translate-y-0 scale-100 rotate-0'
                     : 'opacity-0 translate-y-8 scale-95 -rotate-2'
-                  }`}
-                width="270"
-                height="338"
+                }`}
+                width="370"
+                height="460"
                 loading="lazy"
               />
+
+              {/* Status Badge */}
               <div
-                className={`absolute -bottom-2 left-4 sm:left-8 bg-white/95 dark:bg-[#1E293B]/95 backdrop-blur-xs border border-[#E2E8F0] dark:border-[#334155] rounded-full px-2.5 py-0.5 text-[10px] font-mono text-[#64748B] dark:text-[#94A3B8] shadow-2xs flex items-center gap-1.5 transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-                  }`}
+                className={`absolute -bottom-1 left-4 sm:left-10 bg-white/95 dark:bg-[#1E293B]/95 backdrop-blur-xs border border-[#E2E8F0] dark:border-[#334155] rounded-full px-3 py-1 text-[11px] font-mono text-[#64748B] dark:text-[#94A3B8] shadow-sm flex items-center gap-2 transition-all duration-600 ease-out ${
+                  isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                }`}
                 style={{ transitionDelay: '550ms' }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>KỸ SƯ DUDI ONLINE</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-semibold text-[#0F172A] dark:text-white">KỸ SƯ DUDI ONLINE</span>
               </div>
             </div>
 
-            {/* Editorial Annotation Guide Line (Pointing from right-hand toward the headline) */}
+            {/* Editorial Connecting Line towards headline */}
             <div
-              className={`hidden lg:block absolute -right-8 top-12 w-24 h-16 pointer-events-none transition-opacity duration-700 ease-out ${isInView ? 'opacity-100' : 'opacity-0'
-                }`}
+              className={`hidden lg:block absolute -right-6 top-16 w-28 h-20 pointer-events-none transition-opacity duration-700 ease-out ${
+                isInView ? 'opacity-100' : 'opacity-0'
+              }`}
               style={{ transitionDelay: '450ms' }}
               aria-hidden="true"
             >
               <svg className="w-full h-full overflow-visible" viewBox="0 0 100 60" fill="none">
-                {/* Pointer indicator node at finger tip */}
                 <circle cx="0" cy="30" r="3" fill="#D71920" className="animate-ping opacity-60" />
                 <circle cx="0" cy="30" r="2.5" fill="#D71920" />
-                {/* Dashed editorial connecting line towards headline */}
                 <path
                   d="M0,30 C35,10 65,45 100,20"
                   stroke="#D71920"
                   strokeWidth="1.5"
                   strokeDasharray="4 4"
                   strokeLinecap="round"
-                  className="opacity-70"
+                  className="opacity-75"
                 />
               </svg>
             </div>
-
           </div>
 
-          {/* RIGHT: Large Editorial Typography & Highlights (7 cols on lg) */}
-          <div className="lg:col-span-7 space-y-3.5 lg:space-y-4 order-1 lg:order-2">
+          {/* RIGHT: Typography & Enriched Value Cards */}
+          <div className="lg:col-span-7 space-y-5 lg:space-y-6 order-1 lg:order-2">
 
             {/* Section Badge */}
             <div
-              className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200/80 dark:border-red-900/50 text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs transition-all duration-500 ease-out ${
+                isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-pulse" />
               <span>ABOUT DUDI</span>
@@ -88,8 +123,9 @@ export default function AboutIntro() {
 
             {/* Main Headline */}
             <h2
-              className={`text-xl sm:text-2xl lg:text-[2.1rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2] transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-                }`}
+              className={`text-2xl sm:text-3xl lg:text-[2.45rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.18] transition-all duration-600 ease-out ${
+                isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
               style={{ transitionDelay: '100ms' }}
             >
               Không chỉ sửa website.<br />
@@ -98,49 +134,60 @@ export default function AboutIntro() {
 
             {/* Supporting Text */}
             <p
-              className={`text-xs sm:text-sm text-[#5F6368] dark:text-[#94A3B8] leading-relaxed max-w-xl transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+              className={`text-sm sm:text-base text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-xl transition-all duration-600 ease-out ${
+                isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
               style={{ transitionDelay: '200ms' }}
             >
-              DUDI tập trung kiểm tra, xác định phạm vi và nâng cấp những phần website thực sự cần thiết.
+              DUDI tập trung kiểm tra, xác định chính xác phạm vi và nâng cấp những phần website thực sự cần thiết, giúp doanh nghiệp tiết kiệm đến 70% chi phí so với làm lại từ đầu.
             </p>
 
-            {/* Editorial Supporting Statement with Pill Tags */}
+            {/* 3 Value Pillars Grid to fill whitespace */}
             <div
-              className={`pt-0.5 transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+              className={`grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 transition-all duration-600 ease-out ${
+                isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
               style={{ transitionDelay: '300ms' }}
             >
-              <div className="inline-flex flex-wrap items-center gap-2 sm:gap-2.5 py-1.5 px-3 rounded-lg bg-[#F8F8F5] dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] shadow-2xs text-[11px] sm:text-xs font-mono font-semibold text-[#111111] dark:text-[#F1F5F9]">
-                <span className="flex items-center gap-1.5 text-[#D71920]">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  Rõ vấn đề
-                </span>
-                <span className="text-gray-300 dark:text-gray-600">•</span>
-                <span className="flex items-center gap-1.5 text-[#111111] dark:text-[#F1F5F9]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920]" />
-                  Rõ phạm vi
-                </span>
-                <span className="text-gray-300 dark:text-gray-600">•</span>
-                <span className="flex items-center gap-1.5 text-[#111111] dark:text-[#F1F5F9]">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920]" />
-                  Rõ chi phí
-                </span>
-              </div>
+              {PILLARS.map((pillar, idx) => {
+                const Icon = pillar.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-3.5 rounded-xl bg-[#F8FAFC] dark:bg-[#15181E] border border-[#E2E8F0] dark:border-[#242A35] hover:border-red-300 dark:hover:border-red-900/60 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/40 text-[#D71920] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-[10px] font-mono font-bold text-gray-400 dark:text-slate-400 uppercase tracking-wider">
+                        {pillar.badge}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-bold text-[#0F172A] dark:text-white mb-1 group-hover:text-[#D71920] transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs text-[#64748B] dark:text-slate-400 leading-snug">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Quick Action Link */}
+            {/* Action Row */}
             <div
-              className={`pt-1 transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
+              className={`pt-2 flex flex-wrap items-center gap-3 sm:gap-4 transition-all duration-600 ease-out ${
+                isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
               style={{ transitionDelay: '400ms' }}
             >
               <a
                 href="#form-tu-van"
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#D71920] hover:text-[#8F0F16] dark:hover:text-[#EF4444] transition-colors group cursor-pointer"
+                className="btn-primary !text-xs sm:!text-sm !font-bold !py-3 !px-5 inline-flex items-center gap-2 shadow-md hover:shadow-red-900/20"
               >
                 <span>Gửi website để kỹ sư DUDI kiểm tra miễn phí</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
 

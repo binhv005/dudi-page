@@ -69,12 +69,38 @@ export default function Pricing({ onSelectPackage }) {
     <section
       ref={sectionRef}
       id="pricing"
-      className="py-6 sm:py-8 lg:py-8 bg-white/40 dark:bg-white/[0.02] text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300 flex flex-col justify-center"
+      className="py-6 sm:py-8 lg:py-8 bg-[#F8FAFC]/75 dark:bg-[#0D0F17]/80 backdrop-blur-xs text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300 flex flex-col justify-center"
       aria-label="Bảng giá dịch vụ nâng cấp website DUDI"
     >
+      {/* Left Side Tech Hexagon Watermark */}
+      <div
+        className="absolute -left-20 -top-16 w-[450px] sm:w-[580px] h-[320px] sm:h-[400px] opacity-[0.06] dark:opacity-[0.11] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-hexagon-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-180"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Right Side Tech Hexagon Watermark */}
+      <div
+        className="absolute -right-20 -bottom-16 w-[450px] sm:w-[580px] h-[320px] sm:h-[400px] opacity-[0.06] dark:opacity-[0.11] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-hexagon-bg.webp"
+          alt=""
+          className="w-full h-full object-contain"
+          loading="lazy"
+        />
+      </div>
+
       {/* Localized Red Ambient Mesh Flow Aura (Active in both Light & Dark mode) */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[900px] h-[450px] bg-gradient-to-r from-[#D71920]/12 via-[#EF4444]/8 to-[#D71920]/10 dark:from-[#D71920]/16 dark:via-[#EF4444]/10 dark:to-transparent rounded-full blur-[120px] pointer-events-none z-0 animate-tech-float-1" 
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] sm:w-[900px] h-[450px] bg-gradient-to-r from-[#D71920]/12 via-[#EF4444]/8 to-[#D71920]/10 dark:from-[#D71920]/16 dark:via-[#EF4444]/10 dark:to-transparent rounded-full blur-[120px] pointer-events-none z-0 animate-tech-float-1"
         aria-hidden="true"
       />
 
@@ -103,15 +129,15 @@ export default function Pricing({ onSelectPackage }) {
           {/* TIER 1: Basic */}
           <div
             style={{ transitionDelay: inView ? '100ms' : '0ms' }}
-            className={`p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs flex flex-col justify-between transition-all duration-600 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs flex flex-col justify-between group cursor-pointer hover:-translate-y-1.5 hover:shadow-xl hover:border-[#D71920]/50 dark:hover:border-[#EF4444]/50 transition-all duration-300 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
           >
             <div>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-widest text-[#64748B] dark:text-slate-400 font-bold">Gói Khởi Điểm</span>
+                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-widest text-[#64748B] dark:text-slate-400 font-bold group-hover:text-[#D71920] transition-colors">Gói Khởi Điểm</span>
                 <span className="text-[10.5px] font-mono text-[#64748B] dark:text-slate-400">{basicPkg.duration}</span>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white mt-0.5">{basicPkg.packageName}</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white mt-0.5 group-hover:text-[#D71920] transition-colors">{basicPkg.packageName}</h3>
               <div className="mt-1.5 flex items-baseline gap-1">
                 <span className="text-2xl sm:text-[26px] font-black text-[#0F172A] dark:text-white">{basicPkg.price}</span>
                 <span className="text-[11px] font-mono text-[#64748B] dark:text-slate-400 uppercase font-bold">/{basicPkg.priceUnit}</span>
@@ -132,40 +158,40 @@ export default function Pricing({ onSelectPackage }) {
             <button
               type="button"
               onClick={() => handleSelect(basicPkg.formValue)}
-              className="mt-3 w-full btn-secondary !text-xs !font-semibold !py-2 flex items-center justify-center gap-1.5 cursor-pointer"
+              className="mt-3 w-full btn-secondary !text-xs !font-semibold !py-2 flex items-center justify-center gap-1.5 cursor-pointer group-hover:bg-[#D71920] group-hover:text-white group-hover:border-[#D71920] group-hover:shadow-md transition-all duration-200"
             >
               <span>{basicPkg.ctaText}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
-          {/* TIER 2: Standard (FEATURED) */}
+          {/* TIER 2: Standard (FEATURED RED CARD) */}
           <div
             style={{ transitionDelay: inView ? '220ms' : '0ms' }}
-            className={`p-3.5 sm:p-4 rounded-xl bg-gradient-to-b from-red-50/70 to-white dark:from-red-950/30 dark:to-[#111827] border-2 border-[#D71920] shadow-sm flex flex-col justify-between relative transition-all duration-600 ease-out ${inView ? 'opacity-100 translate-y-0 ring-4 ring-[#D71920]/10' : 'opacity-0 translate-y-6'
+            className={`p-4 sm:p-4.5 rounded-xl bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#991016] text-white border-2 border-red-400/50 shadow-xl shadow-red-950/25 flex flex-col justify-between relative group cursor-pointer hover:-translate-y-2 hover:scale-[1.015] hover:shadow-[0_22px_45px_rgba(215,25,32,0.35)] transition-all duration-300 ease-out ${inView ? 'opacity-100 translate-y-0 ring-4 ring-[#D71920]/20' : 'opacity-0 translate-y-6'
               }`}
           >
-            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#D71920] text-white text-[8.5px] font-bold uppercase tracking-wider shadow-2xs">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-white text-[#D71920] text-[9px] font-extrabold uppercase tracking-wider shadow-md group-hover:scale-105 transition-transform">
               {standardPkg.badgeText || "Được chọn nhiều"}
             </div>
 
             <div>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-widest text-[#D71920] font-bold">Gói Khuyên Dùng</span>
-                <span className="text-[10.5px] font-mono text-[#D71920] font-bold">{standardPkg.duration}</span>
+                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-widest text-red-200 font-bold">Gói Khuyên Dùng</span>
+                <span className="text-[10.5px] font-mono text-red-100 font-bold">{standardPkg.duration}</span>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white mt-0.5">{standardPkg.packageName}</h3>
+              <h3 className="text-base sm:text-lg font-bold text-white mt-0.5">{standardPkg.packageName}</h3>
               <div className="mt-1.5 flex items-baseline gap-1">
-                <span className="text-2xl sm:text-[26px] font-black text-[#D71920]">{standardPkg.price}</span>
-                <span className="text-[11px] font-mono text-[#64748B] dark:text-slate-400 uppercase font-bold">/{standardPkg.priceUnit}</span>
+                <span className="text-2xl sm:text-[26px] font-black text-white">{standardPkg.price}</span>
+                <span className="text-[11px] font-mono text-red-200 uppercase font-bold">/{standardPkg.priceUnit}</span>
               </div>
-              <p className="text-xs text-[#64748B] dark:text-slate-400 mt-1 leading-relaxed">{standardPkg.summary}</p>
+              <p className="text-xs text-red-100 mt-1 leading-relaxed">{standardPkg.summary}</p>
 
               {/* Highlights */}
-              <ul className="mt-2.5 space-y-1 pt-2 border-t border-red-100/60 dark:border-red-950/60 text-[11.5px] text-[#475569] dark:text-slate-300">
+              <ul className="mt-2.5 space-y-1.5 pt-2 border-t border-white/20 text-[11.5px] text-white/95">
                 {standardPkg.features.slice(0, 3).map((feat, i) => (
                   <li key={i} className="flex items-start gap-1.5">
-                    <Check className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
+                    <Check className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
                     <span className="line-clamp-1">{feat}</span>
                   </li>
                 ))}
@@ -175,25 +201,25 @@ export default function Pricing({ onSelectPackage }) {
             <button
               type="button"
               onClick={() => handleSelect(standardPkg.formValue)}
-              className="mt-3 w-full btn-primary !text-xs !font-semibold !py-2 flex items-center justify-center gap-1.5 shadow-sm shadow-[#D71920]/20 cursor-pointer"
+              className="mt-3.5 w-full bg-white text-[#D71920] hover:bg-slate-50 group-hover:shadow-lg active:scale-[0.99] text-xs font-bold py-2.5 rounded-lg flex items-center justify-center gap-1.5 shadow-md shadow-black/20 cursor-pointer transition-all duration-200"
             >
               <span>{standardPkg.ctaText}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           {/* TIER 3: Advanced */}
           <div
             style={{ transitionDelay: inView ? '340ms' : '0ms' }}
-            className={`p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs flex flex-col justify-between transition-all duration-600 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs flex flex-col justify-between group cursor-pointer hover:-translate-y-1.5 hover:shadow-xl hover:border-[#D71920]/50 dark:hover:border-[#EF4444]/50 transition-all duration-300 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
           >
             <div>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-widest text-[#64748B] dark:text-slate-400 font-bold">Gói Toàn Diện</span>
+                <span className="font-mono text-[9.5px] sm:text-[10px] uppercase tracking-widest text-[#64748B] dark:text-slate-400 font-bold group-hover:text-[#D71920] transition-colors">Gói Toàn Diện</span>
                 <span className="text-[10.5px] font-mono text-[#64748B] dark:text-slate-400">{advancedPkg.duration}</span>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white mt-0.5">{advancedPkg.packageName}</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white mt-0.5 group-hover:text-[#D71920] transition-colors">{advancedPkg.packageName}</h3>
               <div className="mt-1.5 flex items-baseline gap-1">
                 <span className="text-2xl sm:text-[26px] font-black text-[#0F172A] dark:text-white">{advancedPkg.price}</span>
                 <span className="text-[11px] font-mono text-[#64748B] dark:text-slate-400 uppercase font-bold">/{advancedPkg.priceUnit}</span>
@@ -214,10 +240,10 @@ export default function Pricing({ onSelectPackage }) {
             <button
               type="button"
               onClick={() => handleSelect(advancedPkg.formValue)}
-              className="mt-3 w-full btn-secondary !text-xs !font-semibold !py-2 flex items-center justify-center gap-1.5 cursor-pointer"
+              className="mt-3 w-full btn-secondary !text-xs !font-semibold !py-2 flex items-center justify-center gap-1.5 cursor-pointer group-hover:bg-[#D71920] group-hover:text-white group-hover:border-[#D71920] group-hover:shadow-md transition-all duration-200"
             >
               <span>{advancedPkg.ctaText}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
@@ -237,28 +263,52 @@ export default function Pricing({ onSelectPackage }) {
 
         {/* Clean Editorial Comparison Table (Collapsible) */}
         {showMatrix && (
-          <div
-            className="overflow-hidden rounded-xl border border-[#E2E8F0] dark:border-[#1F2937] bg-white dark:bg-[#111827] shadow-2xs my-3 animate-fadeIn"
-          >
-            <div className="px-3.5 py-2 bg-[#F8FAFC] dark:bg-[#0F172A] border-b border-[#E2E8F0] dark:border-[#1F2937] grid grid-cols-12 text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#64748B] dark:text-slate-400 font-bold">
-              <div className="col-span-5">Hạng mục so sánh</div>
-              <div className="col-span-2 text-center text-[#0F172A] dark:text-white">Cơ bản (500k)</div>
-              <div className="col-span-3 text-center text-[#D71920] font-extrabold">Tiêu chuẩn (2tr)</div>
-              <div className="col-span-2 text-center text-[#0F172A] dark:text-white">Nâng cao (5tr)</div>
-            </div>
-
-            <div className="divide-y divide-[#E2E8F0] dark:divide-[#1F2937]">
-              {comparisonMatrix.map((row, idx) => (
-                <div key={idx} className="px-3.5 py-1.5 grid grid-cols-12 items-center text-xs hover:bg-[#F8FAFC]/80 dark:hover:bg-slate-800/50 transition-colors">
-                  <div className="col-span-5 font-semibold text-[#0F172A] dark:text-slate-200 text-[11.5px]">{row.feature}</div>
-                  <div className="col-span-2 text-center text-[#64748B] dark:text-slate-400 text-[11px]">{row.basic}</div>
-                  <div className="col-span-3 text-center font-bold text-[#D71920] text-[11px] bg-red-50/60 dark:bg-red-950/40 py-0.5 rounded border border-red-100 dark:border-red-900/40">
-                    {row.standard}
-                  </div>
-                  <div className="col-span-2 text-center text-[#0F172A] dark:text-slate-200 text-[11px]">{row.advanced}</div>
-                </div>
-              ))}
-            </div>
+          <div className="overflow-x-auto rounded-2xl border border-[#E2E8F0] dark:border-[#262B38] bg-white/95 dark:bg-[#111622]/95 shadow-md my-4 animate-fadeIn">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-slate-700/80 bg-[#0F172A] dark:bg-[#0A0D14] text-white">
+                  <th className="py-4 px-4 sm:px-6 text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold w-[36%]">
+                    Hạng mục so sánh
+                  </th>
+                  <th className="py-4 px-3 sm:px-4 text-center w-[21%] border-r border-slate-800">
+                    <div className="text-xs font-bold text-white">Cơ bản</div>
+                    <div className="text-[11px] font-mono text-slate-400 mt-0.5">500.000đ</div>
+                  </th>
+                  <th className="py-4 px-3 sm:px-4 text-center w-[22%] bg-gradient-to-b from-[#D71920] to-[#B31217] text-white relative shadow-md">
+                    <div className="inline-flex items-center justify-center gap-1.5">
+                      <span className="text-xs font-black tracking-wide">Tiêu chuẩn</span>
+                      <span className="px-1.5 py-0.5 rounded text-[8.5px] font-extrabold bg-white text-[#D71920] uppercase tracking-wider shadow-2xs">Khuyên dùng</span>
+                    </div>
+                    <div className="text-xs sm:text-[12.5px] font-mono font-black text-red-100 mt-0.5">2.000.000đ</div>
+                  </th>
+                  <th className="py-4 px-3 sm:px-4 text-center w-[21%] border-l border-slate-800">
+                    <div className="text-xs font-bold text-white">Nâng cao</div>
+                    <div className="text-[11px] font-mono text-slate-400 mt-0.5">5.000.000đ</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#E2E8F0] dark:divide-[#262B38]/60 text-xs sm:text-[13px]">
+                {comparisonMatrix.map((row, idx) => (
+                  <tr 
+                    key={idx} 
+                    className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors"
+                  >
+                    <td className="py-3 px-4 sm:px-6 font-semibold text-[#0F172A] dark:text-slate-200">
+                      {row.feature}
+                    </td>
+                    <td className="py-3 px-3 sm:px-4 text-center text-[#64748B] dark:text-slate-400">
+                      {row.basic}
+                    </td>
+                    <td className="py-3 px-3 sm:px-4 text-center font-bold text-[#D71920] dark:text-red-400 bg-red-50/35 dark:bg-red-950/20 border-x border-red-100/80 dark:border-red-900/30">
+                      {row.standard}
+                    </td>
+                    <td className="py-3 px-3 sm:px-4 text-center text-[#334155] dark:text-slate-300 font-medium">
+                      {row.advanced}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
 

@@ -57,14 +57,6 @@ export default function Hero() {
       <div className="relative z-20 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 md:pt-28 md:pb-16 flex flex-col justify-end md:justify-center h-full">
         <div className="max-w-[560px]">
 
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 border border-white/20 text-white text-[11px] sm:text-xs font-mono tracking-wider uppercase mb-3.5 backdrop-blur-sm shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-pulse" />
-            <span className="text-red-300 font-semibold">{HERO_DATA.eyebrow}</span>
-            <span className="text-white/30">|</span>
-            <span className="text-white font-bold">{HERO_DATA.priceHighlight}</span>
-          </div>
-
           {/* Controlled H1 - Fluid & Balanced */}
           <h1 className="text-2xl sm:text-3xl lg:text-[2.5rem] lg:leading-[1.18] font-extrabold text-white tracking-tight mb-3.5 text-balance">
             Website cũ, chậm hoặc khó ra khách?
@@ -79,7 +71,7 @@ export default function Hero() {
           </p>
 
           {/* Dual CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
               href="#form-tu-van"
               onClick={() => trackEvent('cta_click', { location: 'hero_primary' })}
@@ -101,33 +93,6 @@ export default function Hero() {
               <MessageSquare className="w-4 h-4 text-red-400" />
               <span>{HERO_DATA.secondaryCtaText}</span>
             </a>
-          </div>
-
-          {/* 3 Micro Trust Points */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-3.5 border-t border-white/15">
-            <div className="flex items-start gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs font-semibold text-white leading-tight">Báo giá trước</p>
-                <p className="text-[10px] text-gray-300 hidden sm:block">Không phát sinh</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs font-semibold text-white leading-tight">Phạm vi rõ</p>
-                <p className="text-[10px] text-gray-300 hidden sm:block">Chốt trước code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs font-semibold text-white leading-tight">Bảo hành 30 ngày</p>
-                <p className="text-[10px] text-gray-300 hidden sm:block">Hỗ trợ kỹ thuật</p>
-              </div>
-            </div>
           </div>
 
         </div>

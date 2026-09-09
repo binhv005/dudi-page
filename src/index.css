@@ -3,34 +3,34 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg-primary: #FAFAF8;
+  --bg-primary: #FAFAFC;
   --bg-secondary: #FFFFFF;
   --bg-tertiary: #F1F5F9;
-  --red-primary: #E31B23;
-  --red-deep: #C9141C;
-  --red-glow: rgba(227, 27, 35, 0.10);
-  --red-soft: rgba(227, 27, 35, 0.05);
-  --red-accent: rgba(201, 20, 28, 0.14);
-  --burgundy-glow: rgba(127, 16, 24, 0.12);
+  --red-primary: #D71920;
+  --red-deep: #B31217;
+  --red-glow: rgba(215, 25, 32, 0.08);
+  --red-soft: rgba(215, 25, 32, 0.04);
+  --red-accent: rgba(215, 25, 32, 0.12);
+  --burgundy-glow: rgba(127, 16, 24, 0.08);
   --text-primary: #0F172A;
   --text-secondary: #64748B;
-  --grid-line: rgba(227, 27, 35, 0.025);
+  --grid-line: rgba(15, 23, 42, 0.035);
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .dark {
-  --bg-primary: #0B0B0D;
-  --bg-secondary: #0F1012;
-  --bg-tertiary: #17191E;
-  --red-primary: #E31B23;
-  --red-deep: #A9141E;
-  --red-glow: rgba(201, 20, 28, 0.16);
-  --red-soft: rgba(169, 20, 30, 0.09);
-  --red-accent: rgba(227, 27, 35, 0.18);
-  --burgundy-glow: rgba(127, 16, 24, 0.20);
+  --bg-primary: #090A0F;
+  --bg-secondary: #0F1118;
+  --bg-tertiary: #161922;
+  --red-primary: #EF4444;
+  --red-deep: #D71920;
+  --red-glow: rgba(215, 25, 32, 0.16);
+  --red-soft: rgba(215, 25, 32, 0.08);
+  --red-accent: rgba(239, 68, 68, 0.18);
+  --burgundy-glow: rgba(127, 16, 24, 0.22);
   --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
-  --grid-line: rgba(227, 27, 35, 0.02);
+  --grid-line: rgba(255, 255, 255, 0.035);
 }
 
 @layer base {
@@ -48,13 +48,6 @@
 
   body {
     background-color: var(--bg-primary);
-    background-image: 
-      radial-gradient(at 12% 8%, rgba(227, 27, 35, 0.08) 0px, transparent 55%),
-      radial-gradient(at 88% 25%, rgba(201, 20, 28, 0.06) 0px, transparent 50%),
-      radial-gradient(at 8% 52%, rgba(227, 27, 35, 0.05) 0px, transparent 50%),
-      radial-gradient(at 92% 72%, rgba(201, 20, 28, 0.07) 0px, transparent 55%),
-      radial-gradient(at 50% 90%, rgba(227, 27, 35, 0.05) 0px, transparent 60%);
-    background-attachment: fixed;
     color: var(--text-primary);
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 0.975rem;
@@ -65,12 +58,6 @@
 
   .dark body {
     background-color: var(--bg-primary);
-    background-image: 
-      radial-gradient(at 18% 12%, rgba(127, 16, 24, 0.18) 0px, transparent 55%),
-      radial-gradient(at 82% 28%, rgba(169, 20, 30, 0.12) 0px, transparent 50%),
-      radial-gradient(at 12% 58%, rgba(127, 16, 24, 0.14) 0px, transparent 52%),
-      radial-gradient(at 88% 75%, rgba(169, 20, 30, 0.15) 0px, transparent 55%),
-      radial-gradient(at 50% 92%, rgba(127, 16, 24, 0.12) 0px, transparent 60%);
     color: var(--text-primary);
   }
 

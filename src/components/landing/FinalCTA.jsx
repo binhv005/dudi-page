@@ -11,9 +11,35 @@ export default function FinalCTA() {
     <section
       ref={sectionRef}
       id="final-cta"
-      className="py-10 sm:py-12 lg:py-14 bg-white/40 dark:bg-white/[0.02] text-[#0F172A] dark:text-[#F8FAFC] relative overflow-hidden border-b border-[#E2E8F0]/80 dark:border-[#1E293B] transition-colors duration-300"
+      className="py-10 sm:py-12 lg:py-14 bg-[#F8FAFC]/75 dark:bg-[#0D0F17]/80 backdrop-blur-xs text-[#0F172A] dark:text-[#F8FAFC] relative overflow-hidden border-b border-[#E2E8F0]/80 dark:border-[#1E293B] transition-colors duration-300"
       aria-label="Kêu gọi hành động cuối trang"
     >
+      {/* Left Side Tech Network Watermark */}
+      <div
+        className="absolute -left-24 top-1/2 -translate-y-1/2 w-[380px] sm:w-[500px] h-[380px] sm:h-[500px] opacity-[0.08] dark:opacity-[0.14] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-network-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-[-25deg]"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Right Side Tech Network Watermark */}
+      <div
+        className="absolute -right-24 top-1/2 -translate-y-1/2 w-[380px] sm:w-[500px] h-[380px] sm:h-[500px] opacity-[0.08] dark:opacity-[0.14] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-network-bg.webp"
+          alt=""
+          className="w-full h-full object-contain scale-x-[-1] rotate-[25deg]"
+          loading="lazy"
+        />
+      </div>
+
       {/* Background Red Atmospheric Shape with Smooth Entrance & Gentle Breathing */}
       <div
         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[360px] sm:h-[440px] bg-gradient-to-r from-[#E31B23]/12 via-[#C9141C]/8 to-[#E31B23]/10 dark:from-[#7F1018]/25 dark:via-[#A9141E]/16 dark:to-[#7F1018]/20 rounded-full blur-[140px] pointer-events-none transition-all duration-1000 ease-out animate-tech-float-1 z-0 ${isInView ? 'scale-100 opacity-100' : 'scale-80 opacity-0'

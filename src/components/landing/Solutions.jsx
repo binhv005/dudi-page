@@ -196,9 +196,22 @@ export default function Solutions() {
     <section 
       ref={sectionRef}
       id="solutions" 
-      className="py-5 sm:py-7 lg:py-8 bg-transparent text-[#0F172A] dark:text-[#F8FAFC] relative overflow-hidden border-b border-[#E2E8F0]/80 dark:border-[#1E293B] transition-colors duration-300 flex flex-col justify-center"
+      className="py-5 sm:py-7 lg:py-8 bg-white/75 dark:bg-[#090A0F]/80 backdrop-blur-xs text-[#0F172A] dark:text-[#F8FAFC] relative overflow-hidden border-b border-[#E2E8F0]/80 dark:border-[#1E293B] transition-colors duration-300 flex flex-col justify-center"
       aria-label="Giải pháp nâng cấp website DUDI"
     >
+      {/* Tech Hexagon Background Mesh (Watermark) */}
+      <div
+        className="absolute -left-20 -top-20 w-[550px] sm:w-[680px] h-[350px] sm:h-[440px] opacity-[0.08] dark:opacity-[0.13] pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-hexagon-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-180"
+          loading="lazy"
+        />
+      </div>
+
       {/* Localized Red Ambient Mesh Flow */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-gradient-to-r from-[#D71920]/8 via-[#F43F5E]/5 to-transparent dark:from-[#D71920]/6 dark:via-transparent rounded-full blur-3xl pointer-events-none z-0" 

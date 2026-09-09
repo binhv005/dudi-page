@@ -1,8 +1,7 @@
 import React from 'react';
-import { CheckCircle2, Globe, MonitorCheck, ArrowUpRight } from 'lucide-react';
+import { Globe, ArrowUpRight, ShieldCheck, Zap, Smartphone, Check } from 'lucide-react';
 import { CASE_STUDIES } from '../../data/landingData';
 import { useInView } from '../../hooks/useInView';
-import { preventOrphans } from '../../utils/textUtils';
 
 export default function CaseStudies() {
   const [sectionRef, inView] = useInView({ threshold: 0.12 });
@@ -13,213 +12,406 @@ export default function CaseStudies() {
     <section
       ref={sectionRef}
       id="case-studies"
-      className="py-10 sm:py-12 lg:py-14 bg-white/40 dark:bg-white/[0.02] text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0]/80 dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
+      className="py-12 sm:py-14 lg:py-16 bg-gradient-to-br from-[#8A0C13] via-[#B8151D] to-[#6E0A0F] text-white border-y border-[#D71920]/40 relative overflow-hidden transition-colors duration-300"
       aria-label="Các dự án DUDI đã thực hiện"
     >
-      {/* Localized Red Ambient Mesh Glow Aura */}
+      {/* Deep Red Tech Grid Pattern */}
       <div 
-        className="absolute bottom-10 -left-20 w-[480px] h-[480px] bg-gradient-to-tr from-[#D71920]/8 via-[#EF4444]/4 to-transparent dark:from-[#D71920]/6 dark:via-transparent rounded-full blur-3xl pointer-events-none z-0" 
+        className="absolute inset-0 opacity-10 pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: '36px 36px',
+        }}
         aria-hidden="true"
       />
 
-      <div className="max-w-[880px] mx-auto px-4 sm:px-6 relative z-10">
+      {/* Tech Background Images at Corners */}
+      {/* Top-Left Corner */}
+      <div
+        className="absolute -left-20 -top-16 w-[360px] sm:w-[480px] h-[360px] sm:h-[480px] opacity-[0.16] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-geometric-bg.webp"
+          alt=""
+          className="w-full h-full object-contain filter brightness-150"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Top-Right Corner */}
+      <div
+        className="absolute -right-20 -top-16 w-[480px] sm:w-[600px] h-[340px] sm:h-[420px] opacity-[0.15] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-hexagon-bg.webp"
+          alt=""
+          className="w-full h-full object-contain filter brightness-150"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Bottom-Left Corner */}
+      <div
+        className="absolute -left-16 -bottom-16 w-[380px] sm:w-[500px] h-[380px] sm:h-[500px] opacity-[0.16] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-network-bg.webp"
+          alt=""
+          className="w-full h-full object-contain filter brightness-150"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Bottom-Right Corner */}
+      <div
+        className="absolute -right-16 -bottom-16 w-[420px] sm:w-[540px] h-[340px] sm:h-[420px] opacity-[0.14] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-geometric-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-180 filter brightness-150"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Ambient Moving Glow Orbs */}
+      <div 
+        className="absolute -top-10 left-1/3 w-[450px] h-[450px] bg-white/10 rounded-full blur-3xl pointer-events-none z-0" 
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute -bottom-10 right-1/4 w-[450px] h-[450px] bg-white/10 rounded-full blur-3xl pointer-events-none z-0" 
+        aria-hidden="true"
+      />
+
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className={`mb-7 sm:mb-9 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-          }`}>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase mb-2 shadow-2xs">
+        <div className={`mb-8 sm:mb-10 transition-all duration-700 ease-out ${
+          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+        }`}>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 border border-white/25 text-[10px] sm:text-[11px] font-mono tracking-widest text-white uppercase mb-2.5 shadow-2xs backdrop-blur-xs">
             <span>03 / DỰ ÁN THỰC TẾ</span>
           </div>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[2.1rem] font-extrabold text-white tracking-tight">
                 {CASE_STUDIES.heading}
               </h2>
-              <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] mt-0.5 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-red-100 mt-1 max-w-xl leading-relaxed">
                 {CASE_STUDIES.subheading}
               </p>
             </div>
 
             <a
-              href="https://www.dudisoftware.com/"
+              href="https://www.dudisoftware.com/projects"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-xs font-semibold text-[#0F172A] dark:text-white hover:text-[#D71920] dark:hover:text-[#EF4444] hover:border-[#D71920] transition-colors shadow-2xs shrink-0 self-start md:self-end group"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white text-[#D71920] hover:bg-red-50 text-xs font-bold transition-all shadow-md shrink-0 self-start md:self-end group"
             >
-              <Globe className="w-3.5 h-3.5 text-[#D71920]" />
-              <span>dudisoftware.com</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#D71920] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <Globe className="w-4 h-4 text-[#D71920]" />
+              <span>dudisoftware.com/projects</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#D71920] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
         </div>
 
-        {/* CASE 01: Packaging */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 items-center mb-8 pb-8 border-b border-[#E5E7EB] dark:border-[#1E293B]">
+        {/* ─── CASE 01: Travel Tour (Website tour du lịch - Odyssey Ha Giang Loop) ─── */}
+        <div
+          style={{ transitionDelay: inView ? '100ms' : '0ms' }}
+          className={`pb-12 mb-12 border-b border-white/20 transition-all duration-500 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
 
-          {/* Case 01 Text Info */}
-          <div
-            style={{ transitionDelay: inView ? '100ms' : '0ms' }}
-            className={`md:col-span-7 space-y-3 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-          >
-            <div
-              style={{ transitionDelay: inView ? '120ms' : '0ms' }}
-              className={`flex items-center gap-2 transition-all duration-500 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                }`}
-            >
-              <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#D71920]/25">01</span>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-[10px] sm:text-[11px] font-semibold flex items-center gap-1 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-                {case01.statusBadge}
-              </span>
-            </div>
-
-            <div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] dark:text-white tracking-tight">
-                {case01.category}
-              </h3>
-              <div className="mt-0.5 flex items-baseline gap-1.5">
-                <span className="text-lg sm:text-xl font-extrabold text-[#D71920]">{case01.price}</span>
-                <span className="text-xs font-mono text-[#64748B] dark:text-slate-400 uppercase font-bold">({case01.priceUnit})</span>
-              </div>
-            </div>
-
-            <div
-              style={{ transitionDelay: inView ? '320ms' : '0ms' }}
-              className={`space-y-1.5 pt-0.5 transition-all duration-500 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                }`}
-            >
-              <p className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#64748B] dark:text-slate-400 font-bold">
-                {case01.scopeTitle}
-              </p>
-              <div className="space-y-1">
-                {case01.scopeItems.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
-                    <p className="text-xs sm:text-[13px] text-[#0F172A] dark:text-slate-200 leading-relaxed sm:whitespace-nowrap">{item}</p>
+            {/* Left Showcase Column with Live Website Preview Image (5 cols on lg) - Image First */}
+            <div className="lg:col-span-5 flex justify-center items-center relative order-2 lg:order-1">
+              <a
+                href="https://www.odysseyhagiangloop.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-full rounded-2xl overflow-hidden border-2 border-white/25 shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-white/40 transition-all duration-300 group/card block bg-slate-900"
+              >
+                {/* Browser window top bar */}
+                <div className="bg-[#0F172A] px-3.5 py-2 flex items-center justify-between border-b border-slate-700/60">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   </div>
-                ))}
+                  <span className="text-[10px] font-mono text-slate-300 truncate max-w-[200px]">
+                    https://www.odysseyhagiangloop.com/
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover/card:text-white transition-colors" />
+                </div>
+
+                {/* Screenshot Image of odysseyhagiangloop.com */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-slate-100">
+                  <img
+                    src="/odysseyhagiang.webp"
+                    alt="Odyssey Ha Giang Loop Website Preview (odysseyhagiangloop.com)"
+                    width={800}
+                    height={500}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500 select-none"
+                  />
+
+                  {/* Hover Overlay Badge */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity flex items-end p-3">
+                    <span className="text-white text-xs font-bold inline-flex items-center gap-1.5 bg-[#D71920] px-3 py-1 rounded-lg shadow-md">
+                      <span>Truy cập odysseyhagiangloop.com</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bottom Card Footer */}
+                <div className="bg-white px-3.5 py-2.5 flex items-center justify-between border-t border-slate-200 text-xs">
+                  <span className="font-bold text-[#0F172A] flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
+                    <span>Odyssey Ha Giang Loop - Giao diện thực tế</span>
+                  </span>
+                  <span className="text-[11px] font-mono text-[#D71920] font-bold">Live Web ↗</span>
+                </div>
+              </a>
+            </div>
+
+            {/* Right Info Column (7 cols on lg) - Clean, uncluttered layout */}
+            <div className="lg:col-span-7 space-y-4 order-1 lg:order-2">
+              
+              {/* Top Row: Case Index + Status + Price */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/20">
+                <div className="flex items-center gap-2.5">
+                  <span className="px-2.5 py-0.5 rounded-md bg-white/15 border border-white/20 text-white text-[11px] font-mono font-bold tracking-wider uppercase">
+                    DỰ ÁN 01
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    {case01.statusBadge}
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-1 text-white">
+                  <span className="text-2xl sm:text-3xl font-black text-white tracking-tight">{case01.price}</span>
+                  <span className="text-xs text-red-200 font-medium">/ trọn gói</span>
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* Case 01 Mascot Visual */}
-          <div
-            style={{
-              transitionDelay: inView ? '180ms' : '0ms',
-            }}
-            className={`md:col-span-5 flex items-center justify-center md:justify-end transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-          >
-            <div className="relative flex items-center justify-center p-1">
-              <div
-                className="absolute w-40 h-40 sm:w-48 sm:h-48 bg-[#D71920]/8 rounded-full blur-2xl pointer-events-none"
-                aria-hidden="true"
-              />
-              <img
-                src="/leftside.webp"
-                alt="DUDI Mascot - Case Study Website Bao bì"
-                width={617}
-                height={864}
-                loading="lazy"
-                decoding="async"
-                className="w-auto h-auto max-h-[220px] sm:max-h-[250px] lg:max-h-[270px] object-contain drop-shadow-md select-none transition-transform duration-300 hover:scale-105 relative z-10"
-              />
-            </div>
-          </div>
+              {/* Title & Live Link */}
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  Website Odyssey Ha Giang Loop
+                </h3>
 
+                <a
+                  href="https://www.odysseyhagiangloop.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/15 hover:bg-white text-white hover:text-[#D71920] border border-white/25 text-xs font-bold transition-all shadow-sm group/link"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>odysseyhagiangloop.com</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+              </div>
+
+              {/* Scope Checklist */}
+              <div className="space-y-2 pt-1">
+                <p className="text-[11px] font-mono font-semibold uppercase tracking-wider text-red-200">
+                  Hạng mục thực hiện:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {case01.scopeItems.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5 font-bold" />
+                      <p className="text-xs sm:text-[13px] text-white/95 leading-snug font-medium">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Highlights Bar (Clean white translucent pills) */}
+              <div className="pt-2 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/15 backdrop-blur-xs">
+                  <Zap className="w-3.5 h-3.5 text-amber-300" />
+                  Tăng tốc tải trang
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/15 backdrop-blur-xs">
+                  <Smartphone className="w-3.5 h-3.5 text-blue-300" />
+                  Chuẩn hóa Mobile
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/15 backdrop-blur-xs">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+                  Bảo hành 30 ngày
+                </span>
+              </div>
+
+            </div>
+
+          </div>
         </div>
 
-        {/* CASE 02: Travel */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 items-center">
+        {/* ─── CASE 02: Packaging & Printing (Website bao bì - Cao Nguyên Xanh) ─── */}
+        <div
+          style={{ transitionDelay: inView ? '200ms' : '0ms' }}
+          className={`transition-all duration-500 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
 
-          {/* Case 02 Mascot Character Image */}
-          <div
-            style={{
-              transitionDelay: inView ? '300ms' : '0ms',
-            }}
-            className={`md:col-span-5 order-2 md:order-1 flex items-center justify-center md:justify-start transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-          >
-            <div className="relative flex items-center justify-center p-1">
-              <div
-                className="absolute w-40 h-40 sm:w-48 sm:h-48 bg-[#D71920]/8 rounded-full blur-2xl pointer-events-none"
-                aria-hidden="true"
-              />
-              <img
-                src="/tai-xuong-1.webp"
-                alt="DUDI Mascot - Case Study Website Du Lịch"
-                width={267}
-                height={385}
-                loading="lazy"
-                decoding="async"
-                className="w-auto h-auto max-h-[210px] sm:max-h-[240px] lg:max-h-[260px] object-contain drop-shadow-md select-none transition-transform duration-300 hover:scale-105 relative z-10"
-              />
-            </div>
-          </div>
+            {/* Left Info Column (7 cols on lg) - Clean, uncluttered layout */}
+            <div className="lg:col-span-7 space-y-4">
+              
+              {/* Top Row: Case Index + Status + Price */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/20">
+                <div className="flex items-center gap-2.5">
+                  <span className="px-2.5 py-0.5 rounded-md bg-white/15 border border-white/20 text-white text-[11px] font-mono font-bold tracking-wider uppercase">
+                    DỰ ÁN 02
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    {case02.statusBadge}
+                  </span>
+                </div>
 
-          {/* Case 02 Text Info */}
-          <div
-            style={{ transitionDelay: inView ? '240ms' : '0ms' }}
-            className={`md:col-span-7 space-y-3 order-1 md:order-2 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-          >
-            <div
-              style={{ transitionDelay: inView ? '260ms' : '0ms' }}
-              className={`flex items-center gap-2 transition-all duration-500 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                }`}
-            >
-              <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#D71920]/25">02</span>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-[10px] sm:text-[11px] font-semibold flex items-center gap-1 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-                {case02.statusBadge}
-              </span>
-            </div>
-
-            <div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] dark:text-white tracking-tight">
-                {case02.category}
-              </h3>
-              <div className="mt-0.5 flex items-baseline gap-1.5">
-                <span className="text-lg sm:text-xl font-extrabold text-[#D71920]">{case02.price}</span>
-                <span className="text-xs font-mono text-[#64748B] dark:text-slate-400 uppercase font-bold">({case02.priceUnit})</span>
+                <div className="flex items-baseline gap-1 text-white">
+                  <span className="text-2xl sm:text-3xl font-black text-white tracking-tight">{case02.price}</span>
+                  <span className="text-xs text-red-200 font-medium">/ trọn gói</span>
+                </div>
               </div>
+
+              {/* Title & Live Link to caonguyenxanh.com.vn */}
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  Website Bao Bì Cao Nguyên Xanh
+                </h3>
+
+                <a
+                  href="https://caonguyenxanh.com.vn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/15 hover:bg-white text-white hover:text-[#D71920] border border-white/25 text-xs font-bold transition-all shadow-sm group/link"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>caonguyenxanh.com.vn</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+              </div>
+
+              {/* Scope Checklist */}
+              <div className="space-y-2 pt-1">
+                <p className="text-[11px] font-mono font-semibold uppercase tracking-wider text-red-200">
+                  Hạng mục thực hiện:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {case02.scopeItems.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-emerald-300 shrink-0 mt-0.5 font-bold" />
+                      <p className="text-xs sm:text-[13px] text-white/95 leading-snug font-medium">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Highlights Bar */}
+              <div className="pt-2 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/15 backdrop-blur-xs">
+                  <Zap className="w-3.5 h-3.5 text-amber-300" />
+                  Tăng tốc tải trang
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/15 backdrop-blur-xs">
+                  <Smartphone className="w-3.5 h-3.5 text-blue-300" />
+                  Chuẩn hóa Mobile
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 text-white text-xs font-medium border border-white/15 backdrop-blur-xs">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+                  Bảo hành 30 ngày
+                </span>
+              </div>
+
             </div>
 
-            <div
-              style={{ transitionDelay: inView ? '360ms' : '0ms' }}
-              className={`space-y-1.5 pt-0.5 transition-all duration-500 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                }`}
-            >
-              <p className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#64748B] dark:text-slate-400 font-bold">
-                {case02.scopeTitle}
-              </p>
-              <div className="space-y-1">
-                {case02.scopeItems.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
-                    <p className="text-xs sm:text-[13px] text-[#0F172A] dark:text-slate-200 leading-relaxed sm:whitespace-nowrap">{item}</p>
+            {/* Right Showcase Column with Live Website Preview Image (5 cols on lg) */}
+            <div className="lg:col-span-5 flex justify-center items-center relative">
+              <a
+                href="https://caonguyenxanh.com.vn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-full rounded-2xl overflow-hidden border-2 border-white/25 shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-white/40 transition-all duration-300 group/card block bg-slate-900"
+              >
+                {/* Browser window top bar */}
+                <div className="bg-[#0F172A] px-3.5 py-2 flex items-center justify-between border-b border-slate-700/60">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                  <span className="text-[10px] font-mono text-slate-300 truncate max-w-[200px]">
+                    https://caonguyenxanh.com.vn/
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover/card:text-white transition-colors" />
+                </div>
 
+                {/* Screenshot Image of caonguyenxanh.com.vn */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-slate-100">
+                  <img
+                    src="/caonguyenxanh.webp"
+                    alt="Cao Nguyen Xanh Website Preview (caonguyenxanh.com.vn)"
+                    width={800}
+                    height={500}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover/card:scale-105 transition-transform duration-500 select-none"
+                  />
+
+                  {/* Hover Overlay Badge */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity flex items-end p-3">
+                    <span className="text-white text-xs font-bold inline-flex items-center gap-1.5 bg-[#D71920] px-3 py-1 rounded-lg shadow-md">
+                      <span>Truy cập caonguyenxanh.com.vn</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bottom Card Footer */}
+                <div className="bg-white px-3.5 py-2.5 flex items-center justify-between border-t border-slate-200 text-xs">
+                  <span className="font-bold text-[#0F172A] flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />
+                    <span>Cao Nguyên Xanh - Giao diện thực tế</span>
+                  </span>
+                  <span className="text-[11px] font-mono text-[#D71920] font-bold">Live Web ↗</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
         </div>
 
         {/* Bottom Callout Link */}
-        <div className="mt-8 pt-5 border-t border-[#E5E7EB] dark:border-[#1E293B] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2 text-[#64748B] dark:text-slate-400">
-            <Globe className="w-4 h-4 text-[#D71920] shrink-0" />
+        <div className="mt-8 pt-5 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 text-red-100">
+            <Globe className="w-4 h-4 text-white shrink-0" />
             <span>Khám phá thêm các dịch vụ phần mềm và dự án tiêu biểu tại hệ sinh thái DUDI.</span>
           </div>
           <a
-            href="https://www.dudisoftware.com/"
+            href="https://www.dudisoftware.com/projects"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-[#D71920] hover:text-[#8F0F16] dark:hover:text-[#EF4444] inline-flex items-center gap-1 transition-colors group shrink-0"
+            className="font-bold text-white hover:text-red-200 inline-flex items-center gap-1 transition-colors group shrink-0 underline underline-offset-4"
           >
-            <span>Truy cập dudisoftware.com</span>
+            <span>Xem tất cả dự án tại dudisoftware.com/projects</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
