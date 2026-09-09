@@ -12,7 +12,7 @@ export default function Hero() {
       className="relative min-h-screen lg:h-screen w-full flex items-center overflow-hidden bg-[#0A0A0B]"
       aria-label="Giới thiệu dịch vụ nâng cấp và sửa lỗi website DUDI"
     >
-      {/* LAYER 1: Background Video Asset - Natural edge crop completely eliminates watermark without any artificial smudge */}
+      {/* LAYER 1: Background Video Asset */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
@@ -20,11 +20,17 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] scale-[1.07] origin-center filter brightness-[0.98] contrast-[1.02]"
+          className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] filter brightness-[0.98] contrast-[1.02]"
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
       </div>
+
+      {/* LAYER 2: Precise Compact Watermark Concealment - Vừa đủ che khít góc logo */}
+      <div
+        className="absolute bottom-1 right-7 sm:bottom-2 sm:right-11 md:right-13 w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-[#220508]/75 backdrop-blur-md [filter:blur(5px)] pointer-events-none z-10"
+        aria-hidden="true"
+      />
 
       {/* LAYER 3: Localized Left Negative-Space Gradient (Character area on right remains clear) */}
       <div
