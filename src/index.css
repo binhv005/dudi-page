@@ -1,0 +1,472 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F5F9;
+  --red-primary: #E31B23;
+  --red-deep: #C9141C;
+  --red-glow: rgba(227, 27, 35, 0.10);
+  --red-soft: rgba(227, 27, 35, 0.05);
+  --red-accent: rgba(201, 20, 28, 0.14);
+  --burgundy-glow: rgba(127, 16, 24, 0.12);
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --grid-line: rgba(227, 27, 35, 0.025);
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  --bg-primary: #0B0B0D;
+  --bg-secondary: #0F1012;
+  --bg-tertiary: #17191E;
+  --red-primary: #E31B23;
+  --red-deep: #A9141E;
+  --red-glow: rgba(201, 20, 28, 0.16);
+  --red-soft: rgba(169, 20, 30, 0.09);
+  --red-accent: rgba(227, 27, 35, 0.18);
+  --burgundy-glow: rgba(127, 16, 24, 0.20);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --grid-line: rgba(227, 27, 35, 0.02);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 15px;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    background-image: 
+      radial-gradient(at 12% 8%, rgba(227, 27, 35, 0.08) 0px, transparent 55%),
+      radial-gradient(at 88% 25%, rgba(201, 20, 28, 0.06) 0px, transparent 50%),
+      radial-gradient(at 8% 52%, rgba(227, 27, 35, 0.05) 0px, transparent 50%),
+      radial-gradient(at 92% 72%, rgba(201, 20, 28, 0.07) 0px, transparent 55%),
+      radial-gradient(at 50% 90%, rgba(227, 27, 35, 0.05) 0px, transparent 60%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.975rem;
+    line-height: 1.6;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background-color: var(--bg-primary);
+    background-image: 
+      radial-gradient(at 18% 12%, rgba(127, 16, 24, 0.18) 0px, transparent 55%),
+      radial-gradient(at 82% 28%, rgba(169, 20, 30, 0.12) 0px, transparent 50%),
+      radial-gradient(at 12% 58%, rgba(127, 16, 24, 0.14) 0px, transparent 52%),
+      radial-gradient(at 88% 75%, rgba(169, 20, 30, 0.15) 0px, transparent 55%),
+      radial-gradient(at 50% 92%, rgba(127, 16, 24, 0.12) 0px, transparent 60%);
+    color: var(--text-primary);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-heading {
+    font-family: 'Sora', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark .font-heading {
+    color: var(--text-primary);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #D71920;
+  }
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0B0F17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D71920;
+}
+
+/* Editorial Motion System */
+:root {
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ease-editorial {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* DUDI Quiet Luxury Primary Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.625rem;
+  /* Modern refined rounded corner */
+  min-height: 44px;
+  padding: 0.625rem 1.375rem;
+  background-color: #D71920;
+  color: #FFFFFF;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(215, 25, 32, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #8F0F16;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(215, 25, 32, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* DUDI Quiet Luxury Secondary Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.625rem;
+  min-height: 44px;
+  padding: 0.625rem 1.375rem;
+  background-color: #FFFFFF;
+  color: #0F172A;
+  border: 1px solid #E2E8F0;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.dark .btn-secondary {
+  background-color: #1E293B;
+  color: #F8FAFC;
+  border-color: #334155;
+}
+
+.btn-secondary:hover {
+  background-color: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.dark .btn-secondary:hover {
+  background-color: #334155;
+  border-color: #475569;
+  color: #FFFFFF;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Fluid Container Helper */
+.max-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .max-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .max-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-tech-float-1,
+  .animate-tech-float-2,
+  .animate-tech-float-3,
+  .animate-grid-drift,
+  .animate-energy-flow-1,
+  .animate-energy-flow-2,
+  .animate-scan-beam,
+  .animate-data-pulse,
+  .animate-tech-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* 1. Tech Background Floating Light Animations */
+@keyframes techFloat1 {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate3d(35px, 50px, 0) scale(1.15);
+    opacity: 0.85;
+  }
+}
+
+@keyframes techFloat2 {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translate3d(-40px, -30px, 0) scale(0.95);
+    opacity: 0.75;
+  }
+}
+
+@keyframes techFloat3 {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translate3d(25px, -40px, 0) scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+.animate-tech-float-1 {
+  animation: techFloat1 18s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+.animate-tech-float-2 {
+  animation: techFloat2 24s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+.animate-tech-float-3 {
+  animation: techFloat3 20s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* 2. Grid Continuous Precision Drift */
+@keyframes gridDrift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 48px 48px, 48px 48px;
+  }
+}
+
+.animate-grid-drift {
+  animation: gridDrift 24s linear infinite;
+  will-change: background-position;
+}
+
+/* 3. Red Energy Flow Stream / Light Trail */
+@keyframes energyFlow1 {
+  0% {
+    transform: translate3d(-100%, 0, 0) skewX(-20deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.65;
+  }
+
+  80% {
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: translate3d(200%, 0, 0) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes energyFlow2 {
+  0% {
+    transform: translate3d(-100%, 100px, 0) skewX(-20deg);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.5;
+  }
+
+  70% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(220%, -80px, 0) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-energy-flow-1 {
+  animation: energyFlow1 16s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-energy-flow-2 {
+  animation: energyFlow2 22s ease-in-out infinite 8s;
+  will-change: transform, opacity;
+}
+
+/* 4. Diagnostic Scan Beam (for Problem Signs) */
+@keyframes scanBeam {
+  0% {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  85% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+  }
+}
+
+.animate-scan-beam {
+  animation: scanBeam 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* 5. Data Flow Pulse (for Process Timeline) */
+@keyframes dataPulse {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+}
+
+.animate-data-pulse {
+  animation: dataPulse 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* 6. Floating Contact Ripple & Phone Wiggle Animations */
+@keyframes contactRipple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes phoneWiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-10deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: rotate(10deg);
+  }
+}
+
+.animate-contact-ripple {
+  animation: contactRipple 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.animate-contact-ripple-delayed {
+  animation: contactRipple 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite 1.1s;
+}
+
+.animate-phone-wiggle {
+  animation: phoneWiggle 1.8s ease-in-out infinite 2.5s;
+}

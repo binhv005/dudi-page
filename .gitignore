@@ -1,0 +1,179 @@
+# ================================
+
+# Dependencies
+
+# ================================
+
+node_modules/
+.pnp/
+.pnp.js
+
+# ================================
+
+# Environment variables
+
+# ================================
+
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# ================================
+
+# Build / Production
+
+# ================================
+
+dist/
+build/
+out/
+.vercel/
+.netlify/
+
+# ================================
+
+# Logs
+
+# ================================
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ================================
+
+# Cache
+
+# ================================
+
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ================================
+
+# Testing / Coverage
+
+# ================================
+
+coverage/
+.nyc_output/
+
+# ================================
+
+# IDE / Editor
+
+# ================================
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+.idea/
+*.iml
+
+# ================================
+
+# OS files
+
+# ================================
+
+.DS_Store
+.DS_Store?
+Thumbs.db
+Desktop.ini
+
+# ================================
+
+# Temporary files
+
+# ================================
+
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ================================
+
+# Uploads / User files
+
+# ================================
+
+uploads/
+public/uploads/
+
+# ================================
+
+# Local database files
+
+# ================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+# ================================
+
+# Secrets / Credentials
+
+# ================================
+
+*.pem
+*.key
+*.crt
+credentials.json
+service-account.json
+
+# ================================
+
+# AI / Agent local files
+
+# ================================
+
+.agent/
+.agent-data/
+.agent-cache/
+agent-data/
+agent-cache/
+
+# ================================
+
+# Python (nếu Agent có Python)
+
+# ================================
+
+**pycache**/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# ================================
+
+# Misc
+
+# ================================
+
+*.bak
+*.swp
+*.swo
+*.orig
+.Docker/
+.Dockerfile
