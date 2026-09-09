@@ -196,7 +196,7 @@ export default function Solutions() {
     <section 
       ref={sectionRef}
       id="solutions" 
-      className="py-8 sm:py-10 lg:py-12 bg-transparent text-[#0F172A] dark:text-[#F8FAFC] relative overflow-hidden border-b border-[#E2E8F0]/80 dark:border-[#1E293B] transition-colors duration-300 flex flex-col justify-center"
+      className="py-5 sm:py-7 lg:py-8 bg-transparent text-[#0F172A] dark:text-[#F8FAFC] relative overflow-hidden border-b border-[#E2E8F0]/80 dark:border-[#1E293B] transition-colors duration-300 flex flex-col justify-center"
       aria-label="Giải pháp nâng cấp website DUDI"
     >
       {/* Localized Red Ambient Mesh Flow */}
@@ -220,22 +220,22 @@ export default function Solutions() {
       <div className="max-w-[1160px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className={`text-center max-w-2xl mx-auto mb-5 sm:mb-6 transition-all duration-700 ease-out ${
+        <div className={`text-center max-w-2xl mx-auto mb-3.5 sm:mb-4.5 transition-all duration-700 ease-out ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
         }`}>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase mb-2 shadow-2xs">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase mb-1.5 shadow-2xs">
             <span>02 / BẢN ĐỒ CHẨN ĐOÁN</span>
           </div>
-          <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight mb-1.5">
+          <h2 className="text-lg sm:text-2xl lg:text-[1.65rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight mb-1">
             {SOLUTIONS_DATA.heading}
           </h2>
-          <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+          <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
             Hệ thống 8 điểm kiểm tra kỹ thuật giúp rà soát toàn diện và cải thiện chính xác từng hạng mục.
           </p>
         </div>
 
         {/* TOP: Continuous Auto-Running & Draggable Infinite Card Track */}
-        <div className="mb-5 sm:mb-6 relative">
+        <div className="mb-3.5 sm:mb-4.5 relative">
           {/* Draggable Row Container with Side Mask */}
           <div className="relative overflow-hidden rounded-xl">
             <div
@@ -301,7 +301,7 @@ export default function Solutions() {
 
         {/* BOTTOM: Full Width Technical Inspector Card */}
         <div 
-          className={`bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-[#1E293B] rounded-2xl p-5 sm:p-6 lg:p-7 relative shadow-xs transition-all duration-500 ease-out overflow-hidden ${
+          className={`bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-[#1E293B] rounded-2xl p-4 sm:p-5 lg:p-5 relative shadow-xs transition-all duration-500 ease-out overflow-hidden ${
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
@@ -309,7 +309,7 @@ export default function Solutions() {
           <div className="absolute -right-16 -top-16 w-56 h-56 bg-[#D71920]/5 rounded-full blur-2xl pointer-events-none" />
 
           {/* Top Inspector Status Bar */}
-          <div className="flex items-center justify-between pb-3 sm:pb-3.5 border-b border-[#E2E8F0] dark:border-[#1E293B] mb-5">
+          <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-[#E2E8F0] dark:border-[#1E293B] mb-3.5 sm:mb-4">
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#D71920]" />
@@ -328,45 +328,45 @@ export default function Solutions() {
           </div>
 
           {/* Main 2-Column Split Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-stretch">
             
             {/* Left Column: Category Identity & Quick Action */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
-              <div className="space-y-2.5">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/40 text-[#D71920] flex items-center justify-center shadow-2xs shrink-0">
-                    <CurrentIcon className="w-6 h-6" />
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/40 text-[#D71920] flex items-center justify-center shadow-2xs shrink-0">
+                    <CurrentIcon className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono font-bold text-[#D71920] uppercase tracking-wider block">
                       Hạng mục #{activeNode.toUpperCase()}
                     </span>
-                    <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] dark:text-white tracking-tight">
+                    <h3 className="text-base sm:text-lg font-extrabold text-[#0F172A] dark:text-white tracking-tight">
                       {currentItem.name}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#64748B] dark:text-slate-300 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-slate-300 leading-relaxed">
                   {currentItem.desc}
                 </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="space-y-2 pt-1">
+              <div className="space-y-1.5 pt-0.5">
                 <a
                   href="#form-tu-van"
-                  className="w-full btn-primary !text-xs sm:!text-sm !font-semibold !py-2.5 flex items-center justify-center gap-2 group shadow-sm cursor-pointer"
+                  className="w-full btn-primary !text-xs sm:!text-[13px] !font-semibold !py-2 flex items-center justify-center gap-2 group shadow-sm cursor-pointer"
                 >
                   <span>Kiểm tra hạng mục {currentItem.name}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </a>
 
                 <div className="flex items-center justify-between text-xs text-[#64748B] dark:text-slate-400 pt-0.5">
-                  <span className="font-mono text-[11px]">Báo cáo sau 24h</span>
+                  <span className="font-mono text-[10.5px]">Báo cáo sau 24h</span>
                   <a 
                     href="#pricing" 
-                    className="font-bold text-[#D71920] hover:text-[#8F0F16] dark:hover:text-[#EF4444] transition-colors flex items-center gap-1 group"
+                    className="font-bold text-[#D71920] hover:text-[#8F0F16] dark:hover:text-[#EF4444] transition-colors flex items-center gap-1 group text-xs"
                   >
                     <span>Xem bảng giá</span>
                     <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
@@ -377,8 +377,8 @@ export default function Solutions() {
 
             {/* Right Column: Unified Deliverables Checklist Card */}
             <div className="lg:col-span-7 flex flex-col justify-center">
-              <div className="mb-2">
-                <p className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] dark:text-slate-400 font-bold">
+              <div className="mb-1.5">
+                <p className="text-[10.5px] font-mono uppercase tracking-wider text-[#64748B] dark:text-slate-400 font-bold">
                   DUDI trực tiếp tối ưu & bàn giao:
                 </p>
               </div>
@@ -387,12 +387,12 @@ export default function Solutions() {
                 {(deliverablesMap[activeNode] || []).map((deliverable, dIdx) => (
                   <div 
                     key={dIdx}
-                    className="py-3 px-4 sm:py-3.5 sm:px-4 flex items-start gap-3 hover:bg-white dark:hover:bg-[#1E293B]/60 transition-colors group"
+                    className="py-2.5 px-3.5 sm:py-2.5 sm:px-4 flex items-start gap-2.5 hover:bg-white dark:hover:bg-[#1E293B]/60 transition-colors group"
                   >
-                    <div className="w-4.5 h-4.5 rounded-full bg-red-50 dark:bg-red-950/50 border border-red-100 dark:border-red-900/50 text-[#D71920] flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    <div className="w-4 h-4 rounded-full bg-red-50 dark:bg-red-950/50 border border-red-100 dark:border-red-900/50 text-[#D71920] flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-3 h-3" />
                     </div>
-                    <span className="text-xs sm:text-sm text-[#0F172A] dark:text-slate-200 leading-snug font-medium group-hover:text-[#D71920] dark:group-hover:text-white transition-colors">
+                    <span className="text-xs sm:text-[13px] text-[#0F172A] dark:text-slate-200 leading-snug font-medium group-hover:text-[#D71920] dark:group-hover:text-white transition-colors">
                       {preventOrphans(deliverable, 3)}
                     </span>
                   </div>
@@ -403,12 +403,12 @@ export default function Solutions() {
           </div>
 
           {/* Bottom Security Assurance Footer */}
-          <div className="mt-5 pt-3.5 sm:mt-6 sm:pt-4 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center justify-between text-xs text-[#64748B] dark:text-slate-400">
+          <div className="mt-3.5 pt-2.5 sm:mt-4 sm:pt-3 border-t border-[#E2E8F0] dark:border-[#1E293B] flex items-center justify-between text-xs text-[#64748B] dark:text-slate-400">
             <div className="flex items-center gap-2">
-              <Layers className="w-4 h-4 text-[#D71920] shrink-0" />
-              <span className="text-[11px] sm:text-xs">Sao lưu mã nguồn trước khi can thiệp · Cam kết an toàn, không downtime.</span>
+              <Layers className="w-3.5 h-3.5 text-[#D71920] shrink-0" />
+              <span className="text-[10.5px] sm:text-xs">Sao lưu mã nguồn trước khi can thiệp · Cam kết an toàn, không downtime.</span>
             </div>
-            <span className="hidden sm:inline-block font-mono text-[10px] text-[#94A3B8]">SLA: 100% Secure</span>
+            <span className="hidden sm:inline-block font-mono text-[9.5px] text-[#94A3B8]">SLA: 100% Secure</span>
           </div>
 
         </div>
