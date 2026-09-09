@@ -58,11 +58,11 @@ export default function Process() {
           
           {/* LEFT: Hero Circular Card with Mascot peeking on corner (5 cols) */}
           <div className="col-span-5 flex justify-center items-center">
-            <div className="relative w-[250px] h-[250px] xl:w-[280px] xl:h-[280px] rounded-full bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-[#1E293B] shadow-[0_10px_35px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_35px_rgba(0,0,0,0.45)] flex flex-col items-center justify-center p-5 text-center select-none transition-transform duration-300 hover:scale-[1.01]">
+            <div className="relative w-[265px] h-[265px] xl:w-[295px] xl:h-[295px] rounded-full bg-white dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-[#1E293B] shadow-[0_10px_35px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_35px_rgba(0,0,0,0.45)] flex flex-col items-center justify-center p-5 text-center select-none transition-transform duration-300 hover:scale-[1.01]">
               
               {/* Mascot Peeking snugly on Top-Right Rim */}
               <div 
-                className="absolute -top-4 -right-1 xl:-top-5 xl:-right-2 w-16 h-16 xl:w-20 xl:h-20 pointer-events-none z-20 transition-transform duration-300 hover:scale-105"
+                className="absolute -top-5 -right-1 xl:-top-6 xl:-right-2 w-18 h-18 xl:w-22 xl:h-22 pointer-events-none z-20 transition-transform duration-300 hover:scale-105"
               >
                 <img 
                   src="/form-mascot.webp" 
@@ -72,17 +72,17 @@ export default function Process() {
               </div>
 
               {/* Top pill badge */}
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-100 dark:border-red-900/50 text-[9.5px] font-mono tracking-widest text-[#D71920] uppercase font-bold mb-2 shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-100 dark:border-red-900/50 text-[10px] font-mono tracking-widest text-[#D71920] uppercase font-bold mb-2 shadow-2xs">
                 <span>04 / QUY TRÌNH CHUẨN</span>
               </div>
 
               {/* Headline */}
-              <h2 className="text-lg xl:text-xl font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2] mb-1.5">
+              <h2 className="text-xl xl:text-2xl font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2] mb-1.5">
                 Quy trình <br /> 6 bước tối ưu
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[11px] xl:text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-[200px] mb-2.5">
+              <p className="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-[210px] mb-3">
                 Minh bạch từng chặng. Bấm vào từng bước để xem chi tiết.
               </p>
 
@@ -99,18 +99,18 @@ export default function Process() {
           </div>
 
           {/* RIGHT: SVG Curved Arc with Interactive Step Rows (7 cols) */}
-          <div className="col-span-7 relative py-1">
+          <div className="col-span-7 relative py-2">
             
             {/* Background SVG Arc Connecting All Steps */}
-            <div className="absolute left-0 top-0 bottom-0 w-28 pointer-events-none">
+            <div className="absolute left-0 top-0 bottom-0 w-32 pointer-events-none">
               <svg 
-                viewBox="0 0 120 440" 
+                viewBox="0 0 120 480" 
                 preserveAspectRatio="none" 
                 className="w-full h-full overflow-visible"
               >
                 {/* Smooth continuous curved arc line */}
                 <path
-                  d="M 20,10 C 95,80 95,360 20,430"
+                  d="M 20,15 C 100,90 100,390 20,465"
                   fill="none"
                   stroke="#E2E8F0"
                   strokeWidth="2.5"
@@ -119,8 +119,8 @@ export default function Process() {
               </svg>
             </div>
 
-            {/* 6 Step Rows positioned along the curved arc */}
-            <div className="space-y-1.5 xl:space-y-2 relative z-10">
+            {/* 6 Step Rows positioned along the curved arc with comfortable breathing room */}
+            <div className="space-y-3 xl:space-y-3.5 relative z-10">
               {PROCESS_DATA.steps.map((step, index) => {
                 const config = stepConfig[index] || stepConfig[0];
                 const IconComp = config.icon;
@@ -134,19 +134,19 @@ export default function Process() {
                     className={`group cursor-pointer transition-all duration-300 ${config.arcOffsetX}`}
                   >
                     {/* Main Row Header */}
-                    <div className="flex items-center gap-2.5 xl:gap-3.5">
+                    <div className="flex items-center gap-3 xl:gap-4 py-0.5">
                       
                       {/* 1. Step Icon Badge */}
-                      <div className={`relative w-8.5 h-8.5 xl:w-9.5 xl:h-9.5 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 z-10 ${
+                      <div className={`relative w-9 h-9 xl:w-10 xl:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 z-10 ${
                         isSelected 
                           ? 'bg-[#D71920] text-white ring-3 ring-[#D71920]/25 shadow-sm scale-105' 
                           : 'bg-white dark:bg-[#1E293B] border border-red-200/90 dark:border-red-900/50 shadow-2xs ring-1 ring-red-50 dark:ring-red-950/40 text-[#D71920] dark:text-[#EF4444] group-hover:scale-105 group-hover:border-[#D71920]'
                       }`}>
-                        <IconComp className="w-4 h-4 xl:w-4.5 xl:h-4.5" />
+                        <IconComp className="w-4.5 h-4.5 xl:w-5 xl:h-5" />
                       </div>
 
                       {/* 2. Step Number */}
-                      <div className="shrink-0 w-6 xl:w-7 text-center">
+                      <div className="shrink-0 w-7 xl:w-8 text-center">
                         <span className={`text-base xl:text-lg font-black font-mono tracking-tight transition-colors ${
                           isSelected ? 'text-[#D71920] dark:text-[#EF4444]' : 'text-[#D71920]/80 dark:text-[#EF4444]/90 group-hover:text-[#D71920]'
                         }`}>
@@ -157,8 +157,8 @@ export default function Process() {
                       {/* 3. Step Title & Quick Info */}
                       <div className="flex-1 min-w-0 flex items-center justify-between gap-2">
                         <div>
-                          <div className="flex items-center gap-1.5">
-                            <h3 className={`text-xs xl:text-sm font-bold tracking-tight transition-colors ${
+                          <div className="flex items-center gap-2">
+                            <h3 className={`text-xs sm:text-sm xl:text-[14.5px] font-bold tracking-tight transition-colors ${
                               isSelected ? 'text-[#D71920] dark:text-[#EF4444]' : 'text-[#0F172A] dark:text-white group-hover:text-[#D71920]'
                             }`}>
                               {step.title}
@@ -170,14 +170,14 @@ export default function Process() {
                             )}
                           </div>
                           {!isSelected && (
-                            <p className="text-[11px] xl:text-xs text-[#64748B] dark:text-[#94A3B8] leading-tight truncate max-w-[300px] xl:max-w-md mt-0.5">
+                            <p className="text-[11.5px] xl:text-xs text-[#64748B] dark:text-[#94A3B8] leading-tight truncate max-w-[320px] xl:max-w-md mt-1">
                               {step.dudiRole}
                             </p>
                           )}
                         </div>
 
                         {/* Chevron Indicator */}
-                        <div className={`p-0.5 rounded-full text-[#94A3B8] transition-transform duration-300 ${
+                        <div className={`p-1 rounded-full text-[#94A3B8] transition-transform duration-300 ${
                           isSelected ? 'rotate-90 text-[#D71920]' : 'group-hover:translate-x-0.5'
                         }`}>
                           <ChevronRight className="w-3.5 h-3.5" />
@@ -188,30 +188,30 @@ export default function Process() {
 
                     {/* Expandable Step Detail Panel */}
                     {isSelected && (
-                      <div className="mt-1.5 ml-10 xl:ml-12 mr-2 p-2.5 rounded-lg bg-white/95 dark:bg-[#0F172A]/95 border border-red-100 dark:border-red-950 shadow-2xs space-y-1 text-xs animate-fadeIn backdrop-blur-xs">
+                      <div className="my-2 ml-10 xl:ml-12 mr-2 p-3 rounded-xl bg-white/95 dark:bg-[#0F172A]/95 border border-red-100 dark:border-red-950 shadow-2xs space-y-1.5 text-xs animate-fadeIn backdrop-blur-xs">
                         
                         {/* DUDI Role */}
-                        <div className="flex items-start gap-1.5 text-[#334155] dark:text-[#CBD5E1]">
-                          <Sparkles className="w-3 h-3 text-[#D71920] shrink-0 mt-0.5" />
-                          <div className="text-[11.5px] leading-tight">
+                        <div className="flex items-start gap-2 text-[#334155] dark:text-[#CBD5E1]">
+                          <Sparkles className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
+                          <div className="text-xs leading-normal">
                             <strong className="text-[#0F172A] dark:text-white font-semibold">DUDI thực hiện: </strong>
                             <span>{step.dudiRole}</span>
                           </div>
                         </div>
 
                         {/* Client Input */}
-                        <div className="flex items-start gap-1.5 text-[#475569] dark:text-[#94A3B8]">
-                          <UserCheck className="w-3 h-3 text-[#2563EB] shrink-0 mt-0.5" />
-                          <div className="text-[11.5px] leading-tight">
+                        <div className="flex items-start gap-2 text-[#475569] dark:text-[#94A3B8]">
+                          <UserCheck className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
+                          <div className="text-xs leading-normal">
                             <strong className="text-[#0F172A] dark:text-white font-semibold">Khách hàng cung cấp: </strong>
                             <span>{step.clientInput}</span>
                           </div>
                         </div>
 
                         {/* Output */}
-                        <div className="flex items-start gap-1.5 text-[#475569] dark:text-[#94A3B8]">
-                          <CheckCircle2 className="w-3 h-3 text-[#16A34A] shrink-0 mt-0.5" />
-                          <div className="text-[11.5px] leading-tight">
+                        <div className="flex items-start gap-2 text-[#475569] dark:text-[#94A3B8]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0 mt-0.5" />
+                          <div className="text-xs leading-normal">
                             <strong className="text-[#0F172A] dark:text-white font-semibold">Kết quả bàn giao: </strong>
                             <span className="text-[#16A34A] dark:text-[#4ADE80] font-medium">{step.output}</span>
                           </div>
@@ -219,7 +219,7 @@ export default function Process() {
 
                         {/* Special highlight notice */}
                         {step.highlightNotice && (
-                          <div className="pt-0.5 text-[10.5px] font-medium text-[#D71920] italic border-t border-red-50 dark:border-red-950/60">
+                          <div className="pt-1 text-[11px] font-medium text-[#D71920] italic border-t border-red-50 dark:border-red-950/60">
                             * {step.highlightNotice}
                           </div>
                         )}
