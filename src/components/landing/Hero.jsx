@@ -4,7 +4,7 @@ import { HERO_DATA, COMPANY_CONFIG } from '../../data/landingData';
 import { trackEvent } from '../../utils/tracking';
 
 export default function Hero() {
-  const videoUrl = "https://res.cloudinary.com/ai1z2oaj/video/upload/v1788853315/dudivideo.mp4";
+  const videoUrl = "https://res.cloudinary.com/ai1z2oaj/video/upload/v1788929905/Robot_mascot_character_rotating_1080p_202609091157.mp4";
 
   return (
     <section
