@@ -12,23 +12,23 @@ export default function Hero() {
       className="relative min-h-screen lg:h-screen w-full flex items-center overflow-hidden bg-[#0A0A0B]"
       aria-label="Giới thiệu dịch vụ nâng cấp và sửa lỗi website DUDI"
     >
-      {/* LAYER 1: Background Video Asset - Scaled & Positioned Cleanly */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none flex items-center justify-center">
+      {/* LAYER 1: Background Video Asset - Perfectly Fills Viewport with No Black Bars */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover object-[50%_22%] sm:object-[65%_center] md:object-[60%_center] lg:object-[56%_center] scale-[0.85] sm:scale-[0.88] lg:scale-[0.9] origin-bottom sm:origin-right filter brightness-[0.98] contrast-[1.02]"
+          className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] filter brightness-[0.98] contrast-[1.02]"
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
       </div>
 
-      {/* LAYER 2: Seamless Watermark Concealment - Centered on diamond with feathered ambient blend */}
+      {/* LAYER 2: Seamless Watermark Concealment - Covers bottom-right watermark completely */}
       <div
-        className="absolute bottom-1 right-9 sm:bottom-2 sm:right-12 md:right-14 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#200507]/75 backdrop-blur-xl [filter:blur(6px)] pointer-events-none z-10"
+        className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-[#1c0406]/85 backdrop-blur-2xl [filter:blur(12px)] pointer-events-none z-10"
         aria-hidden="true"
       />
 
