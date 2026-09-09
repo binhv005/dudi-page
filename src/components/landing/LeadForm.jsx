@@ -184,48 +184,48 @@ export default function LeadForm({ selectedPackage }) {
     <section
       ref={sectionRef}
       id="form-tu-van"
-      className="py-10 sm:py-12 lg:py-14 bg-transparent text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0] dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300"
+      className="py-5 sm:py-7 lg:py-8 bg-transparent text-[#0F172A] dark:text-[#F8FAFC] border-b border-[#E2E8F0] dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300 flex flex-col justify-center"
       aria-label="Form gửi yêu cầu tư vấn và kiểm tra website"
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+      <div className="max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
 
           {/* Left Column: Split-Screen Typography & Direct Contact */}
           <div
-            className={`lg:col-span-5 space-y-3.5 transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            className={`lg:col-span-5 space-y-2.5 transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
           >
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[10.5px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs">
               <span>08 / TIẾP NHẬN YÊU CẦU</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.1rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.18]">
+            <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2]">
               Gửi website.<br />
               <span className="text-[#D71920]">DUDI kiểm tra trước.</span>
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-[420px]">
+            <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-[400px]">
               Điền thông tin cơ bản để kỹ sư DUDI xem qua hiện trạng website và gửi bạn báo cáo đánh giá kèm phạm vi & chi phí rõ ràng.
             </p>
 
-            <div className="space-y-2 pt-1">
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0F172A] dark:text-[#F1F5F9]">
-                <CheckCircle2 className="w-4 h-4 text-[#D71920] shrink-0 mt-0.5" />
+            <div className="space-y-1.5 pt-0.5">
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-[#0F172A] dark:text-[#F1F5F9]">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
                 <span>Không thu bất kỳ khoản phí kiểm tra ban đầu nào</span>
               </div>
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0F172A] dark:text-[#F1F5F9]">
-                <CheckCircle2 className="w-4 h-4 text-[#D71920] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-[#0F172A] dark:text-[#F1F5F9]">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
                 <span>Báo giá và chốt đầu việc trước khi viết code</span>
               </div>
-              <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#0F172A] dark:text-[#F1F5F9]">
-                <CheckCircle2 className="w-4 h-4 text-[#D71920] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 text-xs sm:text-[13px] text-[#0F172A] dark:text-[#F1F5F9]">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
                 <span>Bảo mật tuyệt đối mã nguồn và dữ liệu khách hàng</span>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[#E2E8F0] dark:border-[#1E293B] space-y-1.5">
-              <p className="text-[10px] font-mono uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] font-bold">Kênh liên hệ trực tiếp:</p>
-              <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm">
+            <div className="pt-2.5 border-t border-[#E2E8F0] dark:border-[#1E293B] space-y-1">
+              <p className="text-[9.5px] font-mono uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] font-bold">Kênh liên hệ trực tiếp:</p>
+              <div className="flex flex-wrap items-center gap-3 text-xs sm:text-[13px]">
                 <a
                   href={COMPANY_CONFIG.hotlineTel}
                   onClick={(e) => {
@@ -264,12 +264,12 @@ export default function LeadForm({ selectedPackage }) {
 
           {/* Right Column: Clean Form with Accessible Inputs & Staggered Reveal */}
           <div
-            className={`lg:col-span-7 bg-[#F8FAFC] dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-[#1E293B] rounded-2xl p-4 sm:p-5.5 shadow-2xs transition-all duration-500 ease-out relative ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            className={`lg:col-span-7 bg-[#F8FAFC] dark:bg-[#0F172A] border border-[#E2E8F0] dark:border-[#1E293B] rounded-2xl p-3.5 sm:p-4.5 lg:p-5 shadow-2xs transition-all duration-500 ease-out relative ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
             style={{ transitionDelay: '100ms' }}
           >
-            {/* Top-Right Mascot Assistant */}
-            <div className="absolute -top-10 sm:-top-12 right-2 sm:right-4 pointer-events-none z-20 select-none">
+            {/* Top-Right Mascot Assistant - Snugly tucked */}
+            <div className="absolute -top-6 sm:-top-7 right-2 sm:right-3 pointer-events-none z-20 select-none">
               <img
                 src="/form-mascot.webp"
                 alt="DUDI Mascot Assistant"
@@ -277,7 +277,7 @@ export default function LeadForm({ selectedPackage }) {
                 height={817}
                 loading="lazy"
                 decoding="async"
-                className="w-16 sm:w-20 lg:w-24 h-auto object-contain drop-shadow-md select-none"
+                className="w-13 sm:w-15 lg:w-16 h-auto object-contain drop-shadow-md select-none"
               />
             </div>
 
@@ -310,7 +310,7 @@ export default function LeadForm({ selectedPackage }) {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-3">
+              <form onSubmit={handleSubmit} noValidate className="space-y-2 sm:space-y-2.5">
 
                 {/* Honeypot hidden input for spam protection */}
                 <input
@@ -325,10 +325,10 @@ export default function LeadForm({ selectedPackage }) {
                 />
 
                 {/* Field Group 1: Full Name & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                   {/* Full Name */}
                   <div>
-                    <label htmlFor="form-fullname" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                    <label htmlFor="form-fullname" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                       Họ và tên <span className="text-[#D71920]">*</span>
                     </label>
                     <input
@@ -341,12 +341,12 @@ export default function LeadForm({ selectedPackage }) {
                       onChange={(e) => handleFieldChange('fullName', e.target.value)}
                       aria-invalid={!!formErrors.fullName}
                       aria-describedby={formErrors.fullName ? 'fullname-error' : undefined}
-                      className={`w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-sm transition-colors ${formErrors.fullName ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
+                      className={`w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-[13px] transition-colors ${formErrors.fullName ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
                         }`}
                     />
                     {formErrors.fullName && (
-                      <p id="fullname-error" className="mt-1 text-[11px] text-[#D71920] flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3 shrink-0" />
+                      <p id="fullname-error" className="mt-0.5 text-[10px] text-[#D71920] flex items-center gap-1">
+                        <AlertCircle className="w-2.5 h-2.5 shrink-0" />
                         <span>{formErrors.fullName}</span>
                       </p>
                     )}
@@ -354,7 +354,7 @@ export default function LeadForm({ selectedPackage }) {
 
                   {/* Phone / Zalo */}
                   <div>
-                    <label htmlFor="form-phone" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                    <label htmlFor="form-phone" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                       Số điện thoại / Zalo <span className="text-[#D71920]">*</span>
                     </label>
                     <input
@@ -367,12 +367,12 @@ export default function LeadForm({ selectedPackage }) {
                       onChange={(e) => handleFieldChange('phone', e.target.value)}
                       aria-invalid={!!formErrors.phone}
                       aria-describedby={formErrors.phone ? 'phone-error' : undefined}
-                      className={`w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-sm transition-colors ${formErrors.phone ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
+                      className={`w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-[13px] transition-colors ${formErrors.phone ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
                         }`}
                     />
                     {formErrors.phone && (
-                      <p id="phone-error" className="mt-1 text-[11px] text-[#D71920] flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3 shrink-0" />
+                      <p id="phone-error" className="mt-0.5 text-[10px] text-[#D71920] flex items-center gap-1">
+                        <AlertCircle className="w-2.5 h-2.5 shrink-0" />
                         <span>{formErrors.phone}</span>
                       </p>
                     )}
@@ -380,10 +380,10 @@ export default function LeadForm({ selectedPackage }) {
                 </div>
 
                 {/* Field Group 2: Company Name & Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                   {/* Company Name */}
                   <div>
-                    <label htmlFor="form-company" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                    <label htmlFor="form-company" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                       Tên doanh nghiệp <span className="text-[#5F6368] dark:text-[#94A3B8] font-normal">(Không bắt buộc)</span>
                     </label>
                     <input
@@ -392,13 +392,13 @@ export default function LeadForm({ selectedPackage }) {
                       placeholder="Công ty TNHH ABC"
                       value={formData.companyName}
                       onChange={(e) => handleFieldChange('companyName', e.target.value)}
-                      className="w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920] text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-sm transition-colors"
+                      className="w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920] text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-[13px] transition-colors"
                     />
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="form-email" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                    <label htmlFor="form-email" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                       Email <span className="text-[#5F6368] dark:text-[#94A3B8] font-normal">(Nhận báo cáo PDF)</span>
                     </label>
                     <input
@@ -410,12 +410,12 @@ export default function LeadForm({ selectedPackage }) {
                       onChange={(e) => handleFieldChange('email', e.target.value)}
                       aria-invalid={!!formErrors.email}
                       aria-describedby={formErrors.email ? 'email-error' : undefined}
-                      className={`w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-sm transition-colors ${formErrors.email ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
+                      className={`w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-[13px] transition-colors ${formErrors.email ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
                         }`}
                     />
                     {formErrors.email && (
-                      <p id="email-error" className="mt-1 text-[11px] text-[#D71920] flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3 shrink-0" />
+                      <p id="email-error" className="mt-0.5 text-[10px] text-[#D71920] flex items-center gap-1">
+                        <AlertCircle className="w-2.5 h-2.5 shrink-0" />
                         <span>{formErrors.email}</span>
                       </p>
                     )}
@@ -423,10 +423,10 @@ export default function LeadForm({ selectedPackage }) {
                 </div>
 
                 {/* Field Group 3: Website URL & Desired Timeline */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                   {/* Website URL */}
                   <div>
-                    <label htmlFor="form-website" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                    <label htmlFor="form-website" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                       URL Website hiện tại <span className="text-[#5F6368] dark:text-[#94A3B8] font-normal">(Chưa có để trống)</span>
                     </label>
                     <input
@@ -438,12 +438,12 @@ export default function LeadForm({ selectedPackage }) {
                       onChange={(e) => handleFieldChange('websiteUrl', e.target.value)}
                       aria-invalid={!!formErrors.websiteUrl}
                       aria-describedby={formErrors.websiteUrl ? 'website-error' : undefined}
-                      className={`w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-sm transition-colors ${formErrors.websiteUrl ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
+                      className={`w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-[13px] transition-colors ${formErrors.websiteUrl ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
                         }`}
                     />
                     {formErrors.websiteUrl && (
-                      <p id="website-error" className="mt-1 text-[11px] text-[#D71920] flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3 shrink-0" />
+                      <p id="website-error" className="mt-0.5 text-[10px] text-[#D71920] flex items-center gap-1">
+                        <AlertCircle className="w-2.5 h-2.5 shrink-0" />
                         <span>{formErrors.websiteUrl}</span>
                       </p>
                     )}
@@ -451,14 +451,14 @@ export default function LeadForm({ selectedPackage }) {
 
                   {/* Desired Timeline */}
                   <div>
-                    <label htmlFor="form-timeline" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                    <label htmlFor="form-timeline" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                       Thời gian mong muốn
                     </label>
                     <select
                       id="form-timeline"
                       value={formData.desiredTimeline}
                       onChange={(e) => handleFieldChange('desiredTimeline', e.target.value)}
-                      className="w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920] text-[#111111] dark:text-white text-xs sm:text-sm transition-colors cursor-pointer"
+                      className="w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920] text-[#111111] dark:text-white text-xs sm:text-[13px] transition-colors cursor-pointer"
                     >
                       {TIMELINE_OPTIONS.map((opt) => (
                         <option key={opt.value} value={opt.value} className="bg-white dark:bg-[#1E293B] text-[#111111] dark:text-white">
@@ -471,7 +471,7 @@ export default function LeadForm({ selectedPackage }) {
 
                 {/* Field Group 4: Package Interest */}
                 <div>
-                  <label htmlFor="form-package" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                  <label htmlFor="form-package" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                     Gói dịch vụ quan tâm
                   </label>
                   <select
@@ -481,7 +481,7 @@ export default function LeadForm({ selectedPackage }) {
                       handleFieldChange('packageInterest', e.target.value);
                       trackEvent('package_select', { package: e.target.value });
                     }}
-                    className="w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920] text-[#111111] dark:text-white text-xs sm:text-sm transition-colors cursor-pointer"
+                    className="w-full px-2.5 py-1.5 sm:py-2 rounded-lg bg-white dark:bg-[#1E293B] border border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920] text-[#111111] dark:text-white text-xs sm:text-[13px] transition-colors cursor-pointer"
                   >
                     {FORM_DATA.packagesOptions.map((pkg) => (
                       <option key={pkg.value} value={pkg.value} className="bg-white dark:bg-[#1E293B] text-[#111111] dark:text-white">
@@ -493,25 +493,25 @@ export default function LeadForm({ selectedPackage }) {
 
                 {/* Field Group 5: Issue Summary */}
                 <div>
-                  <label htmlFor="form-issue" className="block text-[11px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-1 font-bold">
+                  <label htmlFor="form-issue" className="block text-[10px] sm:text-[10.5px] font-mono uppercase tracking-wider text-[#111111] dark:text-[#E2E8F0] mb-0.5 font-bold">
                     Vấn đề cần xử lý <span className="text-[#D71920]">* (10–1000 ký tự)</span>
                   </label>
                   <textarea
                     ref={inputRefs.issueSummary}
                     id="form-issue"
-                    rows="2.5"
+                    rows="2"
                     required
                     placeholder="VD: Website tải chậm trên điện thoại, form đặt hàng bị lỗi không nhận được email..."
                     value={formData.issueSummary}
                     onChange={(e) => handleFieldChange('issueSummary', e.target.value)}
                     aria-invalid={!!formErrors.issueSummary}
                     aria-describedby={formErrors.issueSummary ? 'issue-error' : undefined}
-                    className={`w-full px-3 py-2 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-sm transition-colors ${formErrors.issueSummary ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
+                    className={`w-full px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#1E293B] border text-[#111111] dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-xs sm:text-[13px] transition-colors resize-none ${formErrors.issueSummary ? 'border-[#D71920] ring-1 ring-[#D71920]' : 'border-[#E5E7EB] dark:border-[#334155] focus:border-[#D71920] dark:focus:border-[#D71920]'
                       }`}
                   />
                   {formErrors.issueSummary && (
-                    <p id="issue-error" className="mt-1 text-[11px] text-[#D71920] flex items-center gap-1">
-                      <AlertCircle className="w-3 h-3 shrink-0" />
+                    <p id="issue-error" className="mt-0.5 text-[10px] text-[#D71920] flex items-center gap-1">
+                      <AlertCircle className="w-2.5 h-2.5 shrink-0" />
                       <span>{formErrors.issueSummary}</span>
                     </p>
                   )}
@@ -519,7 +519,7 @@ export default function LeadForm({ selectedPackage }) {
 
                 {/* Field Group 6: Consent Checkbox */}
                 <div>
-                  <label className="flex items-center gap-2.5 cursor-pointer select-none">
+                  <label className="flex items-center gap-2 cursor-pointer select-none">
                     <input
                       ref={inputRefs.consent}
                       type="checkbox"
@@ -527,24 +527,24 @@ export default function LeadForm({ selectedPackage }) {
                       onChange={(e) => handleFieldChange('consent', e.target.checked)}
                       className="w-3.5 h-3.5 rounded border-[#E5E7EB] dark:border-[#334155] dark:bg-[#1E293B] text-[#D71920] focus:ring-[#D71920] focus:ring-offset-0 cursor-pointer"
                     />
-                    <span className="text-xs text-[#5F6368] dark:text-[#94A3B8] leading-relaxed">
+                    <span className="text-[11px] sm:text-xs text-[#5F6368] dark:text-[#94A3B8] leading-tight">
                       {FORM_DATA.consentText}
                     </span>
                   </label>
                   {formErrors.consent && (
-                    <p className="mt-1 text-[11px] text-[#D71920] flex items-center gap-1">
-                      <AlertCircle className="w-3 h-3 shrink-0" />
+                    <p className="mt-0.5 text-[10px] text-[#D71920] flex items-center gap-1">
+                      <AlertCircle className="w-2.5 h-2.5 shrink-0" />
                       <span>{formErrors.consent}</span>
                     </p>
                   )}
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-1">
+                <div className="pt-0.5">
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="btn-primary w-full !text-xs sm:!text-sm !font-semibold !py-2.5 flex items-center justify-center gap-1.5 group shadow-sm shadow-[#D71920]/20 cursor-pointer disabled:opacity-50"
+                    className="btn-primary w-full !text-xs sm:!text-[13px] !font-semibold !py-2 sm:!py-2.5 flex items-center justify-center gap-1.5 group shadow-sm shadow-[#D71920]/20 cursor-pointer disabled:opacity-50"
                   >
                     {status === 'submitting' ? (
                       <>
