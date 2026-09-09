@@ -4,7 +4,7 @@ import { HERO_DATA, COMPANY_CONFIG } from '../../data/landingData';
 import { trackEvent } from '../../utils/tracking';
 
 export default function Hero() {
-  const videoUrl = "https://res.cloudinary.com/ai1z2oaj/video/upload/v1788929905/Robot_mascot_character_rotating_1080p_202609091157.mp4";
+  const videoUrl = "https://res.cloudinary.com/ai1z2oaj/video/upload/v1788936158/c84fe2644ceb4921b341305699dbbc76.mp4";
 
   return (
     <section
@@ -20,15 +20,15 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] filter brightness-[0.98] contrast-[1.02]"
+          className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] scale-[1.08] origin-center filter brightness-[0.98] contrast-[1.02]"
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
       </div>
 
-      {/* LAYER 2: Precise Compact Watermark Concealment - Vừa đủ che khít góc logo */}
+      {/* LAYER 2: Ultra-Soft Corner Shadow Blend to guarantee zero watermark visibility on any resolution */}
       <div
-        className="absolute bottom-1 right-7 sm:bottom-2 sm:right-11 md:right-13 w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-[#220508]/75 backdrop-blur-md [filter:blur(5px)] pointer-events-none z-10"
+        className="absolute -bottom-10 -right-10 w-44 h-44 sm:w-56 sm:h-56 bg-gradient-to-tl from-[#0A0A0B]/90 via-[#3a060a]/50 to-transparent rounded-full blur-2xl pointer-events-none z-10"
         aria-hidden="true"
       />
 

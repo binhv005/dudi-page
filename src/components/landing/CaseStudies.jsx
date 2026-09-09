@@ -22,7 +22,7 @@ export default function CaseStudies() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1050px] mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-[880px] mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Section Header */}
         <div className={`mb-7 sm:mb-9 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
@@ -54,12 +54,12 @@ export default function CaseStudies() {
         </div>
 
         {/* CASE 01: Packaging */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-center mb-8 pb-8 border-b border-[#E5E7EB] dark:border-[#1E293B]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 items-center mb-8 pb-8 border-b border-[#E5E7EB] dark:border-[#1E293B]">
 
           {/* Case 01 Text Info */}
           <div
             style={{ transitionDelay: inView ? '100ms' : '0ms' }}
-            className={`md:col-span-8 space-y-3 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`md:col-span-7 space-y-3 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
           >
             <div
@@ -108,12 +108,12 @@ export default function CaseStudies() {
             style={{
               transitionDelay: inView ? '180ms' : '0ms',
             }}
-            className={`md:col-span-4 flex items-center justify-center transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`md:col-span-5 flex items-center justify-center md:justify-end transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
           >
-            <div className="relative flex items-center justify-center p-2">
+            <div className="relative flex items-center justify-center p-1">
               <div
-                className="absolute w-44 h-44 sm:w-56 sm:h-56 bg-[#D71920]/8 rounded-full blur-2xl pointer-events-none"
+                className="absolute w-40 h-40 sm:w-48 sm:h-48 bg-[#D71920]/8 rounded-full blur-2xl pointer-events-none"
                 aria-hidden="true"
               />
               <img
@@ -123,7 +123,7 @@ export default function CaseStudies() {
                 height={864}
                 loading="lazy"
                 decoding="async"
-                className="w-auto h-auto max-h-[230px] sm:max-h-[260px] lg:max-h-[280px] object-contain drop-shadow-md select-none transition-transform duration-300 hover:scale-105 relative z-10"
+                className="w-auto h-auto max-h-[220px] sm:max-h-[250px] lg:max-h-[270px] object-contain drop-shadow-md select-none transition-transform duration-300 hover:scale-105 relative z-10"
               />
             </div>
           </div>
@@ -131,19 +131,19 @@ export default function CaseStudies() {
         </div>
 
         {/* CASE 02: Travel */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-4 items-center">
 
           {/* Case 02 Mascot Character Image */}
           <div
             style={{
               transitionDelay: inView ? '300ms' : '0ms',
             }}
-            className={`md:col-span-4 order-2 md:order-1 flex items-center justify-center transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`md:col-span-5 order-2 md:order-1 flex items-center justify-center md:justify-start transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
           >
-            <div className="relative flex items-center justify-center p-2">
+            <div className="relative flex items-center justify-center p-1">
               <div
-                className="absolute w-44 h-44 sm:w-52 sm:h-52 bg-[#D71920]/8 rounded-full blur-2xl pointer-events-none"
+                className="absolute w-40 h-40 sm:w-48 sm:h-48 bg-[#D71920]/8 rounded-full blur-2xl pointer-events-none"
                 aria-hidden="true"
               />
               <img
@@ -153,7 +153,7 @@ export default function CaseStudies() {
                 height={385}
                 loading="lazy"
                 decoding="async"
-                className="w-auto h-auto max-h-[210px] sm:max-h-[250px] lg:max-h-[270px] object-contain drop-shadow-md select-none transition-transform duration-300 hover:scale-105 relative z-10"
+                className="w-auto h-auto max-h-[210px] sm:max-h-[240px] lg:max-h-[260px] object-contain drop-shadow-md select-none transition-transform duration-300 hover:scale-105 relative z-10"
               />
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function CaseStudies() {
           {/* Case 02 Text Info */}
           <div
             style={{ transitionDelay: inView ? '240ms' : '0ms' }}
-            className={`md:col-span-8 space-y-3 order-1 md:order-2 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`md:col-span-7 space-y-3 order-1 md:order-2 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
           >
             <div
