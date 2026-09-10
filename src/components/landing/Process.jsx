@@ -270,7 +270,14 @@ export default function Process() {
               <h2 className="text-xl font-extrabold text-[#0F172A] dark:text-white">
                 Quy trình 6 bước rõ ràng
               </h2>
-              <img src="/form-mascot.webp" alt="Mascot" className="w-8 h-8 object-contain inline-block" />
+              <img
+                src="/form-mascot.webp"
+                alt="DUDI Mascot"
+                className="w-8 h-8 object-contain inline-block"
+                width="32"
+                height="32"
+                loading="lazy"
+              />
             </div>
             <p className="text-xs text-[#64748B] dark:text-[#94A3B8]">
               Minh bạch từng chặng. Chạm vào từng bước để xem chi tiết.

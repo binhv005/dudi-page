@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#111111] dark:bg-[#070A0F] text-[#9CA3AF] text-xs sm:text-sm border-t border-[#222222] dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300">
+    <footer className="bg-[#111111] dark:bg-[#070A0F] text-[#CBD5E1] text-xs sm:text-sm border-t border-[#222222] dark:border-[#1E293B] relative overflow-hidden transition-colors duration-300">
       {/* Subtle top red line accent */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#D71920] to-transparent opacity-70" />
 
@@ -29,25 +29,25 @@ export default function Footer() {
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-md bg-[#D71920] flex flex-col items-center justify-center text-white leading-none px-1 py-1 shadow-md shrink-0">
-                <span className="text-[13px] tracking-tight font-extrabold uppercase">DUDI</span>
-                <span className="text-[7.5px] font-medium lowercase tracking-wider opacity-90">software</span>
+                <span className="text-[13px] tracking-tight font-extrabold uppercase text-white">DUDI</span>
+                <span className="text-[8px] font-bold lowercase tracking-wider text-white">software</span>
               </div>
               <span className="text-xl sm:text-2xl font-black text-white tracking-tight">DUDI Software</span>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed max-w-md">
+            <p className="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed max-w-md">
               {COMPANY_CONFIG.tagline}
             </p>
 
             <div className="pl-3.5 border-l-2 border-[#3B82F6] space-y-1 py-0.5">
-              <h4 className="font-bold text-white text-xs sm:text-sm tracking-wide">
+              <h3 className="font-bold text-white text-xs sm:text-sm tracking-wide">
                 {COMPANY_CONFIG.legalName}
-              </h4>
-              <p className="text-[11px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider">
+              </h3>
+              <p className="text-[11px] sm:text-xs font-semibold text-[#CBD5E1] uppercase tracking-wider">
                 {COMPANY_CONFIG.legalNameEn}
               </p>
-              <p className="text-xs text-[#94A3B8] font-medium pt-0.5">
-                MST: <span className="font-mono text-[#CBD5E1]">{COMPANY_CONFIG.taxCode}</span>
+              <p className="text-xs text-[#CBD5E1] font-medium pt-0.5">
+                MST: <span className="font-mono text-white font-semibold">{COMPANY_CONFIG.taxCode}</span>
               </p>
             </div>
           </div>
@@ -55,9 +55,9 @@ export default function Footer() {
           {/* Quick Nav */}
           <div className="lg:col-span-2 space-y-3.5">
             <div className="relative inline-block pb-2">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-white">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-white">
                 Danh mục
-              </h4>
+              </h3>
               <div className="absolute bottom-0 left-0 w-6 h-[2px] bg-[#EF4444] rounded-full" />
             </div>
             <ul className="space-y-2 text-xs sm:text-sm">
@@ -65,7 +65,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[#9CA3AF] hover:text-white transition-colors py-0.5 block"
+                    className="text-[#CBD5E1] hover:text-white transition-colors py-0.5 block"
                   >
                     {link.label}
                   </a>
@@ -77,24 +77,24 @@ export default function Footer() {
           {/* Contact Direct Links */}
           <div className="lg:col-span-4 space-y-3.5">
             <div className="relative inline-block pb-2">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-white">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-white">
                 Liên hệ
-              </h4>
+              </h3>
               <div className="absolute bottom-0 left-0 w-6 h-[2px] bg-[#3B82F6] rounded-full" />
             </div>
             
             <div className="space-y-3 text-xs sm:text-sm">
               {/* Address 1 */}
-              <div className="flex items-start gap-2.5 text-[#CBD5E1]">
-                <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-[#94A3B8]">
+              <div className="flex items-start gap-2.5 text-[#E2E8F0]">
+                <div className="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0 mt-0.5 text-white">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <span className="leading-snug pt-0.5">{COMPANY_CONFIG.addresses[0]}</span>
               </div>
 
               {/* Address 2 */}
-              <div className="flex items-start gap-2.5 text-[#CBD5E1]">
-                <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-[#94A3B8]">
+              <div className="flex items-start gap-2.5 text-[#E2E8F0]">
+                <div className="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0 mt-0.5 text-white">
                   <MapPin className="w-3.5 h-3.5" />
                 </div>
                 <span className="leading-snug pt-0.5">{COMPANY_CONFIG.addresses[1]}</span>
@@ -109,11 +109,11 @@ export default function Footer() {
                   title="Nhấn để sao chép số điện thoại"
                 >
                   <div className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                    copiedPhone ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-white/5 border-white/10 text-[#94A3B8] group-hover:text-white group-hover:bg-white/10'
+                    copiedPhone ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-white/10 border-white/20 text-white group-hover:text-white group-hover:bg-white/20'
                   }`}>
                     {copiedPhone ? <Check className="w-3.5 h-3.5" /> : <Phone className="w-3.5 h-3.5" />}
                   </div>
-                  <span className="font-bold text-sm sm:text-base tracking-wide">{COMPANY_CONFIG.hotline}</span>
+                  <span className="font-bold text-sm sm:text-base tracking-wide text-white">{COMPANY_CONFIG.hotline}</span>
                   {copiedPhone && (
                     <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded-full animate-in fade-in duration-150">
                       Đã sao chép!
@@ -128,13 +128,13 @@ export default function Footer() {
                   href={COMPANY_CONFIG.emailMailto}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-[#CBD5E1] hover:text-[#38BDF8] transition-colors group cursor-pointer"
+                  className="flex items-center gap-2.5 text-[#E2E8F0] hover:text-[#38BDF8] transition-colors group cursor-pointer"
                   title="Gửi email cho DUDI qua Gmail"
                 >
-                  <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#94A3B8] group-hover:text-white group-hover:bg-white/10 transition-colors">
+                  <div className="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shrink-0 text-white group-hover:text-white group-hover:bg-white/20 transition-colors">
                     <Mail className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-xs sm:text-sm">{COMPANY_CONFIG.email}</span>
+                  <span className="text-xs sm:text-sm text-white">{COMPANY_CONFIG.email}</span>
                 </a>
               </div>
             </div>
@@ -143,8 +143,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-4 border-t border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#6B7280]">
-          <p>
+        <div className="mt-8 pt-4 border-t border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#CBD5E1]">
+          <p className="text-[#CBD5E1]">
             © {new Date().getFullYear()} {COMPANY_CONFIG.legalName}. All rights reserved.
           </p>
 
@@ -152,15 +152,15 @@ export default function Footer() {
             <button
               type="button"
               onClick={() => setActiveModal('privacy')}
-              className="hover:text-white transition-colors focus-visible:outline-none cursor-pointer"
+              className="text-[#CBD5E1] hover:text-white transition-colors focus-visible:outline-none cursor-pointer"
             >
               Chính sách bảo mật
             </button>
-            <span className="text-[#333333]">|</span>
+            <span className="text-[#4B5563]">|</span>
             <button
               type="button"
               onClick={() => setActiveModal('terms')}
-              className="hover:text-white transition-colors focus-visible:outline-none cursor-pointer"
+              className="text-[#CBD5E1] hover:text-white transition-colors focus-visible:outline-none cursor-pointer"
             >
               Điều khoản dịch vụ
             </button>

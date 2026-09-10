@@ -20,9 +20,11 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
+          aria-label="Video minh họa công nghệ DUDI Software"
           className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] scale-[1.08] origin-center filter brightness-[0.98] contrast-[1.02]"
         >
           <source src={videoUrl} type="video/mp4" />
+          <track kind="captions" src="data:text/vtt;charset=utf-8,WEBVTT" label="Tiếng Việt" default />
         </video>
       </div>
 
