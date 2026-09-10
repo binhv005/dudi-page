@@ -96,24 +96,26 @@ export default function FAQ() {
               Câu hỏi thường gặp
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
-              Giải đáp minh bạch mọi thắc mắc về phạm vi, chi phí và quy trình trước khi bạn gửi website.
-            </p>
+            {/* Mascot FAQ Assistant & Direct Contact */}
+            <div className="relative pt-1 flex flex-col items-center sm:items-start group">
+              <div className="relative w-full max-w-[260px] sm:max-w-[280px] mx-auto lg:mx-0 flex flex-col items-center">
+                <img
+                  src="/faq-mascot.webp"
+                  alt="DUDI FAQ Support Mascot"
+                  className="w-full max-h-[280px] sm:max-h-[320px] object-contain select-none pointer-events-none drop-shadow-xl hover:scale-105 transition-transform duration-500 ease-out"
+                  loading="lazy"
+                />
 
-            <div className="p-4 rounded-xl bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#991016] text-white border border-red-400/40 shadow-lg shadow-red-950/20 space-y-2">
-              <p className="text-[10px] font-mono uppercase text-red-200 font-bold tracking-wider">Cần trao đổi riêng?</p>
-              <p className="text-xs text-white/95 leading-relaxed">
-                Đội ngũ kỹ thuật DUDI sẵn sàng xem qua website và phản hồi trực tiếp qua Zalo.
-              </p>
-              <a
-                href={COMPANY_CONFIG.zaloUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-[#D71920] hover:bg-slate-50 text-xs font-bold shadow-sm transition-all cursor-pointer"
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-                <span>Nhắn tin Zalo trực tiếp</span>
-              </a>
+                <a
+                  href={COMPANY_CONFIG.zaloUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#1E293B] hover:bg-red-50 dark:hover:bg-[#283548] text-[#D71920] dark:text-red-400 border border-[#E2E8F0] dark:border-[#334155] shadow-xs text-xs font-bold transition-all duration-200 group-hover:border-[#D71920]/40 group-hover:shadow-md cursor-pointer"
+                >
+                  <MessageSquare className="w-3.5 h-3.5 text-[#D71920]" />
+                  <span>Cần trao đổi riêng? Chat Zalo</span>
+                </a>
+              </div>
             </div>
           </div>
 

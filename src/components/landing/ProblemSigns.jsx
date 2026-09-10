@@ -74,42 +74,45 @@ export default function ProblemSigns() {
               Website của bạn đang gặp vấn đề ở đâu?
             </h2>
 
-            {/* Quick Diagnostic Metrics Grid */}
-            <div className="grid grid-cols-2 gap-2.5 pt-0.5">
-              <div className="p-3 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs">
-                <div className="flex items-center gap-1.5 text-[#D71920] mb-0.5">
-                  <Zap className="w-3.5 h-3.5" />
-                  <span className="text-xs font-mono font-bold uppercase">30+ Tiêu chí</span>
-                </div>
-                <p className="text-[11px] text-[#64748B] dark:text-slate-400 leading-tight">Rà soát toàn diện code, tốc độ & giao diện</p>
-              </div>
+            {/* Unified Diagnostic & Advice Red Card */}
+            <div className="relative p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#A81218] text-white border border-red-500/40 shadow-xl shadow-red-950/20 space-y-3.5 overflow-hidden">
+              {/* Subtle ambient light inside the card */}
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
 
-              <div className="p-3 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-2xs">
-                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 mb-0.5">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span className="text-xs font-mono font-bold uppercase">0đ Chi phí</span>
-                </div>
-                <p className="text-[11px] text-[#64748B] dark:text-slate-400 leading-tight">Kiểm tra và báo rõ lộ trình ban đầu</p>
-              </div>
-            </div>
-
-            {/* Expert Diagnostic Advice Card */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] shadow-xs space-y-2.5">
-              <div className="flex items-center justify-between border-b border-[#E2E8F0] dark:border-[#1F2937] pb-1.5">
+              <div className="flex items-center justify-between border-b border-white/20 pb-2 relative z-10">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-pulse" />
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#0F172A] dark:text-white font-bold">Lời khuyên từ DUDI</span>
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                  <span className="text-[10.5px] font-mono uppercase tracking-wider text-white font-bold">Lời khuyên từ DUDI</span>
                 </div>
-                <span className="text-[10px] font-mono text-gray-400 dark:text-slate-400">#audit</span>
+                <span className="text-[10px] font-mono text-white/80 bg-black/15 px-2 py-0.5 rounded-full border border-white/10">#audit_mien_phi</span>
               </div>
 
-              <p className="text-xs text-[#0F172A] dark:text-slate-200 leading-relaxed">
-                Đa số website chỉ cần tinh chỉnh đúng <strong>1–2 điểm nghẽn mấu chốt</strong> để tải nhanh gấp đôi và giữ chân khách hàng hiệu quả mà không cần đập đi xây lại.
+              {/* Quick Diagnostic Metrics Embedded */}
+              <div className="grid grid-cols-2 gap-2 relative z-10">
+                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-xs border border-white/15">
+                  <div className="flex items-center gap-1.5 text-white mb-0.5">
+                    <Zap className="w-3.5 h-3.5 text-amber-300" />
+                    <span className="text-xs font-mono font-bold uppercase">30+ Tiêu chí</span>
+                  </div>
+                  <p className="text-[10.5px] text-white/85 leading-tight">Rà soát toàn diện code, tốc độ & UI</p>
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-xs border border-white/15">
+                  <div className="flex items-center gap-1.5 text-white mb-0.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+                    <span className="text-xs font-mono font-bold uppercase">0đ Chi phí</span>
+                  </div>
+                  <p className="text-[10.5px] text-white/85 leading-tight">Kiểm tra & báo rõ lộ trình ban đầu</p>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-[13px] text-white/95 leading-relaxed relative z-10">
+                Đa số website chỉ cần tinh chỉnh đúng <strong className="text-white font-bold underline decoration-white/40 decoration-1 underline-offset-2">1–2 điểm nghẽn mấu chốt</strong> để tải nhanh gấp đôi và giữ chân khách hàng hiệu quả mà không cần đập đi xây lại.
               </p>
 
               <a
                 href="#form-tu-van"
-                className="w-full btn-primary !text-xs sm:!text-[13px] !font-semibold !py-2.5 flex items-center justify-center gap-1.5 group shadow-sm"
+                className="w-full bg-white text-[#D71920] hover:bg-red-50 active:scale-[0.99] font-bold text-xs sm:text-[13px] py-2.5 sm:py-3 px-4 rounded-xl flex items-center justify-center gap-1.5 group shadow-md transition-all duration-200 relative z-10 cursor-pointer"
               >
                 <span>Gửi website nhận chẩn đoán miễn phí</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
