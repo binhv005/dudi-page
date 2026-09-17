@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  CheckCircle2, AlertCircle, Phone, MessageSquare, Loader2, ArrowRight, Building, Calendar
+  CheckCircle2, AlertCircle, Loader2, ArrowRight, Building, Calendar
 } from 'lucide-react';
 import { FORM_DATA, COMPANY_CONFIG } from '../../data/landingData';
 import { useInView } from '../../hooks/useInView';
@@ -15,7 +15,6 @@ const TIMELINE_OPTIONS = [
 ];
 
 export default function LeadForm({ selectedPackage }) {
-  const [copiedPhone, setCopiedPhone] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
@@ -195,13 +194,8 @@ export default function LeadForm({ selectedPackage }) {
             className={`lg:col-span-6 space-y-4 transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
           >
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs">
-              <span>08 / TIẾP NHẬN YÊU CẦU</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2]">
-              Gửi website.<br />
-              <span className="text-[#D71920]">DUDI kiểm tra trước.</span>
+            <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] xl:text-[2rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-tight sm:whitespace-nowrap">
+              Gửi website. <span className="text-[#D71920]">DUDI kiểm tra trước.</span>
             </h2>
 
             <p className="text-sm sm:text-[15px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-lg">
@@ -222,44 +216,6 @@ export default function LeadForm({ selectedPackage }) {
                 <span>Bảo mật tuyệt đối mã nguồn và dữ liệu</span>
               </div>
             </div>
-
-            <div className="pt-3.5 border-t border-[#E2E8F0] dark:border-[#1E293B] space-y-1.5">
-              <p className="text-[10.5px] font-mono uppercase tracking-wider text-[#64748B] dark:text-[#94A3B8] font-bold">Kênh liên hệ trực tiếp:</p>
-              <div className="flex flex-wrap items-center gap-3.5 text-sm sm:text-[14.5px]">
-                <a
-                  href={COMPANY_CONFIG.hotlineTel}
-                  onClick={(e) => {
-                    trackEvent('phone_click', { location: 'form_section' });
-                    if (window.innerWidth >= 768) {
-                      e.preventDefault();
-                      navigator.clipboard?.writeText(COMPANY_CONFIG.hotline.replace(/\s+/g, ' ').trim());
-                      setCopiedPhone(true);
-                      setTimeout(() => setCopiedPhone(false), 2000);
-                    }
-                  }}
-                  className="flex items-center gap-1.5 text-[#0F172A] dark:text-[#F8FAFC] hover:text-[#D71920] font-semibold transition-colors cursor-pointer"
-                  title="Nhấn để sao chép số điện thoại"
-                >
-                  <Phone className="w-4 h-4 text-[#D71920]" />
-                  <span>{COMPANY_CONFIG.hotline}</span>
-                  {copiedPhone && (
-                    <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200 dark:border-emerald-800 px-1.5 py-0.5 rounded">
-                      Đã chép!
-                    </span>
-                  )}
-                </a>
-                <a
-                  href={COMPANY_CONFIG.zaloUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackEvent('zalo_click', { location: 'form_section' })}
-                  className="flex items-center gap-1.5 text-[#0F172A] dark:text-[#F8FAFC] hover:text-[#D71920] font-semibold transition-colors"
-                >
-                  <MessageSquare className="w-4 h-4 text-[#D71920]" />
-                  <span>Zalo DUDI</span>
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Refined Compact Red Form Card */}
@@ -270,7 +226,7 @@ export default function LeadForm({ selectedPackage }) {
               style={{ transitionDelay: '100ms' }}
             >
               {/* Top-Right Mascot Assistant */}
-              <div className="absolute -top-5 sm:-top-6 right-2.5 pointer-events-none z-20 select-none">
+              <div className="absolute -top-6 sm:-top-7 right-3 pointer-events-none z-20 select-none">
                 <img
                   src="/form-mascot.webp"
                   alt="DUDI Mascot Assistant"
@@ -278,7 +234,7 @@ export default function LeadForm({ selectedPackage }) {
                   height={817}
                   loading="lazy"
                   decoding="async"
-                  className="w-12 sm:w-14 h-auto object-contain drop-shadow-md select-none"
+                  className="w-14 sm:w-[68px] h-auto object-contain drop-shadow-md select-none"
                 />
               </div>
 

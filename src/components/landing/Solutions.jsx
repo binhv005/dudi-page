@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   FileText, Sparkles, SmartphoneNfc, Zap, SearchCode, MailCheck, CodeXml, ShieldAlert, 
-  CheckCircle2, ArrowRight, Layers, Activity, ChevronLeft, ChevronRight, MoveHorizontal
+  CheckCircle2, ArrowRight, Layers, ChevronLeft, ChevronRight, MoveHorizontal
 } from 'lucide-react';
 import { SOLUTIONS_DATA } from '../../data/landingData';
 import { useInView } from '../../hooks/useInView';
@@ -236,9 +236,6 @@ export default function Solutions() {
         <div className={`text-center max-w-2xl mx-auto mb-3.5 sm:mb-4.5 transition-all duration-700 ease-out ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
         }`}>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F1F5F9] dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase mb-1.5 shadow-2xs">
-            <span>02 / BẢN ĐỒ CHẨN ĐOÁN</span>
-          </div>
           <h2 className="text-lg sm:text-2xl lg:text-[1.65rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight mb-1">
             {SOLUTIONS_DATA.heading}
           </h2>
@@ -321,25 +318,6 @@ export default function Solutions() {
           {/* Subtle Ambient Background Mesh */}
           <div className="absolute -right-16 -top-16 w-56 h-56 bg-[#D71920]/5 rounded-full blur-2xl pointer-events-none" />
 
-          {/* Top Inspector Status Bar */}
-          <div className="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-[#E2E8F0] dark:border-[#1E293B] mb-3.5 sm:mb-4">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#D71920]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              </div>
-              <span className="text-[11px] sm:text-xs font-mono font-medium text-[#64748B] dark:text-slate-400 pl-1">
-                radar://diagnostic/{activeNode}
-              </span>
-            </div>
-
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/40 text-[10px] sm:text-[11px] font-mono text-[#D71920] font-bold uppercase tracking-wider shadow-2xs">
-              <Activity className="w-3.5 h-3.5 animate-pulse" />
-              <span>Tiêu chuẩn bàn giao</span>
-            </div>
-          </div>
-
           {/* Main 2-Column Split Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-stretch">
             
@@ -351,9 +329,6 @@ export default function Solutions() {
                     <CurrentIcon className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-[#D71920] uppercase tracking-wider block">
-                      Hạng mục #{activeNode.toUpperCase()}
-                    </span>
                     <h3 className="text-base sm:text-lg font-extrabold text-[#0F172A] dark:text-white tracking-tight">
                       {currentItem.name}
                     </h3>

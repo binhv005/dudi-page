@@ -109,9 +109,6 @@ export default function Pricing({ onSelectPackage }) {
         {/* Section Header */}
         <div className={`text-center max-w-2xl mx-auto mb-4 sm:mb-5 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase mb-1.5 shadow-2xs">
-            <span>05 / BẢNG GIÁ DỊCH VỤ</span>
-          </div>
           <h2 className="text-lg sm:text-2xl lg:text-[1.65rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight mb-1">
             {PRICING_DATA.heading}
           </h2>

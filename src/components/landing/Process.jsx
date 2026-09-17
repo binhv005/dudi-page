@@ -83,11 +83,6 @@ export default function Process() {
                 />
               </div>
 
-              {/* Top pill badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[#D71920] text-[10px] xl:text-[10.5px] font-mono tracking-widest uppercase font-extrabold mb-2.5 shadow-sm">
-                <span>04 / QUY TRÌNH CHUẨN</span>
-              </div>
-
               {/* Headline */}
               <h2 className="text-2xl xl:text-[28px] font-extrabold text-white tracking-tight leading-[1.2] mb-2">
                 Quy trình <br /> 6 bước tối ưu
@@ -263,9 +258,6 @@ export default function Process() {
 
           {/* Header Card for Mobile with Mascot */}
           <div className="relative text-center max-w-sm mx-auto space-y-2 pt-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-100 dark:border-red-900/50 text-[10px] font-mono tracking-widest text-[#D71920] uppercase font-bold shadow-2xs">
-              <span>04 / QUY TRÌNH CHUẨN</span>
-            </div>
             <div className="flex items-center justify-center gap-2">
               <h2 className="text-xl font-extrabold text-[#0F172A] dark:text-white">
                 Quy trình 6 bước rõ ràng

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { FULL_REDESIGN_DATA } from '../../data/landingData';
 import { useInView } from '../../hooks/useInView';
 import { trackEvent } from '../../utils/tracking';
@@ -14,60 +14,52 @@ export default function FullRedesign({ onSelectPackage }) {
       className="relative py-8 sm:py-12 lg:py-14 bg-gradient-to-r from-[#7F1018] via-[#C9141C] to-[#600A0F] dark:from-[#4E080C] dark:via-[#7F1018] dark:to-[#380407] text-white border-y border-[#D71920]/30 dark:border-[#7F1018]/50 overflow-hidden"
       aria-label="Dịch vụ làm mới website toàn bộ"
     >
-      {/* Deep Red Atmospheric Cyber Grid Pattern */}
+      {/* Decorative Technical Background Elements */}
       <div 
-        className="absolute inset-0 opacity-15 pointer-events-none z-0"
+        className="absolute inset-0 opacity-10 pointer-events-none z-0"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)
           `,
           backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
       />
 
-      {/* Ambient Moving Glow Orb */}
-      <div 
-        className="absolute -top-20 -right-20 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none animate-tech-float-1 z-0" 
-        aria-hidden="true"
-      />
-
-      {/* Tech Geometric Background Mesh (Watermark) */}
+      {/* Tech Geometric Background Mesh */}
       <div
-        className="absolute -right-20 -bottom-20 w-[450px] sm:w-[560px] h-[480px] sm:h-[600px] opacity-[0.12] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        className="absolute -right-20 -top-20 w-[420px] sm:w-[540px] h-[360px] sm:h-[480px] opacity-[0.14] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
         aria-hidden="true"
       >
         <img
           src="/tech-geometric-bg.webp"
           alt=""
-          className="w-full h-full object-contain rotate-12 filter brightness-150"
+          className="w-full h-full object-contain filter brightness-150"
           loading="lazy"
         />
       </div>
 
-      {/* Subtle Glow Overlay Expanding on View */}
       <div 
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/15 via-transparent to-transparent pointer-events-none transition-transform duration-1000 ease-out z-0"
-        style={{
-          transform: inView ? 'scale(1)' : 'scale(0.8)',
-          opacity: inView ? 1 : 0.4,
-        }}
-      />
+        className="absolute -left-20 -bottom-20 w-[420px] sm:w-[540px] h-[360px] sm:h-[480px] opacity-[0.12] mix-blend-screen pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <img
+          src="/tech-geometric-bg.webp"
+          alt=""
+          className="w-full h-full object-contain rotate-180 filter brightness-150"
+          loading="lazy"
+        />
+      </div>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="py-2 sm:py-4">
+        <div className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-black/15 border border-white/20 backdrop-blur-xs relative overflow-hidden shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Left Col: Headings & Highlights */}
             <div className={`lg:col-span-7 space-y-3 transition-all duration-700 ease-out ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/25 border border-white/20 text-[9px] sm:text-[10px] font-mono tracking-widest text-white uppercase backdrop-blur-sm shadow-2xs">
-                <RefreshCw className="w-3 h-3 animate-spin text-white" style={{ animationDuration: '8s' }} />
-                <span>DỊCH VỤ ĐỘC LẬP / REBUILD</span>
-              </div>
-
               <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-white tracking-tight leading-[1.25]">
                 Website quá cũ hoặc cần làm mới toàn bộ?
               </h2>

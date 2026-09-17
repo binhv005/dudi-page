@@ -110,17 +110,6 @@ export default function AboutIntro() {
 
           {/* RIGHT: Typography & Enriched Value Cards */}
           <div className="lg:col-span-7 space-y-5 lg:space-y-6 order-1 lg:order-2">
-
-            {/* Section Badge */}
-            <div
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200/80 dark:border-red-900/50 text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs transition-all duration-500 ease-out ${
-                isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-pulse" />
-              <span>ABOUT DUDI</span>
-            </div>
-
             {/* Main Headline */}
             <h2
               className={`text-2xl sm:text-3xl lg:text-[2.45rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.18] transition-all duration-600 ease-out ${

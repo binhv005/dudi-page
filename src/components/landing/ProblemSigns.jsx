@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gauge, Smartphone, LayoutTemplate, FileEdit, SendHorizontal, TrendingDown, ArrowUpRight, Zap, ShieldCheck } from 'lucide-react';
+import { Gauge, Smartphone, LayoutTemplate, FileEdit, SendHorizontal, TrendingDown, ArrowUpRight } from 'lucide-react';
 import { PROBLEM_SIGNS } from '../../data/landingData';
 import { useInView } from '../../hooks/useInView';
 
@@ -66,10 +66,6 @@ export default function ProblemSigns() {
           {/* Left Column: Editorial Statement & Diagnostic Inspector Block */}
           <div className={`lg:col-span-5 lg:sticky lg:top-20 space-y-3.5 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[10px] sm:text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs">
-              <span>01 / CHẨN ĐOÁN WEBSITE</span>
-            </div>
-
             <h2 className="text-xl sm:text-2xl lg:text-[1.75rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.25]">
               Website của bạn đang gặp vấn đề ở đâu?
             </h2>
@@ -78,33 +74,6 @@ export default function ProblemSigns() {
             <div className="relative p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#A81218] text-white border border-red-500/40 shadow-xl shadow-red-950/20 space-y-3.5 overflow-hidden">
               {/* Subtle ambient light inside the card */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="flex items-center justify-between border-b border-white/20 pb-2 relative z-10">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  <span className="text-[10.5px] font-mono uppercase tracking-wider text-white font-bold">Lời khuyên từ DUDI</span>
-                </div>
-                <span className="text-[10px] font-mono text-white/80 bg-black/15 px-2 py-0.5 rounded-full border border-white/10">#audit_mien_phi</span>
-              </div>
-
-              {/* Quick Diagnostic Metrics Embedded */}
-              <div className="grid grid-cols-2 gap-2 relative z-10">
-                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-xs border border-white/15">
-                  <div className="flex items-center gap-1.5 text-white mb-0.5">
-                    <Zap className="w-3.5 h-3.5 text-amber-300" />
-                    <span className="text-xs font-mono font-bold uppercase">30+ Tiêu chí</span>
-                  </div>
-                  <p className="text-[10.5px] text-white/85 leading-tight">Rà soát toàn diện code, tốc độ & UI</p>
-                </div>
-
-                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-xs border border-white/15">
-                  <div className="flex items-center gap-1.5 text-white mb-0.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
-                    <span className="text-xs font-mono font-bold uppercase">0đ Chi phí</span>
-                  </div>
-                  <p className="text-[10.5px] text-white/85 leading-tight">Kiểm tra & báo rõ lộ trình ban đầu</p>
-                </div>
-              </div>
 
               <p className="text-xs sm:text-[13px] text-white/95 leading-relaxed relative z-10">
                 Đa số website chỉ cần tinh chỉnh đúng <strong className="text-white font-bold underline decoration-white/40 decoration-1 underline-offset-2">1–2 điểm nghẽn mấu chốt</strong> để tải nhanh gấp đôi và giữ chân khách hàng hiệu quả mà không cần đập đi xây lại.

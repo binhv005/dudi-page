@@ -88,21 +88,17 @@ export default function FAQ() {
             className={`lg:col-span-4 lg:sticky lg:top-24 space-y-3.5 transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
           >
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-[#1E293B] border border-[#E2E8F0] dark:border-[#334155] text-[11px] font-mono tracking-widest text-[#D71920] uppercase shadow-2xs">
-              <span>07 / GIẢI ĐÁP THẮC MẮC</span>
-            </div>
-
             <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2]">
               Câu hỏi thường gặp
             </h2>
 
             {/* Mascot FAQ Assistant & Direct Contact */}
             <div className="relative pt-1 flex flex-col items-center sm:items-start group">
-              <div className="relative w-full max-w-[260px] sm:max-w-[280px] mx-auto lg:mx-0 flex flex-col items-center">
+              <div className="relative w-full max-w-[315px] sm:max-w-[340px] mx-auto lg:mx-0 flex flex-col items-center">
                 <img
                   src="/faq-mascot.webp"
                   alt="DUDI FAQ Support Mascot"
-                  className="w-full max-h-[280px] sm:max-h-[320px] object-contain select-none pointer-events-none drop-shadow-xl hover:scale-105 transition-transform duration-500 ease-out"
+                  className="w-full max-h-[340px] sm:max-h-[385px] object-contain select-none pointer-events-none drop-shadow-xl hover:scale-105 transition-transform duration-500 ease-out"
                   loading="lazy"
                 />
 

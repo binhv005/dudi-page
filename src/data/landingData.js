@@ -28,6 +28,16 @@ export const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
+export const WEB_SYSTEM_LINKS = [
+  { label: "Đơn giá", href: "https://dudi-dongia.vercel.app/", isExternal: true },
+  { label: "Dịch vụ", href: "https://dudi-dichvu.vercel.app/", isExternal: true },
+  { label: "Bán hàng", href: "https://dudi-banhang.vercel.app/", isExternal: true },
+  { label: "SEO", href: "https://dudisoftwareseo.vercel.app/", isExternal: true },
+  { label: "Bảo trì", href: "https://dudi-baotri.vercel.app/", isExternal: true },
+  { label: "Giới thiệu", href: "https://dudi-gioithieu.vercel.app/", isExternal: true },
+  { label: "Tổng hợp", href: "https://dudi-tonghop.vercel.app/", isExternal: true },
+];
+
 export const HERO_DATA = {
   eyebrow: "DỊCH VỤ NÂNG CẤP & SỬA LỖI WEBSITE",
   h1: "Website cũ, chậm hoặc khó ra khách? DUDI giúp cập nhật đúng phần cần thiết.",
