@@ -54,22 +54,22 @@ export default function AboutIntro() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+      <div className="app-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
 
-          {/* LEFT: Larger Free-standing Mascot */}
-          <div className="hidden md:flex lg:col-span-5 relative justify-center lg:justify-start items-center order-2 lg:order-1">
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[370px] flex items-center justify-center">
+          {/* LEFT: Free-standing Mascot */}
+          <div className="hidden md:flex lg:col-span-5 relative justify-center items-center order-2 lg:order-1">
+            <div className="relative w-full max-w-[clamp(260px,28vw,420px)] flex items-center justify-center">
               <img
                 src="/tai-xuong-1.webp"
                 alt="DUDI Tech Mascot Assistant"
-                className={`w-auto h-auto max-h-[320px] sm:max-h-[380px] lg:max-h-[430px] object-contain select-none pointer-events-none drop-shadow-2xl transition-all duration-1000 ease-out ${
+                className={`w-auto h-auto max-h-[clamp(300px,36vw,480px)] object-contain select-none pointer-events-none drop-shadow-2xl transition-all duration-1000 ease-out ${
                   isInView
                     ? 'opacity-100 translate-y-0 scale-100 rotate-0'
                     : 'opacity-0 translate-y-8 scale-95 -rotate-2'
                 }`}
-                width="370"
-                height="460"
+                width="440"
+                height="560"
                 loading="lazy"
               />
 
@@ -84,35 +84,13 @@ export default function AboutIntro() {
                 <span className="font-semibold text-[#0F172A] dark:text-white">KỸ SƯ DUDI ONLINE</span>
               </div>
             </div>
-
-            {/* Editorial Connecting Line towards headline */}
-            <div
-              className={`hidden lg:block absolute -right-6 top-16 w-28 h-20 pointer-events-none transition-opacity duration-700 ease-out ${
-                isInView ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{ transitionDelay: '450ms' }}
-              aria-hidden="true"
-            >
-              <svg className="w-full h-full overflow-visible" viewBox="0 0 100 60" fill="none">
-                <circle cx="0" cy="30" r="3" fill="#D71920" className="animate-ping opacity-60" />
-                <circle cx="0" cy="30" r="2.5" fill="#D71920" />
-                <path
-                  d="M0,30 C35,10 65,45 100,20"
-                  stroke="#D71920"
-                  strokeWidth="1.5"
-                  strokeDasharray="4 4"
-                  strokeLinecap="round"
-                  className="opacity-75"
-                />
-              </svg>
-            </div>
           </div>
 
           {/* RIGHT: Typography & Enriched Value Cards */}
-          <div className="lg:col-span-7 space-y-5 lg:space-y-6 order-1 lg:order-2">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-5 lg:space-y-6 order-1 lg:order-2">
             {/* Main Headline */}
             <h2
-              className={`text-2xl sm:text-3xl lg:text-[2.45rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.18] transition-all duration-600 ease-out ${
+              className={`text-[clamp(1.35rem,2vw+0.6rem,2.25rem)] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2] transition-all duration-600 ease-out ${
                 isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: '100ms' }}
@@ -123,7 +101,7 @@ export default function AboutIntro() {
 
             {/* Supporting Text */}
             <p
-              className={`text-sm sm:text-base text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-xl transition-all duration-600 ease-out ${
+              className={`text-xs sm:text-sm lg:text-base text-[#475569] dark:text-[#94A3B8] leading-relaxed max-w-xl transition-all duration-600 ease-out ${
                 isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{ transitionDelay: '200ms' }}

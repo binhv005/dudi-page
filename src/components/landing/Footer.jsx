@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MessageSquare, MapPin, Building2, ShieldCheck, FileText, X, Check } from 'lucide-react';
+import { Phone, Mail, MessageSquare, MapPin, Building2, ShieldCheck, FileText, X, Check, Globe, ExternalLink } from 'lucide-react';
 import { COMPANY_CONFIG, NAV_LINKS } from '../../data/landingData';
+import Logo from '../common/Logo';
 
 export default function Footer() {
   const [activeModal, setActiveModal] = useState(null);
@@ -22,17 +23,13 @@ export default function Footer() {
       {/* Subtle top red line accent */}
       <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#D71920] to-transparent opacity-70" />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
+      <div className="app-container py-10 lg:py-14 xl:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           
           {/* Brand & Legal Info */}
           <div className="lg:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-md bg-[#D71920] flex flex-col items-center justify-center text-white leading-none px-1 py-1 shadow-md shrink-0">
-                <span className="text-[13px] tracking-tight font-extrabold uppercase text-white">DUDI</span>
-                <span className="text-[8px] font-bold lowercase tracking-wider text-white">software</span>
-              </div>
-              <span className="text-xl sm:text-2xl font-black text-white tracking-tight">DUDI Software</span>
+              <Logo scrolled={false} />
             </div>
 
             <p className="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed max-w-md">
@@ -145,26 +142,20 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-4 border-t border-[#222222] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#CBD5E1]">
           <p className="text-[#CBD5E1]">
-            © {new Date().getFullYear()} {COMPANY_CONFIG.legalName}. All rights reserved.
+            © 2024 {COMPANY_CONFIG.legalName}. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setActiveModal('privacy')}
-              className="text-[#CBD5E1] hover:text-white transition-colors focus-visible:outline-none cursor-pointer"
-            >
-              Chính sách bảo mật
-            </button>
-            <span className="text-[#4B5563]">|</span>
-            <button
-              type="button"
-              onClick={() => setActiveModal('terms')}
-              className="text-[#CBD5E1] hover:text-white transition-colors focus-visible:outline-none cursor-pointer"
-            >
-              Điều khoản dịch vụ
-            </button>
-          </div>
+          <a
+            href="https://www.dudisoftware.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#1E2433] hover:bg-[#D71920] text-white text-xs font-semibold border border-slate-700/70 hover:border-[#D71920] shadow-sm hover:shadow-red-500/20 transition-all duration-200 group cursor-pointer"
+            title="Truy cập dudisoftware.com"
+          >
+            <Globe className="w-3.5 h-3.5 text-[#EF4444] group-hover:text-white transition-colors" />
+            <span>dudisoftware.com</span>
+            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-white transition-transform group-hover:translate-x-0.5" />
+          </a>
         </div>
       </div>
 

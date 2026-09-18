@@ -230,16 +230,16 @@ export default function Solutions() {
         <circle cx="550" cy="320" r="2.5" fill="#D71920" />
       </svg>
 
-      <div className="max-w-[1160px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="app-container relative z-10">
         
         {/* Section Header */}
-        <div className={`text-center max-w-2xl mx-auto mb-3.5 sm:mb-4.5 transition-all duration-700 ease-out ${
+        <div className={`text-center max-w-2xl xl:max-w-3xl mx-auto mb-4 sm:mb-6 xl:mb-8 transition-all duration-700 ease-out ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
         }`}>
-          <h2 className="text-lg sm:text-2xl lg:text-[1.65rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight mb-1">
+          <h2 className="text-[clamp(1.2rem,1.7vw+0.5rem,2rem)] font-extrabold text-[#0F172A] dark:text-white tracking-tight mb-1 xl:mb-2">
             {SOLUTIONS_DATA.heading}
           </h2>
-          <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+          <p className="text-xs sm:text-[13px] xl:text-[15px] text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
             Hệ thống 8 điểm kiểm tra kỹ thuật giúp rà soát toàn diện và cải thiện chính xác từng hạng mục.
           </p>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowRight, Phone, MessageSquare, ChevronDown } from 'lucide-react';
 import { COMPANY_CONFIG, NAV_LINKS, WEB_SYSTEM_LINKS } from '../../data/landingData';
+import Logo from '../common/Logo';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,34 +43,27 @@ export default function Header() {
           : 'py-3.5 bg-transparent border-b border-white/10'
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="app-container">
         <div className="flex items-center justify-between h-10">
           
           {/* Brand Logo */}
           <a 
             href="#hero" 
-            className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920] rounded-md group"
+            className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920] rounded-md transition-transform duration-150 hover:opacity-95"
             aria-label="DUDI Software - Trang chủ"
           >
-            <img 
-              src="/logo-dudi.webp" 
-              alt="DUDI Software Logo" 
-              className="h-7 sm:h-8 w-auto object-contain transition-transform duration-150 group-hover:scale-102"
-              width="120"
-              height="32"
-              loading="eager"
-            />
+            <Logo scrolled={scrolled} />
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-7" aria-label="Điều hướng chính">
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-7" aria-label="Điều hướng chính">
             
             {/* Links before FAQ: Vấn đề, Giải pháp, Case thực tế, Quy trình, Bảng giá */}
             {navLinksBeforeFAQ.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-xs uppercase tracking-wider font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:text-[#D71920] ${
+                className={`text-[11px] xl:text-xs uppercase tracking-wider font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:text-[#D71920] ${
                   scrolled 
                     ? 'text-[#64748B] hover:text-[#0F172A] dark:text-slate-300 dark:hover:text-white' 
                     : 'text-white/85 hover:text-white'
@@ -88,7 +82,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setDropdownOpen((prev) => !prev)}
-                className={`text-xs uppercase tracking-wider font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:text-[#D71920] inline-flex items-center gap-1 py-2 cursor-pointer ${
+                className={`text-[11px] xl:text-xs uppercase tracking-wider font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:text-[#D71920] inline-flex items-center gap-1 py-2 cursor-pointer ${
                   dropdownOpen
                     ? 'text-[#D71920]'
                     : scrolled 
@@ -99,7 +93,7 @@ export default function Header() {
                 aria-haspopup="true"
               >
                 <span>Hệ thống web</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#D71920]' : ''}`} />
+                <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#D71920]' : ''}`} />
               </button>
 
               {/* Dropdown Menu Card matching sample layout */}

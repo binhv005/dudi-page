@@ -4,28 +4,21 @@ import { HERO_DATA, COMPANY_CONFIG } from '../../data/landingData';
 import { trackEvent } from '../../utils/tracking';
 
 export default function Hero() {
-  const videoUrl = "https://res.cloudinary.com/ai1z2oaj/video/upload/v1788936158/c84fe2644ceb4921b341305699dbbc76.mp4";
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen lg:h-screen w-full flex items-center overflow-hidden bg-[#0A0A0B]"
+      className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#0A0A0B]"
       aria-label="Giới thiệu dịch vụ nâng cấp và sửa lỗi website DUDI"
     >
-      {/* LAYER 1: Background Video Asset */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Video minh họa công nghệ DUDI Software"
-          className="w-full h-full object-cover object-[52%_center] sm:object-[60%_center] lg:object-[58%_center] scale-[1.08] origin-center filter brightness-[0.98] contrast-[1.02]"
-        >
-          <source src={videoUrl} type="video/mp4" />
-          <track kind="captions" src="data:text/vtt;charset=utf-8,WEBVTT" label="Tiếng Việt" default />
-        </video>
+      {/* LAYER 1: Background Image Asset (Visible on Desktop / Tablet only) */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none hidden md:block">
+        <img
+          src="/hero-bg.webp"
+          alt="DUDI Software Hero Background"
+          className="w-full h-full object-cover object-[70%_center] sm:object-[75%_center] md:object-[80%_center] xl:object-[84%_center] 2xl:object-[86%_center] filter brightness-[0.98] contrast-[1.02]"
+          loading="eager"
+          fetchPriority="high"
+        />
       </div>
 
       {/* LAYER 2: Ultra-Soft Corner Shadow Blend to guarantee zero watermark visibility on any resolution */}
@@ -45,7 +38,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* Localized Cinematic Soft Red Atmosphere (Strongest Section - Soft diffuse light in negative space) */}
+      {/* Localized Cinematic Soft Red Atmosphere */}
       <div
         className="absolute top-1/4 -left-16 w-[550px] sm:w-[700px] h-[550px] sm:h-[700px] bg-gradient-to-br from-[#E31B23]/18 via-[#C9141C]/10 to-transparent dark:from-[#7F1018]/28 dark:via-[#A9141E]/16 dark:to-transparent rounded-full blur-[150px] pointer-events-none z-10 animate-tech-float-1"
         aria-hidden="true"
@@ -56,28 +49,28 @@ export default function Hero() {
       />
 
       {/* LAYER 3: Hero Content - Positioned Comfortably in Left Negative Space */}
-      <div className="relative z-20 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14 md:pt-28 md:pb-16 flex flex-col justify-end md:justify-center h-full">
-        <div className="max-w-[560px]">
+      <div className="relative z-20 w-full app-container pt-20 pb-12 sm:pt-24 sm:pb-14 md:pt-24 md:pb-16 flex flex-col justify-center h-full">
+        <div className="max-w-[560px] xl:max-w-[660px] 2xl:max-w-[760px]">
 
-          {/* Controlled H1 - Fluid & Balanced */}
-          <h1 className="text-2xl sm:text-3xl lg:text-[2.5rem] lg:leading-[1.18] font-extrabold text-white tracking-tight mb-3.5 text-balance">
+          {/* Fluid Responsive H1 */}
+          <h1 className="text-[clamp(1.75rem,2.8vw+0.4rem,3.15rem)] leading-[1.18] font-extrabold text-white tracking-tight mb-3 sm:mb-4 xl:mb-5 text-balance">
             Website cũ, chậm hoặc khó ra khách?
             <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-rose-200 to-white">
               DUDI giúp cập nhật đúng phần cần thiết.
             </span>
           </h1>
 
-          {/* Controlled Description */}
-          <p className="text-xs sm:text-sm lg:text-base text-gray-200 leading-relaxed font-normal mb-5 max-w-[480px] text-pretty">
+          {/* Fluid Responsive Description */}
+          <p className="text-[clamp(0.85rem,0.65vw+0.55rem,1.05rem)] text-gray-200 leading-relaxed font-normal mb-4 sm:mb-6 xl:mb-7 max-w-[480px] xl:max-w-[560px] text-pretty">
             Kiểm tra toàn diện, xác định đúng điểm nghẽn, báo rõ phạm vi và chi phí trước khi thực hiện. Giá cố định từ <strong className="text-white font-semibold">500.000đ/gói</strong>.
           </p>
 
           {/* Dual CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 xl:gap-4">
             <a
               href="#form-tu-van"
               onClick={() => trackEvent('cta_click', { location: 'hero_primary' })}
-              className="btn-primary text-xs sm:text-sm font-semibold !py-2.5 !px-5.5 group flex items-center justify-center gap-2 shadow-md shadow-[#D71920]/25 cursor-pointer"
+              className="btn-primary text-xs sm:text-sm xl:text-base font-semibold !py-2.5 xl:!py-3 !px-5.5 xl:!px-7 group flex items-center justify-center gap-2 shadow-md shadow-[#D71920]/25 cursor-pointer"
               id="hero-primary-cta"
             >
               <span>{HERO_DATA.primaryCtaText}</span>
@@ -89,7 +82,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackEvent('zalo_click', { location: 'hero_secondary' })}
-              className="btn-secondary !bg-black/30 !border-white/20 !text-white hover:!bg-black/50 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 backdrop-blur-sm !py-2.5 !px-5 cursor-pointer"
+              className="btn-secondary !bg-black/30 !border-white/20 !text-white hover:!bg-black/50 text-xs sm:text-sm xl:text-base font-medium flex items-center justify-center gap-2 backdrop-blur-sm !py-2.5 xl:!py-3 !px-5 xl:!px-6.5 cursor-pointer"
               id="hero-secondary-cta"
             >
               <MessageSquare className="w-4 h-4 text-red-400" />

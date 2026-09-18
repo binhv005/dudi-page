@@ -62,19 +62,19 @@ export default function Process() {
         />
       </div>
 
-      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 relative z-10 w-full">
+      <div className="app-container relative z-10 w-full">
 
         {/* ─── DESKTOP & TABLET BALANCED ARC LAYOUT ─── */}
-        <div className={`hidden lg:grid grid-cols-12 gap-6 xl:gap-10 items-center transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        <div className={`hidden lg:grid grid-cols-12 gap-6 xl:gap-10 2xl:gap-14 items-center transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
 
           {/* LEFT: Hero Circular Card with Mascot peeking on corner (5 cols) */}
           <div className="col-span-5 flex justify-center items-center">
-            <div className="relative w-[300px] h-[300px] xl:w-[335px] xl:h-[335px] rounded-full bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#991016] text-white border-2 border-red-400/50 shadow-2xl shadow-red-950/30 flex flex-col items-center justify-center p-6 text-center select-none transition-transform duration-300 hover:scale-[1.01]">
+            <div className="relative w-[300px] h-[300px] xl:w-[360px] xl:h-[360px] 2xl:w-[410px] 2xl:h-[410px] rounded-full bg-gradient-to-br from-[#D71920] via-[#C9141C] to-[#991016] text-white border-2 border-red-400/50 shadow-2xl shadow-red-950/30 flex flex-col items-center justify-center p-6 xl:p-8 text-center select-none transition-transform duration-300 hover:scale-[1.01]">
               
               {/* Mascot Peeking snugly on Top-Right Rim */}
               <div 
-                className="absolute -top-1 -right-1 xl:-top-1.5 xl:-right-1.5 w-21 h-21 xl:w-25 xl:h-25 pointer-events-none z-20 transition-transform duration-300 hover:scale-105"
+                className="absolute -top-1 -right-1 xl:-top-2 xl:-right-2 w-20 h-20 xl:w-26 xl:h-26 2xl:w-30 2xl:h-30 pointer-events-none z-20 transition-transform duration-300 hover:scale-105"
               >
                 <img 
                   src="/form-mascot.webp" 
@@ -84,22 +84,23 @@ export default function Process() {
               </div>
 
               {/* Headline */}
-              <h2 className="text-2xl xl:text-[28px] font-extrabold text-white tracking-tight leading-[1.2] mb-2">
-                Quy trình <br /> 6 bước tối ưu
+              <h2 className="text-xl sm:text-2xl xl:text-[28px] 2xl:text-3xl font-extrabold text-white tracking-tight leading-[1.25] mb-2 xl:mb-3">
+                <span className="block">Quy trình</span>
+                <span className="block whitespace-nowrap">6 bước tối ưu</span>
               </h2>
 
               {/* Subtitle */}
-              <p className="text-xs xl:text-sm text-red-100 leading-relaxed max-w-[240px] mb-3.5">
+              <p className="text-xs xl:text-[13px] 2xl:text-sm text-red-100 leading-relaxed max-w-[220px] xl:max-w-[260px] 2xl:max-w-[290px] mb-3.5 xl:mb-4">
                 Minh bạch từng chặng. Bấm vào từng bước để xem chi tiết.
               </p>
 
               {/* Direct Action Link */}
               <a 
                 href="#form-tu-van"
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-[#D71920] hover:bg-slate-50 text-xs xl:text-[13px] font-extrabold shadow-md transition-all group cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-1.5 xl:py-2.5 rounded-full bg-white text-[#D71920] hover:bg-slate-50 text-xs xl:text-sm font-extrabold shadow-md transition-all group cursor-pointer"
               >
                 <span>Nhận tư vấn ngay</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 xl:w-4 xl:h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
             </div>
@@ -109,7 +110,7 @@ export default function Process() {
           <div className="col-span-7 relative py-1">
 
             {/* Background SVG Arc Connecting All Steps */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 pointer-events-none">
+            <div className="absolute left-0 top-0 bottom-0 w-32 xl:w-36 2xl:w-40 pointer-events-none">
               <svg
                 viewBox="0 0 120 480"
                 preserveAspectRatio="none"
@@ -127,7 +128,7 @@ export default function Process() {
             </div>
 
             {/* 6 Step Rows positioned along the curved arc with comfortable breathing room */}
-            <div className="space-y-2 xl:space-y-2.5 relative z-10">
+            <div className="space-y-2 xl:space-y-3 2xl:space-y-4 relative z-10">
               {PROCESS_DATA.steps.map((step, index) => {
                 const config = stepConfig[index] || stepConfig[0];
                 const IconComp = config.icon;
@@ -141,24 +142,24 @@ export default function Process() {
                     className={`group cursor-pointer transition-all duration-300 ${config.arcOffsetX}`}
                   >
                     {/* Main Row Container with Raised Hover Effect */}
-                    <div className={`flex items-center gap-3 xl:gap-4 px-3.5 py-2 rounded-2xl border transition-all duration-300 ease-out ${
+                    <div className={`flex items-center gap-3 xl:gap-4 px-3.5 xl:px-5 2xl:px-6 py-2 xl:py-3 2xl:py-3.5 rounded-2xl xl:rounded-3xl border transition-all duration-300 ease-out ${
                       isSelected
                         ? 'bg-white dark:bg-[#161922] border-red-200 dark:border-red-900/60 shadow-md shadow-red-950/10 -translate-y-0.5'
                         : 'bg-transparent border-transparent hover:bg-white dark:hover:bg-[#161922] hover:border-[#E2E8F0] dark:hover:border-[#242A35] hover:shadow-lg hover:shadow-red-950/10 dark:hover:shadow-black/40 hover:-translate-y-1 hover:scale-[1.01]'
                     }`}>
 
                       {/* 1. Step Icon Badge */}
-                      <div className={`relative w-9 h-9 xl:w-10 xl:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 z-10 ${
+                      <div className={`relative w-9 h-9 xl:w-11 xl:h-11 2xl:w-13 2xl:h-13 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 z-10 ${
                         isSelected
                           ? 'bg-[#D71920] text-white ring-3 ring-[#D71920]/25 shadow-sm scale-105'
                           : 'bg-white dark:bg-[#1E293B] border border-red-200/90 dark:border-red-900/50 shadow-2xs text-[#D71920] dark:text-[#EF4444] group-hover:scale-110 group-hover:bg-[#D71920] group-hover:text-white group-hover:border-[#D71920] group-hover:shadow-md group-hover:shadow-red-950/20'
                       }`}>
-                        <IconComp className="w-4.5 h-4.5 xl:w-5 xl:h-5 transition-transform group-hover:rotate-6" />
+                        <IconComp className="w-4.5 h-4.5 xl:w-5.5 xl:h-5.5 2xl:w-6.5 2xl:h-6.5 transition-transform group-hover:rotate-6" />
                       </div>
 
                       {/* 2. Step Number */}
-                      <div className="shrink-0 w-7 xl:w-8 text-center">
-                        <span className={`text-base xl:text-lg font-black font-mono tracking-tight transition-colors ${
+                      <div className="shrink-0 w-7 xl:w-9 2xl:w-10 text-center">
+                        <span className={`text-base xl:text-xl 2xl:text-2xl font-black font-mono tracking-tight transition-colors ${
                           isSelected 
                             ? 'text-[#D71920] dark:text-[#EF4444]' 
                             : 'text-[#D71920]/80 dark:text-[#EF4444]/90 group-hover:text-[#D71920]'
@@ -170,8 +171,8 @@ export default function Process() {
                       {/* 3. Step Title & Quick Info */}
                       <div className="flex-1 min-w-0 flex items-center justify-between gap-2">
                         <div>
-                          <div className="flex items-center gap-2">
-                            <h3 className={`text-xs sm:text-sm xl:text-[14.5px] font-bold tracking-tight transition-colors ${
+                          <div className="flex items-center gap-2 xl:gap-3">
+                            <h3 className={`text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold tracking-tight transition-colors ${
                               isSelected 
                                 ? 'text-[#D71920] dark:text-[#EF4444]' 
                                 : 'text-[#0F172A] dark:text-white group-hover:text-[#D71920]'
@@ -179,25 +180,25 @@ export default function Process() {
                               {step.title}
                             </h3>
                             {isStep03 && (
-                              <span className="px-1.5 py-0.2 rounded text-[8px] font-mono font-bold bg-[#D71920] text-white shadow-2xs">
+                              <span className="px-1.5 xl:px-2 py-0.2 xl:py-0.5 rounded text-[8px] xl:text-[10px] font-mono font-bold bg-[#D71920] text-white shadow-2xs">
                                 CHỐT TRƯỚC KHI CODE
                               </span>
                             )}
                           </div>
                           {!isSelected && (
-                            <p className="text-[11.5px] xl:text-xs text-[#64748B] dark:text-[#94A3B8] leading-tight truncate max-w-[320px] xl:max-w-md mt-0.5">
+                            <p className="text-[11.5px] xl:text-xs 2xl:text-sm text-[#64748B] dark:text-[#94A3B8] leading-tight truncate max-w-[320px] xl:max-w-lg 2xl:max-w-xl mt-0.5">
                               {step.dudiRole}
                             </p>
                           )}
                         </div>
 
                         {/* Chevron Indicator */}
-                        <div className={`p-1 rounded-full text-[#94A3B8] transition-all duration-300 ${
+                        <div className={`p-1 xl:p-1.5 rounded-full text-[#94A3B8] transition-all duration-300 ${
                           isSelected 
                             ? 'rotate-90 text-[#D71920]' 
                             : 'group-hover:translate-x-1 group-hover:text-[#D71920]'
                         }`}>
-                          <ChevronRight className="w-3.5 h-3.5" />
+                          <ChevronRight className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5" />
                         </div>
                       </div>
 
@@ -205,30 +206,30 @@ export default function Process() {
 
                     {/* Expandable Step Detail Panel */}
                     {isSelected && (
-                      <div className="my-2 ml-10 xl:ml-12 mr-2 p-3 rounded-xl bg-white/95 dark:bg-[#0F172A]/95 border border-red-100 dark:border-red-950 shadow-2xs space-y-1.5 text-xs animate-fadeIn backdrop-blur-xs">
+                      <div className="my-2 xl:my-3 ml-10 xl:ml-14 2xl:ml-16 mr-2 p-3 xl:p-4 2xl:p-5 rounded-xl xl:rounded-2xl bg-white/95 dark:bg-[#0F172A]/95 border border-red-100 dark:border-red-950 shadow-2xs space-y-1.5 xl:space-y-2.5 text-xs xl:text-sm 2xl:text-base animate-fadeIn backdrop-blur-xs">
 
                         {/* DUDI Role */}
-                        <div className="flex items-start gap-2 text-[#334155] dark:text-[#CBD5E1]">
-                          <Sparkles className="w-3.5 h-3.5 text-[#D71920] shrink-0 mt-0.5" />
-                          <div className="text-xs leading-normal">
+                        <div className="flex items-start gap-2 xl:gap-3 text-[#334155] dark:text-[#CBD5E1]">
+                          <Sparkles className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5 text-[#D71920] shrink-0 mt-0.5" />
+                          <div className="text-xs xl:text-sm 2xl:text-base leading-normal">
                             <strong className="text-[#0F172A] dark:text-white font-semibold">DUDI thực hiện: </strong>
                             <span>{step.dudiRole}</span>
                           </div>
                         </div>
 
                         {/* Client Input */}
-                        <div className="flex items-start gap-2 text-[#475569] dark:text-[#94A3B8]">
-                          <UserCheck className="w-3.5 h-3.5 text-[#2563EB] shrink-0 mt-0.5" />
-                          <div className="text-xs leading-normal">
+                        <div className="flex items-start gap-2 xl:gap-3 text-[#475569] dark:text-[#94A3B8]">
+                          <UserCheck className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5 text-[#2563EB] shrink-0 mt-0.5" />
+                          <div className="text-xs xl:text-sm 2xl:text-base leading-normal">
                             <strong className="text-[#0F172A] dark:text-white font-semibold">Khách hàng cung cấp: </strong>
                             <span>{step.clientInput}</span>
                           </div>
                         </div>
 
                         {/* Output */}
-                        <div className="flex items-start gap-2 text-[#475569] dark:text-[#94A3B8]">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A] shrink-0 mt-0.5" />
-                          <div className="text-xs leading-normal">
+                        <div className="flex items-start gap-2 xl:gap-3 text-[#475569] dark:text-[#94A3B8]">
+                          <CheckCircle2 className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5 text-[#16A34A] shrink-0 mt-0.5" />
+                          <div className="text-xs xl:text-sm 2xl:text-base leading-normal">
                             <strong className="text-[#0F172A] dark:text-white font-semibold">Kết quả bàn giao: </strong>
                             <span className="text-[#16A34A] dark:text-[#4ADE80] font-medium">{step.output}</span>
                           </div>
@@ -236,7 +237,7 @@ export default function Process() {
 
                         {/* Special highlight notice */}
                         {step.highlightNotice && (
-                          <div className="pt-1 text-[11px] font-medium text-[#D71920] italic border-t border-red-50 dark:border-red-950/60">
+                          <div className="pt-1 xl:pt-2 text-[11px] xl:text-xs 2xl:text-sm font-medium text-[#D71920] italic border-t border-red-50 dark:border-red-950/60">
                             * {step.highlightNotice}
                           </div>
                         )}
@@ -377,21 +378,21 @@ export default function Process() {
         </div>
 
         {/* ─── BOTTOM TRUST BAR ─── */}
-        <div className={`flex flex-wrap items-center justify-center gap-5 sm:gap-8 pt-4 border-t border-[#E5E7EB]/80 dark:border-[#1E293B] mt-5 sm:mt-6 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <div className={`flex flex-wrap items-center justify-center gap-5 sm:gap-8 xl:gap-12 2xl:gap-16 pt-4 xl:pt-6 2xl:pt-8 border-t border-[#E5E7EB]/80 dark:border-[#1E293B] mt-5 sm:mt-6 xl:mt-8 2xl:mt-10 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
 
-          <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] text-[#0F172A] dark:text-[#E2E8F0]">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0" />
+          <div className="flex items-center gap-1.5 xl:gap-2 text-xs sm:text-[12.5px] xl:text-sm 2xl:text-base text-[#0F172A] dark:text-[#E2E8F0]">
+            <CheckCircle2 className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5 text-[#D71920] shrink-0" />
             <span><strong>Báo giá trước:</strong> Không phát sinh phụ phí</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] text-[#0F172A] dark:text-[#E2E8F0]">
-            <CheckCircle2 className="w-3.5 h-3.5 text-[#D71920] shrink-0" />
+          <div className="flex items-center gap-1.5 xl:gap-2 text-xs sm:text-[12.5px] xl:text-sm 2xl:text-base text-[#0F172A] dark:text-[#E2E8F0]">
+            <CheckCircle2 className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5 text-[#D71920] shrink-0" />
             <span><strong>Phạm vi rõ:</strong> Chốt văn bản trước khi code</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] text-[#0F172A] dark:text-[#E2E8F0]">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#D71920] shrink-0" />
+          <div className="flex items-center gap-1.5 xl:gap-2 text-xs sm:text-[12.5px] xl:text-sm 2xl:text-base text-[#0F172A] dark:text-[#E2E8F0]">
+            <ShieldCheck className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5 text-[#D71920] shrink-0" />
             <span><strong>Bảo hành 30 ngày:</strong> Hỗ trợ chu đáo</span>
           </div>
 

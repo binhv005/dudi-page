@@ -17,7 +17,7 @@ const projects = [
     domain: "odysseyhagiangloop.com",
     url: "https://www.odysseyhagiangloop.com/",
     image: "/odysseyhagiang.webp",
-    bgImage: "/c09d7176a02e5e42d461a5c6e4f8f31b.jpg",
+    bgImage: "/case-hagiang-bg.webp",
     scopeGrid: [
       "Giao diện độc quyền & chuẩn Mobile",
       "Lịch trình tour & Booking đa bước",
@@ -39,7 +39,7 @@ const projects = [
     domain: "caonguyenxanh.com.vn",
     url: "https://caonguyenxanh.com.vn/",
     image: "/caonguyenxanh.webp",
-    bgImage: "/1ba354fed3ed2609870304abfbfe0225.jpg",
+    bgImage: "/case-caonguyenxanh-bg.webp",
     scopeGrid: [
       "Tái cấu trúc UI danh mục bao bì & in ấn",
       "Chuẩn hóa Mobile & xử lý dứt điểm tràn khung",
@@ -100,14 +100,14 @@ export default function CaseStudies() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="app-container relative z-10">
 
         {/* Section Header with Carousel Controllers */}
-        <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5 sm:mb-6 transition-all duration-700 ease-out ${
+        <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5 sm:mb-6 xl:mb-8 transition-all duration-700 ease-out ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
         }`}>
           <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-[clamp(1.35rem,2vw+0.6rem,2.2rem)] font-extrabold text-white tracking-tight leading-tight">
               Một số dự án DUDI đã thực hiện
             </h2>
           </div>
@@ -234,9 +234,9 @@ export default function CaseStudies() {
 
               {/* Bottom Row: Status & Live Domain Link Button */}
               <div className="flex items-center justify-between gap-3 pt-2">
-                <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-400">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>{currentProject.statusText}</span>
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-400 whitespace-nowrap shrink-0">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="whitespace-nowrap">{currentProject.statusText}</span>
                 </div>
 
                 <a
@@ -265,10 +265,10 @@ export default function CaseStudies() {
             href="https://www.dudisoftware.com/projects"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold text-white hover:text-red-200 inline-flex items-center gap-1.5 transition-colors group underline underline-offset-4"
+            className="bg-white hover:bg-slate-50 text-[#991B1B] hover:text-[#7F1D1D] px-4 py-2 sm:py-2.5 rounded-xl font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-md hover:shadow-xl transition-all duration-200 group active:scale-95 shrink-0 cursor-pointer"
           >
-            <span>Xem tất cả dự án tại dudisoftware.com</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span>Xem tất cả dự án</span>
+            <ArrowUpRight className="w-4 h-4 text-[#D71920] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 

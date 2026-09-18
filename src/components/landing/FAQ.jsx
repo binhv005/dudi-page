@@ -80,25 +80,25 @@ export default function FAQ() {
         aria-hidden="true"
       />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+      <div className="app-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start">
 
           {/* Left Column: Sticky Editorial FAQ Intro */}
           <div
-            className={`lg:col-span-4 lg:sticky lg:top-24 space-y-3.5 transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+            className={`lg:col-span-5 lg:sticky lg:top-24 space-y-3.5 xl:space-y-6 transition-all duration-500 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
           >
-            <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2]">
+            <h2 className="text-[clamp(1.35rem,2vw+0.6rem,2.4rem)] font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2]">
               Câu hỏi thường gặp
             </h2>
 
             {/* Mascot FAQ Assistant & Direct Contact */}
             <div className="relative pt-1 flex flex-col items-center sm:items-start group">
-              <div className="relative w-full max-w-[315px] sm:max-w-[340px] mx-auto lg:mx-0 flex flex-col items-center">
+              <div className="relative w-full max-w-[clamp(280px,30vw,440px)] mx-auto lg:mx-0 flex flex-col items-center">
                 <img
                   src="/faq-mascot.webp"
                   alt="DUDI FAQ Support Mascot"
-                  className="w-full max-h-[340px] sm:max-h-[385px] object-contain select-none pointer-events-none drop-shadow-xl hover:scale-105 transition-transform duration-500 ease-out"
+                  className="w-full max-h-[clamp(280px,32vw,480px)] object-contain select-none pointer-events-none drop-shadow-xl hover:scale-105 transition-transform duration-500 ease-out"
                   loading="lazy"
                 />
 
@@ -106,9 +106,9 @@ export default function FAQ() {
                   href={COMPANY_CONFIG.zaloUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#1E293B] hover:bg-red-50 dark:hover:bg-[#283548] text-[#D71920] dark:text-red-400 border border-[#E2E8F0] dark:border-[#334155] shadow-xs text-xs font-bold transition-all duration-200 group-hover:border-[#D71920]/40 group-hover:shadow-md cursor-pointer"
+                  className="mt-3 xl:mt-4 w-full max-w-[340px] xl:max-w-[380px] inline-flex items-center justify-center gap-2 xl:gap-2.5 px-3.5 xl:px-5 py-2.5 xl:py-3.5 rounded-xl xl:rounded-2xl bg-white dark:bg-[#1E293B] hover:bg-red-50 dark:hover:bg-[#283548] text-[#D71920] dark:text-red-400 border border-[#E2E8F0] dark:border-[#334155] shadow-xs text-xs xl:text-sm font-bold transition-all duration-200 group-hover:border-[#D71920]/40 group-hover:shadow-md cursor-pointer"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 text-[#D71920]" />
+                  <MessageSquare className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 text-[#D71920]" />
                   <span>Cần trao đổi riêng? Chat Zalo</span>
                 </a>
               </div>
@@ -117,7 +117,7 @@ export default function FAQ() {
 
           {/* Right Column: Clean White Card Editorial Accordion */}
           <div
-            className={`lg:col-span-8 divide-y divide-[#E2E8F0] dark:divide-[#1F2937] border border-[#E2E8F0] dark:border-[#1F2937] bg-white dark:bg-[#111827] rounded-2xl px-5 sm:px-6 shadow-sm transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`lg:col-span-7 divide-y divide-[#E2E8F0] dark:divide-[#1F2937] border border-[#E2E8F0] dark:border-[#1F2937] bg-white dark:bg-[#111827] rounded-2xl xl:rounded-3xl px-5 sm:px-6 xl:px-8 2xl:px-10 shadow-sm transition-all duration-600 ease-out ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             style={{ transitionDelay: '150ms' }}
           >
@@ -126,30 +126,30 @@ export default function FAQ() {
               const formattedNum = String(index + 1).padStart(2, '0');
 
               return (
-                <div key={item.id} className="py-3.5 sm:py-4">
+                <div key={item.id} className="py-3.5 sm:py-4 xl:py-5 2xl:py-6">
                   <button
                     type="button"
                     onClick={() => toggleFAQ(index)}
-                    className="w-full text-left flex items-start justify-between gap-3 group focus-visible:outline-none cursor-pointer"
+                    className="w-full text-left flex items-start justify-between gap-3 xl:gap-4 group focus-visible:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${item.id}`}
                     id={`faq-question-${item.id}`}
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="font-mono text-xs font-bold text-[#D71920] mt-0.5">
+                    <div className="flex items-start gap-3 xl:gap-4">
+                      <span className="font-mono text-xs xl:text-sm 2xl:text-base font-bold text-[#D71920] mt-0.5">
                         {formattedNum}
                       </span>
-                      <h3 className={`text-xs sm:text-sm font-bold tracking-tight transition-colors ${isOpen ? 'text-[#D71920]' : 'text-[#0F172A] dark:text-white group-hover:text-[#D71920]'
+                      <h3 className={`text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold tracking-tight transition-colors ${isOpen ? 'text-[#D71920]' : 'text-[#0F172A] dark:text-white group-hover:text-[#D71920]'
                         }`}>
                         {item.question}
                       </h3>
                     </div>
 
-                    <div className={`p-1 rounded-full border transition-all shrink-0 ${isOpen
+                    <div className={`p-1 xl:p-1.5 rounded-full border transition-all shrink-0 ${isOpen
                       ? 'bg-red-50 dark:bg-red-950/40 border-red-200 dark:border-red-900/50 text-[#D71920]'
                       : 'border-gray-200 dark:border-[#334155] text-[#64748B] dark:text-gray-400 group-hover:text-[#0F172A] dark:group-hover:text-white group-hover:border-gray-400'
                       }`}>
-                      {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                      {isOpen ? <Minus className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5" /> : <Plus className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5 2xl:w-5 2xl:h-5" />}
                     </div>
                   </button>
 
@@ -158,11 +158,11 @@ export default function FAQ() {
                     id={`faq-answer-${item.id}`}
                     role="region"
                     aria-labelledby={`faq-question-${item.id}`}
-                    className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-2.5' : 'grid-rows-[0fr] opacity-0'
+                    className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-2.5 xl:mt-3.5' : 'grid-rows-[0fr] opacity-0'
                       }`}
                   >
-                    <div className="overflow-hidden pl-7 pr-2">
-                      <p className="text-xs sm:text-[13px] text-[#64748B] dark:text-slate-300 leading-relaxed pb-1">
+                    <div className="overflow-hidden pl-7 xl:pl-9 2xl:pl-10 pr-2">
+                      <p className="text-xs sm:text-[13px] xl:text-[15px] 2xl:text-base text-[#64748B] dark:text-slate-300 leading-relaxed pb-1 xl:pb-2">
                         {item.answer}
                       </p>
                     </div>

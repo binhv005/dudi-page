@@ -52,15 +52,15 @@ export default function FullRedesign({ onSelectPackage }) {
         />
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-black/15 border border-white/20 backdrop-blur-xs relative overflow-hidden shadow-2xl">
+      <div className="app-container relative z-10">
+        <div className="rounded-3xl p-6 sm:p-8 lg:p-10 xl:p-12 bg-black/15 border border-white/20 backdrop-blur-xs relative overflow-hidden shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Left Col: Headings & Highlights */}
             <div className={`lg:col-span-7 space-y-3 transition-all duration-700 ease-out ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
-              <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-extrabold text-white tracking-tight leading-[1.25]">
+              <h2 className="text-[clamp(1.25rem,1.8vw+0.6rem,2rem)] font-extrabold text-white tracking-tight leading-[1.25]">
                 Website quá cũ hoặc cần làm mới toàn bộ?
               </h2>
 
