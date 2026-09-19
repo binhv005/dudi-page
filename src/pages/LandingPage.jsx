@@ -14,7 +14,6 @@ import LeadForm from '../components/landing/LeadForm';
 import FinalCTA from '../components/landing/FinalCTA';
 import Footer from '../components/landing/Footer';
 import TechBackground from '../components/common/TechBackground';
-import BackToTop from '../components/common/BackToTop';
 import MobileStickyBar from '../components/common/MobileStickyBar';
 import FloatingContact from '../components/common/FloatingContact';
 
@@ -90,7 +89,6 @@ export default function LandingPage() {
 
       {/* UX Helpers */}
       <FloatingContact />
-      <BackToTop />
       <MobileStickyBar />
     </div>
   );
