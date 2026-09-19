@@ -144,6 +144,41 @@ export default function LeadForm({ selectedPackage }) {
 
     setStatus('submitting');
 
+    // ⚡ [Firebase Realtime] Gửi trực tiếp về Dashboard Vercel (https://dudi-tonghop.vercel.app/#dashboard)
+    try {
+      const fbLeadId = 'DUDI-' + Math.floor(100000 + Math.random() * 900000);
+      const fbCreatedAt = new Date().toISOString();
+      const fbUrl = 'https://firestore.googleapis.com/v1/projects/dudi-leads/databases/(default)/documents/leads/' + fbLeadId + '?key=AIzaSyBv2l4OH6dtaBqCx5D_rxtDT2HkMPfZ3kA';
+      
+      const fbPayload = {
+        fields: {
+          id: { stringValue: fbLeadId },
+          customerName: { stringValue: formData.fullName.trim() || "Khách hàng" },
+          phone: { stringValue: formData.phone.trim() || "Chưa cung cấp" },
+          email: { stringValue: formData.email.trim() || "Chưa cung cấp" },
+          company: { stringValue: formData.companyName.trim() || formData.websiteUrl.trim() || "Khách cá nhân" },
+          serviceId: { stringValue: 'dudi-page' },
+          serviceName: { stringValue: 'Sửa & Nâng Cấp Website' },
+          budget: { stringValue: formData.packageInterest || "500.000đ" },
+          source: { stringValue: 'Website Sửa & Nâng Cấp Web' },
+          sourceUrl: { stringValue: typeof window !== 'undefined' ? window.location.href : '' },
+          status: { stringValue: 'new' },
+          priority: { stringValue: 'high' },
+          createdAt: { stringValue: fbCreatedAt },
+          requirements: { stringValue: "Web: " + formData.websiteUrl + " | Tiến độ: " + formData.desiredTimeline + " | Vấn đề: " + formData.issueSummary }
+        }
+      };
+
+      fetch(fbUrl, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fbPayload)
+      }).catch(err => console.warn('Firebase sync warning:', err));
+    } catch (fbErr) {
+      console.warn('Firebase error:', fbErr);
+    }
+  
+
     const randomCode = 'DUDI-' + Math.floor(100000 + Math.random() * 900000);
 
     // Gửi trực tiếp toàn bộ dữ liệu qua Google Apps Script Webhook
