@@ -7,13 +7,14 @@ import {
   CheckCheck, 
   Phone, 
   MessageSquare, 
-  ExternalLink,
   ChevronRight,
-  Bot
+  AlertCircle
 } from 'lucide-react';
 import { COMPANY_CONFIG } from '../../data/landingData';
 
-// Knowledge Base & Smart Response Engine for DUDI AI Assistant
+const AI_API_URL = import.meta.env.VITE_AI_API_URL || 'https://dudi-ai.onrender.com/api/chat';
+
+// Quick suggestions for user to click
 const QUICK_SUGGESTIONS = [
   { id: 'services', label: '💡 DUDI cung cấp dịch vụ gì?', query: 'DUDI cung cấp dịch vụ gì?' },
   { id: 'ai-solution', label: '🚀 Giải pháp AI & Hoạt động của DUDI', query: 'Bạn có thể giải thích ngắn gọn cách AI hoạt động và giải pháp của DUDI không?' },
@@ -22,15 +23,100 @@ const QUICK_SUGGESTIONS = [
   { id: 'contact', label: '📞 Kết nối chuyên viên tư vấn', query: 'Tôi muốn gặp chuyên viên tư vấn trực tiếp' }
 ];
 
+const BOT_WELCOME_TEXT = `Xin chào! 👋\nTôi là DU - Trợ lý ảo AI của DUDI SOFTWARE.\nTôi có thể hỗ trợ gì cho bạn hôm nay?`;
+
 const INITIAL_MESSAGES = [
   {
     id: 1,
     sender: 'bot',
-    text: `Xin chào! 👋\nTôi là trợ lý ảo AI của DUDI.\nTôi có thể hỗ trợ gì cho bạn hôm nay?`,
+    text: BOT_WELCOME_TEXT,
     time: '10:30',
     type: 'text'
   }
 ];
+
+/**
+ * Format markdown text safely:
+ * - Parses **bold text** into <strong>
+ * - Parses *italic text* into <em>
+ * - Parses bullet lists (- or • or *) into neat bullet rows
+ * - Parses numbered lists (1. 2. ...)
+ * - Parses line breaks
+ */
+function FormattedMessageText({ text, isBot }) {
+  if (!text) return null;
+
+  const lines = text.split('\n');
+
+  const parseInline = (str) => {
+    // Regex for **bold** and *italic*
+    const regex = /(\*\*.*?\*\*|\*[^*]+?\*)/g;
+    const parts = str.split(regex);
+
+    return parts.map((part, idx) => {
+      if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
+        return (
+          <strong 
+            key={idx} 
+            className={`font-bold ${isBot ? 'text-slate-950 dark:text-white' : 'text-white'}`}
+          >
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      if (part.startsWith('*') && part.endsWith('*') && part.length >= 2) {
+        return (
+          <em key={idx} className="italic opacity-90">
+            {part.slice(1, -1)}
+          </em>
+        );
+      }
+      return part;
+    });
+  };
+
+  return (
+    <div className="space-y-1.5 leading-relaxed text-[13.5px] sm:text-[14px]">
+      {lines.map((line, lIdx) => {
+        const trimmed = line.trim();
+        if (!trimmed) {
+          return <div key={lIdx} className="h-1.5" />;
+        }
+
+        const isBullet = trimmed.startsWith('- ') || trimmed.startsWith('• ') || (trimmed.startsWith('* ') && !trimmed.startsWith('**'));
+        const isNumbered = /^\d+\.\s/.test(trimmed);
+
+        if (isBullet) {
+          const bulletContent = trimmed.replace(/^[-•*]\s+/, '');
+          return (
+            <div key={lIdx} className="flex items-start gap-2 pl-0.5">
+              <span className={`select-none mt-1 text-xs font-bold ${isBot ? 'text-indigo-600 dark:text-indigo-400' : 'text-blue-100'}`}>•</span>
+              <span className="flex-1">{parseInline(bulletContent)}</span>
+            </div>
+          );
+        }
+
+        if (isNumbered) {
+          const numMatch = trimmed.match(/^(\d+)\./);
+          const num = numMatch ? numMatch[1] : '•';
+          const numberedContent = trimmed.replace(/^\d+\.\s+/, '');
+          return (
+            <div key={lIdx} className="flex items-start gap-2 pl-0.5">
+              <span className={`select-none mt-0.5 text-xs font-bold ${isBot ? 'text-indigo-600 dark:text-indigo-400' : 'text-blue-100'}`}>{num}.</span>
+              <span className="flex-1">{parseInline(numberedContent)}</span>
+            </div>
+          );
+        }
+
+        return (
+          <div key={lIdx}>
+            {parseInline(line)}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function AIChatModal({ isOpen, onClose }) {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
@@ -44,7 +130,6 @@ export default function AIChatModal({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-      // Focus input on desktop
       if (window.innerWidth > 768) {
         setTimeout(() => inputRef.current?.focus(), 300);
       }
@@ -56,7 +141,6 @@ export default function AIChatModal({ isOpen, onClose }) {
     if (!isOpen) return;
 
     const handleClickOutside = (event) => {
-      // Ignore clicks on the chat toggle button itself so toggle behavior works cleanly
       const isToggleBtn = event.target.closest('[data-chat-toggle="true"]');
       if (isToggleBtn) return;
 
@@ -71,7 +155,6 @@ export default function AIChatModal({ isOpen, onClose }) {
       }
     };
 
-    // Use mousedown and touchstart to handle both desktop and mobile
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('touchstart', handleClickOutside, { passive: true });
     document.addEventListener('keydown', handleKeyDown);
@@ -91,84 +174,26 @@ export default function AIChatModal({ isOpen, onClose }) {
       {
         id: Date.now(),
         sender: 'bot',
-        text: `Xin chào! 👋\nTôi là trợ lý ảo AI của DUDI.\nTôi có thể hỗ trợ gì cho bạn hôm nay?`,
+        text: BOT_WELCOME_TEXT,
         time: timeStr,
         type: 'text'
       }
     ]);
   };
 
-  // Generate AI Response based on question semantics
-  const generateBotResponse = (userText) => {
-    const query = userText.toLowerCase().trim();
-
-    if (query.includes('ai') || query.includes('hoạt động') || query.includes('giải pháp') || query.includes('cách ai')) {
-      return {
-        text: `DUDI ứng dụng AI & công nghệ thế hệ mới để nâng tầm chuyển đổi số cho doanh nghiệp:\n\n` +
-          `• **Trợ lý AI & Chatbot CSKH 24/7**: Phản hồi tức thì, giải đáp khách hàng tự động & thu thập lead chuẩn xác.\n` +
-          `• **Tối ưu Trải nghiệm (UI/UX)**: Phân tích hành vi người dùng, cá nhân hóa giao diện và hành trình khách hàng.\n` +
-          `• **Tối ưu Hiệu năng & Core Web Vitals**: Tăng tốc độ load trang dưới 1.5s, 95+ Google PageSpeed.\n` +
-          `• **Nền tảng Web/App Hiện đại**: Sử dụng kiến trúc React, Next.js, Cloudflare tối đa bảo mật và mở rộng không giới hạn.`,
-        actionType: 'consult'
-      };
+  // Scroll to landing page sections
+  const scrollToSection = (sectionId) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      onClose();
     }
-
-    if (query.includes('dịch vụ') || query.includes('cung cấp') || query.includes('làm gì') || query.includes('sản phẩm')) {
-      return {
-        text: `DUDI chuyên sâu các dịch vụ giải pháp công nghệ website & ứng dụng cao cấp:\n\n` +
-          `1. **Nâng cấp & Redesign Website**: Đổi mới toàn diện diện mạo chuẩn Quiet Luxury, tối ưu chuyển đổi.\n` +
-          `2. **Tối ưu Tốc độ & Chuẩn SEO**: Khắc phục website chậm, tối ưu 100% Core Web Vitals.\n` +
-          `3. **Thiết kế Web App & Hệ thống quản trị**: E-commerce, Booking, CRM, Portal doanh nghiệp.\n` +
-          `4. **Bảo trì & Vận hành 24/7**: Cam kết SLA 99.9% uptime, sao lưu và bảo mật liên tục.`,
-        actionType: 'services'
-      };
-    }
-
-    if (query.includes('giá') || query.includes('chi phí') || query.includes('báo giá') || query.includes('bao nhiêu') || query.includes('gói')) {
-      return {
-        text: `DUDI cung cấp các gói triển khai minh bạch và tối ưu chi phí:\n\n` +
-          `• **Gói Sơ cấp (2.000.000đ)**: Khảo sát chuyên sâu, khắc phục lỗi tức thì, tăng tốc độ website.\n` +
-          `• **Gói Tiêu chuẩn**: Redesign giao diện hiện đại, chuẩn Mobile-first & SEO kỹ thuật.\n` +
-          `• **Gói Doanh nghiệp (Enterprise)**: Thiết kế và lập trình may đo theo yêu cầu đặc thù, tích hợp hệ thống backend/AI.\n\n` +
-          `💡 Bạn có thể để lại thông tin để nhận bảng phân tích và báo giá chi tiết nhé!`,
-        actionType: 'pricing'
-      };
-    }
-
-    if (query.includes('quy trình') || query.includes('bước') || query.includes('thời gian') || query.includes('triển khai')) {
-      return {
-        text: `Quy trình 4 bước chuẩn Agile tại DUDI giúp dự án hoàn thành nhanh chóng và chính xác:\n\n` +
-          `1. **Khảo sát & Chẩn đoán**: Đo lường hiện trạng, phân tích vấn đề và đề xuất giải pháp.\n` +
-          `2. **Thiết kế Wireframe & UI/UX**: Xây dựng giao diện trực quan, tương tác thử nghiệm.\n` +
-          `3. **Lập trình & Tối ưu hiệu năng**: Code sạch, chuẩn tốc độ cao và bảo mật nhiều lớp.\n` +
-          `4. **Kiểm thử & Bàn giao 24/7**: Bàn giao trọn gói source code kèm bảo hành chuyên nghiệp.`,
-        actionType: 'process'
-      };
-    }
-
-    if (query.includes('liên hệ') || query.includes('tư vấn') || query.includes('số điện thoại') || query.includes('gặp') || query.includes('hotline') || query.includes('zalo')) {
-      return {
-        text: `Đội ngũ DUDI luôn sẵn sàng lắng nghe và tư vấn miễn phí cho bạn:\n\n` +
-          `📞 Hotline: **${COMPANY_CONFIG.hotline}**\n` +
-          `💬 Zalo Official: Nhấn nút bên dưới để trao đổi trực tiếp\n` +
-          `🏢 Địa chỉ: ${COMPANY_CONFIG.address}\n\n` +
-          `Chuyên viên kỹ thuật sẽ phản hồi ngay lập tức trong vòng 15 phút!`,
-        actionType: 'contact'
-      };
-    }
-
-    // Default intelligent fallback
-    return {
-      text: `Cảm ơn bạn đã quan tâm! DUDI có thể hỗ trợ bạn tư vấn nâng cấp website, tối ưu tốc độ, thiết kế Web/App tùy chỉnh hoặc tích hợp AI.\n\n` +
-        `Bạn muốn tìm hiểu thêm về **Dịch vụ**, **Báo giá** hay cần **Gặp chuyên viên tư vấn** trực tiếp?`,
-      actionType: 'general'
-    };
   };
 
-  // Handle sending a message
-  const handleSendMessage = (textToSend) => {
+  // Handle sending a message to AI Backend
+  const handleSendMessage = async (textToSend) => {
     const text = (textToSend || inputValue).trim();
-    if (!text) return;
+    if (!text || isTyping) return;
 
     const now = new Date();
     const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
@@ -185,37 +210,104 @@ export default function AIChatModal({ isOpen, onClose }) {
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate AI thinking and response
-    setTimeout(() => {
-      const botReply = generateBotResponse(text);
+    // Prepare history payload for API (role: user/assistant)
+    const historyPayload = messages
+      .filter((m) => !m.isError)
+      .map((m) => ({
+        role: m.sender === 'user' ? 'user' : 'assistant',
+        content: m.text
+      }));
+
+    try {
+      // 35s timeout to handle Render cold start
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 35000);
+
+      const response = await fetch(AI_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: text,
+          history: historyPayload
+        }),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Máy chủ phản hồi với mã lỗi: ${response.status}`);
+      }
+
+      // Read response (supporting both text format and json format)
+      let botReplyText = '';
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('application/json')) {
+        const data = await response.json();
+        botReplyText = data.reply || data.response || data.message || data.text || data.answer || JSON.stringify(data);
+      } else {
+        botReplyText = await response.text();
+      }
+
+      if (!botReplyText || !botReplyText.trim()) {
+        botReplyText = 'DUDI đã nhận được thông tin từ bạn. Nếu cần giải đáp nhanh hoặc tư vấn chuyên sâu, quý khách có thể liên hệ trực tiếp hotline để được hỗ trợ tức thì!';
+      }
+
       const botTime = new Date();
       const botTimeStr = `${String(botTime.getHours()).padStart(2, '0')}:${String(botTime.getMinutes()).padStart(2, '0')}`;
+
+      // Smart action detection based on AI reply content
+      let actionType = null;
+      const lowerReply = botReplyText.toLowerCase();
+      if (lowerReply.includes('hotline') || lowerReply.includes('zalo') || lowerReply.includes('liên hệ')) {
+        actionType = 'contact';
+      } else if (lowerReply.includes('báo giá') || lowerReply.includes('chi phí') || lowerReply.includes('gói')) {
+        actionType = 'pricing';
+      } else if (lowerReply.includes('dịch vụ') || lowerReply.includes('giải pháp')) {
+        actionType = 'services';
+      } else if (lowerReply.includes('quy trình')) {
+        actionType = 'process';
+      }
 
       const newBotMsg = {
         id: Date.now() + 1,
         sender: 'bot',
-        text: botReply.text,
+        text: botReplyText.trim(),
         time: botTimeStr,
-        actionType: botReply.actionType
+        actionType: actionType
       };
 
       setMessages((prev) => [...prev, newBotMsg]);
+    } catch (error) {
+      console.error('Lỗi khi gọi API AI Chatbot:', error);
+      const botTime = new Date();
+      const botTimeStr = `${String(botTime.getHours()).padStart(2, '0')}:${String(botTime.getMinutes()).padStart(2, '0')}`;
+      
+      const isTimeout = error.name === 'AbortError';
+      const errorMsg = {
+        id: Date.now() + 1,
+        sender: 'bot',
+        text: isTimeout
+          ? '⚠️ Kết nối tới máy chủ AI đang bị trễ do server đang khởi động. Bạn vui lòng thử lại sau giây lát hoặc liên hệ trực tiếp đội ngũ DUDI để được hỗ trợ ngay!'
+          : '⚠️ Không thể kết nối tới máy chủ AI DUDI. Bạn vui lòng kiểm tra kết nối mạng hoặc liên hệ trực tiếp chuyên viên tư vấn qua Hotline/Zalo.',
+        time: botTimeStr,
+        actionType: 'contact',
+        isError: true,
+        retryText: text
+      };
+
+      setMessages((prev) => [...prev, errorMsg]);
+    } finally {
       setIsTyping(false);
-    }, 600);
+    }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
-    }
-  };
-
-  const scrollToSection = (sectionId) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      onClose();
     }
   };
 
@@ -226,7 +318,7 @@ export default function AIChatModal({ isOpen, onClose }) {
       className="fixed inset-0 sm:inset-auto sm:bottom-6 md:bottom-7 sm:right-22 md:right-24 z-50 flex items-end sm:items-auto justify-center sm:justify-end p-2 sm:p-0 pointer-events-auto animate-in fade-in zoom-in-95 duration-200"
       role="dialog"
       aria-modal="true"
-      aria-label="Cửa sổ trò chuyện với Trợ lý AI DUDI"
+      aria-label="Cửa sổ trò chuyện với Trợ lý AI DU - DUDI SOFTWARE"
     >
       {/* Backdrop for mobile */}
       <div 
@@ -238,7 +330,7 @@ export default function AIChatModal({ isOpen, onClose }) {
       {/* Main Chatbox Window */}
       <div 
         ref={modalRef}
-        className="w-full sm:w-[385px] md:w-[410px] h-[510px] sm:h-[540px] max-h-[calc(100dvh-4.5rem)] bg-white dark:bg-[#0F1422] rounded-3xl sm:rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.25)] border border-slate-100 dark:border-slate-800 flex flex-col overflow-hidden text-[#0F172A] dark:text-[#F8FAFC] transition-all"
+        className="w-full sm:w-[390px] md:w-[420px] h-[520px] sm:h-[550px] max-h-[calc(100dvh-4.5rem)] bg-white dark:bg-[#0F1422] rounded-3xl sm:rounded-[28px] shadow-[0_20px_50px_rgba(0,0,0,0.25)] border border-slate-100 dark:border-slate-800 flex flex-col overflow-hidden text-[#0F172A] dark:text-[#F8FAFC] transition-all"
       >
         
         {/* 1. Header */}
@@ -248,7 +340,7 @@ export default function AIChatModal({ isOpen, onClose }) {
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-blue-50 to-indigo-100 dark:from-indigo-950 dark:to-slate-800 p-1 flex items-center justify-center border border-indigo-100 dark:border-indigo-900/50 shadow-xs">
               <img 
                 src="/robot-mascot.webp" 
-                alt="Trợ lý AI DUDI" 
+                alt="Trợ lý AI DU" 
                 className="w-full h-full object-contain drop-shadow-xs"
               />
               <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white dark:border-[#0F1422] rounded-full animate-pulse" />
@@ -256,12 +348,12 @@ export default function AIChatModal({ isOpen, onClose }) {
 
             <div>
               <h3 className="font-heading font-bold text-[16px] sm:text-[17px] leading-tight text-[#0F172A] dark:text-white flex items-center gap-1.5">
-                <span>Trợ lý AI DUDI</span>
+                <span>DU - Trợ lý AI DUDI</span>
                 <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
               </h3>
               <p className="text-[12px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping opacity-75" />
-                <span>Luôn sẵn sàng hỗ trợ bạn</span>
+                <span>Trực tuyến 24/7 • DUDI AI Backend</span>
               </p>
             </div>
           </div>
@@ -271,14 +363,14 @@ export default function AIChatModal({ isOpen, onClose }) {
             <button
               onClick={handleReset}
               title="Làm mới cuộc trò chuyện"
-              className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
               title="Đóng cửa sổ chat"
-              className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -295,12 +387,12 @@ export default function AIChatModal({ isOpen, onClose }) {
                 key={msg.id}
                 className={`flex flex-col ${isBot ? 'items-start' : 'items-end'} animate-in fade-in slide-in-from-bottom-2 duration-200`}
               >
-                <div className={`flex gap-2.5 max-w-[88%] ${isBot ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div className={`flex gap-2.5 max-w-[90%] ${isBot ? 'flex-row' : 'flex-row-reverse'}`}>
                   {isBot && (
                     <div className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-slate-800 p-0.5 flex-shrink-0 flex items-center justify-center border border-indigo-100 dark:border-slate-700 mt-1">
                       <img 
                         src="/robot-mascot.webp" 
-                        alt="Bot" 
+                        alt="DU Bot" 
                         className="w-full h-full object-contain"
                       />
                     </div>
@@ -309,37 +401,37 @@ export default function AIChatModal({ isOpen, onClose }) {
                   <div>
                     {/* Message Bubble */}
                     <div
-                      className={`px-4 py-3 text-[13.5px] sm:text-[14px] leading-relaxed rounded-2xl ${
+                      className={`px-4 py-3 rounded-2xl ${
                         isBot
-                          ? 'bg-slate-100 dark:bg-slate-800/90 text-slate-800 dark:text-slate-100 rounded-tl-sm border border-slate-200/50 dark:border-slate-700/50 shadow-xs'
-                          : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-tr-sm shadow-md'
+                          ? msg.isError
+                            ? 'bg-amber-50/80 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 rounded-tl-sm border border-amber-200 dark:border-amber-800/60 shadow-xs'
+                            : 'bg-slate-100 dark:bg-slate-800/90 text-slate-800 dark:text-slate-100 rounded-tl-sm border border-slate-200/60 dark:border-slate-700/60 shadow-xs'
+                          : 'bg-gradient-to-r from-blue-600 to-indigo-600 !text-white rounded-tr-sm shadow-md font-medium'
                       }`}
                     >
-                      <p className="whitespace-pre-line select-text">
-                        {msg.text.split('\n').map((line, i) => {
-                          // Render basic markdown-like bold text
-                          const parts = line.split(/(\*\*.*?\*\*)/g);
-                          return (
-                            <React.Fragment key={i}>
-                              {parts.map((part, pIdx) => {
-                                if (part.startsWith('**') && part.endsWith('**')) {
-                                  return <strong key={pIdx} className="font-bold">{part.slice(2, -2)}</strong>;
-                                }
-                                return part;
-                              })}
-                              {i < msg.text.split('\n').length - 1 && <br />}
-                            </React.Fragment>
-                          );
-                        })}
-                      </p>
+                      {/* Formatted Text with Markdown bold parsing */}
+                      <FormattedMessageText text={msg.text} isBot={isBot} />
+
+                      {/* Retry Button if Message Encountered Network Error */}
+                      {msg.isError && msg.retryText && (
+                        <div className="mt-3 pt-2 border-t border-amber-200/60 dark:border-amber-800/60 flex items-center gap-2">
+                          <button
+                            onClick={() => handleSendMessage(msg.retryText)}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 dark:bg-amber-900/60 dark:hover:bg-amber-900 text-amber-800 dark:text-amber-200 text-xs font-semibold transition-colors cursor-pointer"
+                          >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                            <span>Thử gửi lại</span>
+                          </button>
+                        </div>
+                      )}
 
                       {/* Bot Quick Actions / Shortcuts */}
-                      {isBot && msg.actionType && (
+                      {isBot && !msg.isError && msg.actionType && (
                         <div className="mt-3 pt-2.5 border-t border-slate-200/60 dark:border-slate-700/60 flex flex-wrap gap-2">
                           {msg.actionType === 'pricing' && (
                             <button
                               onClick={() => scrollToSection('bang-gia')}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-colors"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-colors cursor-pointer"
                             >
                               <span>Xem Bảng giá chi tiết</span>
                               <ChevronRight className="w-3.5 h-3.5" />
@@ -351,14 +443,21 @@ export default function AIChatModal({ isOpen, onClose }) {
                                 href={COMPANY_CONFIG.zaloUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold transition-colors"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold transition-colors shadow-xs"
                               >
                                 <MessageSquare className="w-3.5 h-3.5" />
                                 <span>Nhắn Zalo</span>
                               </a>
+                              <a
+                                href={`tel:${COMPANY_CONFIG.hotline.replace(/\s+/g, '')}`}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold transition-colors shadow-xs"
+                              >
+                                <Phone className="w-3.5 h-3.5" />
+                                <span>Gọi Hotline</span>
+                              </a>
                               <button
                                 onClick={() => scrollToSection('form-tu-van')}
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors"
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors cursor-pointer"
                               >
                                 <span>Điền Form</span>
                               </button>
@@ -367,7 +466,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                           {msg.actionType === 'services' && (
                             <button
                               onClick={() => scrollToSection('giai-phap')}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-colors"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-colors cursor-pointer"
                             >
                               <span>Khám phá 8 Giải pháp</span>
                               <ChevronRight className="w-3.5 h-3.5" />
@@ -376,7 +475,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                           {msg.actionType === 'process' && (
                             <button
                               onClick={() => scrollToSection('quy-trinh')}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-colors"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-400 text-xs font-semibold transition-colors cursor-pointer"
                             >
                               <span>Xem sơ đồ Quy trình</span>
                               <ChevronRight className="w-3.5 h-3.5" />
@@ -397,7 +496,7 @@ export default function AIChatModal({ isOpen, onClose }) {
             );
           })}
 
-          {/* Typing Indicator Bubble */}
+          {/* Typing / Loading Indicator Bubble */}
           {isTyping && (
             <div className="flex items-start gap-2.5 animate-in fade-in duration-150">
               <div className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-slate-800 p-0.5 flex-shrink-0 flex items-center justify-center border border-indigo-100 dark:border-slate-700">
@@ -411,6 +510,7 @@ export default function AIChatModal({ isOpen, onClose }) {
                 <span className="w-2 h-2 rounded-full bg-indigo-500 animate-bounce [animation-delay:-0.3s]" />
                 <span className="w-2 h-2 rounded-full bg-indigo-500 animate-bounce [animation-delay:-0.15s]" />
                 <span className="w-2 h-2 rounded-full bg-indigo-500 animate-bounce" />
+                <span className="text-xs text-slate-400 dark:text-slate-500 ml-1.5">DU đang soạn câu trả lời...</span>
               </div>
             </div>
           )}
@@ -419,13 +519,14 @@ export default function AIChatModal({ isOpen, onClose }) {
         </div>
 
         {/* 3. Quick Suggestions Chips (Horizontal scroll) */}
-        <div className="px-3.5 py-2 bg-slate-50/80 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-800/80">
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-nowrap">
+        <div className="px-3.5 py-2.5 bg-white dark:bg-[#0F1422] border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pb-0.5 text-nowrap">
             {QUICK_SUGGESTIONS.map((chip) => (
               <button
                 key={chip.id}
+                disabled={isTyping}
                 onClick={() => handleSendMessage(chip.query)}
-                className="text-[12px] font-medium px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-slate-700/80 transition-all flex-shrink-0 shadow-2xs"
+                className="text-[12px] font-medium px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-slate-700/80 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex-shrink-0 shadow-2xs cursor-pointer"
               >
                 {chip.label}
               </button>
@@ -446,17 +547,18 @@ export default function AIChatModal({ isOpen, onClose }) {
               ref={inputRef}
               type="text"
               value={inputValue}
+              disabled={isTyping}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Nhập tin nhắn của bạn..."
-              className="flex-1 bg-transparent text-[13.5px] sm:text-[14px] text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none py-1.5"
+              placeholder={isTyping ? "Trợ lý AI đang phản hồi..." : "Nhập tin nhắn của bạn..."}
+              className="flex-1 bg-transparent text-[13.5px] sm:text-[14px] text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none py-1.5 disabled:opacity-60"
             />
             <button
               type="submit"
-              disabled={!inputValue.trim()}
+              disabled={!inputValue.trim() || isTyping}
               aria-label="Gửi tin nhắn"
               className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                inputValue.trim()
+                inputValue.trim() && !isTyping
                   ? 'bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-md hover:scale-105 active:scale-95 cursor-pointer'
                   : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed'
               }`}
