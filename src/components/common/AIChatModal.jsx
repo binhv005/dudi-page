@@ -353,7 +353,7 @@ export default function AIChatModal({ isOpen, onClose }) {
               </h3>
               <p className="text-[12px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping opacity-75" />
-                <span>Trực tuyến 24/7 • DUDI AI Backend</span>
+                <span>Trực tuyến 24/7</span>
               </p>
             </div>
           </div>
